@@ -124,6 +124,11 @@ waitForElement(targetSelector, (theadTrElement) => {
 
 	// 이곳의 코드는 theadTrElement가 확실히 존재할 때 실행됩니다.
 
+	// 이미 존재하는 th 처리
+	theadTrElement.querySelectorAll('th').forEach(existingTh => {
+		replaceFunction(existingTh);
+	});
+
 	// th 추가를 감시하는 두 번째(원래의 목표) MutationObserver를 설정합니다.
 	const thObserver = new MutationObserver((mutationsList) => {
 		for (const mutation of mutationsList) {
@@ -139,9 +144,4 @@ waitForElement(targetSelector, (theadTrElement) => {
 
 	// thead 안의 tr 요소에 대한 감시를 시작합니다.
 	thObserver.observe(theadTrElement, {childList: true});
-
-	// 이미 존재하는 th들도 한번 출력해줍니다.
-	theadTrElement.querySelectorAll('th').forEach(existingTh => {
-		replaceFunction(existingTh);
-	});
 });
