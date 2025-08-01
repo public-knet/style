@@ -1,0 +1,12 @@
+{
+  "name": "style",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build:scss": "node build-scss.js"
+  },
+  "devDependencies": {
+    "glob": "^11.0.3",
+    "sass": "^1.89.2"
+  }
+}
