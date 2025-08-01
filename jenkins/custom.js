@@ -95,7 +95,6 @@ const replaceFunction = (thElement) => {
 	const index    = children.indexOf(thElement);
 	const svgKeys  = Object.keys(svgs);
 	const svg = svgs[svgKeys[index % svgKeys.length]]
-	console.log(svg);
 
 	// 1. th 세로 정렬 변경
 	thElement.style.verticalAlign = 'top';
