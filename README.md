@@ -11,3 +11,11 @@ Github 의 raw URL 은 CORS 설정이 없어서 CloudFlare 를 통해 호스팅 
 예)
 - `/jenkins/custom.css` → `https://public-knet-style.knetdev.workers.dev/jenkins/custom.css`
 - `/jenkins/custom.js` → `https://public-knet-style.knetdev.workers.dev/jenkins/custom.js`
+
+## 요금
+
+Free 요금제로 Workers 사용 시
+
+- 요청당 최대 10ms CPU 시간
+- 일일 최대 100,000개(UTC + 0)
+
