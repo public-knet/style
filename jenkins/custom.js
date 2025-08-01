@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 
-// --- 변환 ---
+	// --- 변환 ---
 
 	let svgMap = {
 		java  : `
@@ -102,10 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		thElement.dataset.processed = 'true';
 	}
 
-// --- 실제 실행 로직 ---
+	// --- 실제 실행 로직 ---
 
-// waitForElement 함수를 사용하여 '.jobsTable thead tr' 요소가 나타나면
-// 그 안에 'th'를 감시하는 로직을 실행하도록 설정합니다.
+	// waitForElement 함수를 사용하여 '.jobsTable thead tr' 요소가 나타나면
+	// 그 안에 'th'를 감시하는 로직을 실행하도록 설정합니다.
 	waitForElement('.cbwf-stage-view #pipeline-box .jobsTable thead tr', (theadTrElement) => {
 		console.log(`성공! 요소를 찾았습니다. 이제 th 추가를 감시합니다.`);
 
