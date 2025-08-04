@@ -49,21 +49,28 @@ svg[tooltip="In progress"] path,
   font-weight: normal;
   line-height: 1;
   color: gray;
+}
+#pipeline-box .jobsTable thead tr th .stage-index .stage-index-copy1 {
+  position: absolute;
+  top: 0.3em;
+  left: 0;
+  font-size: 0.7em;
   cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
-#pipeline-box .jobsTable thead tr th .stage-index .stage-index-number {
-  transition: color 0.2s;
-}
-#pipeline-box .jobsTable thead tr th .stage-index:hover .stage-index-number {
-  text-decoration: underline;
-  color: color(display-p3 0.43 0.757 1) !important;
-}
-#pipeline-box .jobsTable thead tr th .stage-index .stage-index-copied {
+#pipeline-box .jobsTable thead tr th .stage-index .stage-index-copy2 {
   position: absolute;
   top: 0.3em;
   right: 0;
   font-size: 0.7em;
+  cursor: pointer;
   opacity: 0;
+  transition: opacity 0.2s;
+}
+#pipeline-box .jobsTable thead tr th .stage-index:hover .stage-index-copy1,
+#pipeline-box .jobsTable thead tr th .stage-index:hover .stage-index-copy2 {
+  opacity: 1;
 }
 #pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .stage-start-time {
   width: 6em !important;

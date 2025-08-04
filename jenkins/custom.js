@@ -111,7 +111,11 @@ function waitForElement(selector, timeout = 10000) {
 
 		// 4. index
 		const index   = $th.index() - 1
-		let indexHtml = `<div class="stage-index"><div class="stage-index-number">${index}</div><div class="stage-index-copied">copied</div></div>`;
+		let indexHtml = `<div class="stage-index">
+			<div class="stage-index-copy1">copy</div>
+			<div class="stage-index-number">${index}</div>
+			<div class="stage-index-copy2">copy</div>
+		</div>`;
 
 		// 6. title 적용
 		const titleHtml = `<div class="stage-title">${parts.join(' ')}</div>`;
@@ -144,8 +148,6 @@ function waitForElement(selector, timeout = 10000) {
 	doPretty()
 
 	new MutationObserver((mutations) => {
-		let changed = false;
-
 		const processed = $stageView.find('.stage-title').length > 0
 		if (!processed) {
 			console.log('> Pretty Stage Header : changed')
@@ -158,26 +160,27 @@ function waitForElement(selector, timeout = 10000) {
 		characterDataOldValue: true,
 	});
 
-	$stageView.on('click', '.stage-index', function () {
-		const index = parseInt($(this).text(), 10);
+	$stageView.on('click', '.stage-index-copy1, .stage-index-copy2', function () {
+		const index = parseInt($(this).parent().find('.stage-index-number').text(), 10);
 
 		let indexes = [];
 		for (let i = 1; i <= index; i++) {
 			indexes.push(i);
 		}
 
-		navigator.clipboard.writeText(indexes.join(','))
+		let content = '';
+		if ($(this).hasClass('stage-index-copy1')) {
+			content = indexes.join(',')
+		} else {
+			content = `SKIP_STAGES: '${indexes.join(',')}'`
+		}
+
+		navigator.clipboard.writeText(content)
 			.then(() => {
-				$(this).find('.stage-index-copied').css({
-					transition: 'none',
-					opacity   : 1
-				});
+				$(this).text('copied');
 				setTimeout(() => {
-					$(this).find('.stage-index-copied').css({
-						transition: 'opacity 1s',
-						opacity   : 0
-					});
-				}, 200)
+					$(this).text('copy');
+				}, 500)
 			})
 			.catch((err) => {
 				console.error('복사 실패:', err);

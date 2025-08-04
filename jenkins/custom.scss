@@ -56,23 +56,32 @@ svg[tooltip="In progress"],
             font-weight: normal;
             line-height: 1;
             color:       gray;
-            cursor:      pointer;
 
-            .stage-index-number {
-              transition: color 0.2s;
+            .stage-index-copy1 {
+              position:   absolute;
+              top:        0.3em;
+              left:       0;
+              font-size:  0.7em;
+              cursor:     pointer;
+              opacity:    0;
+              transition: opacity 0.2s;
             }
 
-            &:hover .stage-index-number {
-              text-decoration: underline;
-              color:           color(display-p3 0.43 0.757 1) !important;
+            .stage-index-copy2 {
+              position:   absolute;
+              top:        0.3em;
+              right:      0;
+              font-size:  0.7em;
+              cursor:     pointer;
+              opacity:    0;
+              transition: opacity 0.2s;
             }
 
-            .stage-index-copied {
-              position:  absolute;
-              top:       0.3em;
-              right:     0;
-              font-size: 0.7em;
-              opacity:   0;
+            &:hover {
+              .stage-index-copy1,
+              .stage-index-copy2 {
+                opacity: 1;
+              }
             }
           }
         }
