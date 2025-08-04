@@ -42,7 +42,6 @@ const replaceFunction = (thElement) => {
 		parts.shift(); // 첫번째 인덱스 제거
 		langElement           = document.createElement('span');
 		langElement.className = 'stage-lang stage-lang-' + lang;
-		langElement.innerHTML = lang;
 	}
 
 	// 4. index element 생성
