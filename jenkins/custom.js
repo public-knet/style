@@ -108,8 +108,7 @@ function waitForElement(selector, timeout = 10000) {
 
 		// 4. index
 		const index   = $th.index() - 1
-		let indexHtml = `<div class="stage-index">${index}</div>`;
-
+		let indexHtml = `<div class="stage-index"><div class="stage-index-number">${index}</div><div class="stage-index-copied">copied</div></div>`;
 
 		// 6. title 적용
 		const titleHtml = `<div class="stage-title">${parts.join(' ')}</div>`;
@@ -144,7 +143,6 @@ function waitForElement(selector, timeout = 10000) {
 	doPretty()
 
 	new MutationObserver((mutations) => {
-
 		let changed = false;
 
 		for (const mutation of mutations) {
@@ -169,6 +167,33 @@ function waitForElement(selector, timeout = 10000) {
 		characterData        : true, // 텍스트 변경 감지
 		characterDataOldValue: true,
 	});
+
+
+	$tr.on('click', '.stage-index', function () {
+		const index = parseInt($(this).text(), 10);
+
+		let indexes = [];
+		for (let i = 1; i <= index; i++) {
+			indexes.push(i);
+		}
+
+		navigator.clipboard.writeText(indexes.join(','))
+			.then(() => {
+				$(this).find('.stage-index-copied').css({
+					transition: 'none',
+					opacity   : 1
+				});
+				setTimeout(() => {
+					$(this).find('.stage-index-copied').css({
+						transition: 'opacity 1s',
+						opacity   : 0
+					});
+				}, 500)
+			})
+			.catch((err) => {
+				console.error('복사 실패:', err);
+			});
+	})
 
 	// -------------------------------------------------------------------------------------------------------------------------
 

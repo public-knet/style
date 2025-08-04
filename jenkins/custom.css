@@ -44,10 +44,26 @@ svg[tooltip="In progress"] path,
   margin: 1em 0;
 }
 #pipeline-box .jobsTable thead tr th .stage-index {
+  position: relative;
   font-size: 1.5em;
   font-weight: normal;
   line-height: 1;
   color: gray;
+  cursor: pointer;
+}
+#pipeline-box .jobsTable thead tr th .stage-index .stage-index-number {
+  transition: color 0.2s;
+}
+#pipeline-box .jobsTable thead tr th .stage-index:hover .stage-index-number {
+  text-decoration: underline;
+  color: color(display-p3 0.43 0.757 1) !important;
+}
+#pipeline-box .jobsTable thead tr th .stage-index .stage-index-copied {
+  position: absolute;
+  top: 0.3em;
+  right: 0;
+  font-size: 0.7em;
+  opacity: 0;
 }
 #pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .stage-start-time {
   width: 6em !important;
@@ -66,7 +82,7 @@ svg[tooltip="In progress"] path,
 /* 콘솔 */
 .console-output {
   color: #bbbbbb !important;
-  font-family: D2Coding !important;
+  font-family: D2Coding, serif !important;
   font-size: 13px !important;
   letter-spacing: -0.5px !important;
   line-height: 1.2 !important;
@@ -128,7 +144,7 @@ svg[tooltip="In progress"] path,
 /* yaml */
 code.language-yaml {
   color: #A9B7C6;
-  font-family: D2Coding !important;
+  font-family: D2Coding, serif !important;
   letter-spacing: -0.5px;
   line-height: 1;
 }

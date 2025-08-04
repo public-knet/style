@@ -43,18 +43,37 @@ svg[tooltip="In progress"],
           font-size: 12px;
 
           .stage-lang {
-            height:  50px !important;
+            height: 50px !important;
           }
 
           .stage-title {
-            margin:  1em 0;
+            margin: 1em 0;
           }
 
           .stage-index {
+            position:    relative;
             font-size:   1.5em;
             font-weight: normal;
             line-height: 1;
             color:       gray;
+            cursor:      pointer;
+
+            .stage-index-number {
+              transition: color 0.2s;
+            }
+
+            &:hover .stage-index-number {
+              text-decoration: underline;
+              color:           color(display-p3 0.43 0.757 1) !important;
+            }
+
+            .stage-index-copied {
+              position:  absolute;
+              top:       0.3em;
+              right:     0;
+              font-size: 0.7em;
+              opacity:   0;
+            }
           }
         }
       }
@@ -96,7 +115,7 @@ svg[tooltip="In progress"],
 /* 콘솔 */
 .console-output {
   color:          #bbbbbb !important;
-  font-family:    D2Coding !important;
+  font-family:    D2Coding, serif !important;
   font-size:      13px !important;
   letter-spacing: -0.5px !important;
   line-height:    1.2 !important;
@@ -171,7 +190,7 @@ svg[tooltip="In progress"],
 /* yaml */
 code.language-yaml {
   color:          #A9B7C6;
-  font-family:    D2Coding !important;
+  font-family:    D2Coding, serif !important;
   letter-spacing: -0.5px;
   line-height:    1;
 
