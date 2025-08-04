@@ -45,7 +45,10 @@ svg[tooltip="In progress"],
           .stage-lang {
             display:       block;
             height:        50px !important;
-            margin-bottom: 1em;
+          }
+
+          .stage-title {
+            margin: 1em 0;
           }
 
           .stage-index {
