@@ -39,17 +39,17 @@ svg[tooltip="In progress"],
     thead {
       tr {
         th {
-          display:        flex;
-          flex-direction: row;
-          padding:        5px !important;
-          font-size:      12px;
+          padding:   5px !important;
+          font-size: 12px;
 
           .stage-lang {
+            display:       block;
             height:        50px !important;
             margin-bottom: 1em;
           }
 
           .stage-index {
+            display:     block;
             font-size:   1.5em;
             font-weight: normal;
             line-height: 1;
