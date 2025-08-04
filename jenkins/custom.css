@@ -62,7 +62,6 @@ svg[tooltip="In progress"] path,
 }
 #pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy {
   position: absolute;
-  bottom: 0;
   padding: 2px 4px 4px 4px;
   border: 1px solid #686868;
   border-radius: 3px;
@@ -72,10 +71,16 @@ svg[tooltip="In progress"] path,
   opacity: 0;
   transition: opacity 0.2s;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy1 {
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-name {
+  top: 0;
+  right: 0;
+}
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-index1 {
+  bottom: 0;
   left: 0;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy2 {
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-index2 {
+  bottom: 0;
   right: 0;
 }
 #pipeline-box .jobsTable thead tr th .stage-title-container:hover .stage-copy {

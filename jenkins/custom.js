@@ -124,8 +124,9 @@ function waitForElement(selector, timeout = 10000) {
 			${svgHtml}
 			${nameHtml}
 			${indexHtml}
-			<div class="stage-copy stage-copy1">copy</div>
-			<div class="stage-copy stage-copy2">copy</div>
+			<div class="stage-copy stage-copy-name">copy</div>
+			<div class="stage-copy stage-copy-index1">copy</div>
+			<div class="stage-copy stage-copy-index2">copy</div>
 		</div>
 		`);
 	}
@@ -169,18 +170,23 @@ function waitForElement(selector, timeout = 10000) {
 	});
 
 	$stageView.on('click', '.stage-copy', function () {
-		const index = parseInt($(this).parent().find('.stage-index').text(), 10);
-
-		let indexes = [];
-		for (let i = 1; i <= index; i++) {
-			indexes.push(i);
-		}
-
 		let content = '';
-		if ($(this).hasClass('stage-copy1')) {
-			content = indexes.join(',')
+
+		if ($(this).hasClass('stage-copy-name')) {
+			content = $(this).parent().find('.stage-name').text();
 		} else {
-			content = `SKIP_STAGES: '${indexes.join(',')}'`
+			const index = parseInt($(this).parent().find('.stage-index').text(), 10);
+
+			let indexes = [];
+			for (let i = 1; i <= index; i++) {
+				indexes.push(i);
+			}
+
+			if ($(this).hasClass('stage-copy-index1')) {
+				content = indexes.join(',')
+			} else {
+				content = `SKIP_STAGES: '${indexes.join(',')}'`
+			}
 		}
 
 		navigator.clipboard.writeText(content)

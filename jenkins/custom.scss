@@ -70,7 +70,6 @@ svg[tooltip="In progress"],
 
             .stage-copy {
               position:      absolute;
-              bottom:        0;
               padding:       2px 4px 4px 4px;
               border:        1px solid #686868;
               border-radius: 3px;
@@ -80,11 +79,17 @@ svg[tooltip="In progress"],
               opacity:       0;
               transition:    opacity 0.2s;
 
-              &.stage-copy1 {
-                left: 0;
-              }
-              &.stage-copy2 {
+              &.stage-copy-name {
+                top:   0;
                 right: 0;
+              }
+              &.stage-copy-index1 {
+                bottom: 0;
+                left:   0;
+              }
+              &.stage-copy-index2 {
+                bottom: 0;
+                right:  0;
               }
             }
 

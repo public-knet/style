@@ -7,7 +7,7 @@
             color: #fafaff;
         }
         table th, table td {
-            min-width: 10em;
+            min-width: 8em;
             border: 1px solid #323237;
             text-align: center;
         }
@@ -16,20 +16,20 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="custom.js"></script>
     <script>
-			// document.addEventListener('DOMContentLoaded', () => {
-			// 	const $stageView = $('[fragcaption="Stage View"]');
-			// 	const html       = $stageView.html();
-            //
-			// 	const reset = () => {
-			// 		setTimeout(() => {
-			// 			$stageView.html('');
-			// 			$stageView.html(html);
-			// 			reset();
-			// 		}, 2000);
-			// 	}
-            //
-			// 	reset();
-			// });
+			document.addEventListener('DOMContentLoaded', () => {
+				const $stageView = $('[fragcaption="Stage View"]');
+				const html       = $stageView.html();
+
+				const reset = () => {
+					setTimeout(() => {
+						$stageView.html('');
+						$stageView.html(html);
+						reset();
+					}, 2000);
+				}
+
+				reset();
+			});
     </script>
 </head>
 <body>
@@ -50,8 +50,8 @@
                         <tr class="header">
                             <th class="stage-start"></th>
                             <th class="stage-header-name-0">🔍 변경 감지</th>
-                            <th class="stage-header-name-1">JAVA barobill</th>
-                            <th class="stage-header-name-2">JAVA barobill-api-barobill-api-barobill-api</th>
+                            <th class="stage-header-name-1">JAVA taxinvoice-api</th>
+                            <th class="stage-header-name-2">JAVA taxinvoice-scheduler-hometax</th>
                         </tr>
                         </thead>
                         <tbody class="totals-box">
