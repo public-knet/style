@@ -34,16 +34,16 @@ svg[tooltip="In progress"] path,
 
 /* stage view */
 #pipeline-box .jobsTable thead tr th {
-  display: flex;
-  flex-direction: row;
   padding: 5px !important;
   font-size: 12px;
 }
 #pipeline-box .jobsTable thead tr th .stage-lang {
+  display: block;
   height: 50px !important;
   margin-bottom: 1em;
 }
 #pipeline-box .jobsTable thead tr th .stage-index {
+  display: block;
   font-size: 1.5em;
   font-weight: normal;
   line-height: 1;
