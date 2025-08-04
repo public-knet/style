@@ -1,0 +1,103 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        body {
+            background-color: #1f1f23;
+            color: #fafaff;
+        }
+        table th, table td {
+            min-width: 10em;
+            border: 1px solid #323237;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="custom.css">
+    <script src="custom.js"></script>
+    <script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const tr = document.querySelector('table thead tr');
+				setTimeout(() => {
+					const th       = tr.querySelector('.stage-header-name-1');
+					th.textContent = 'NODE changed';
+				}, 1000);
+
+				setTimeout(() => {
+					const th       = document.createElement('th');
+					th.className   = 'stage-header-name-2';
+					th.textContent = 'GOLANG: new';
+					tr.append(th)
+				}, 2000);
+
+				setTimeout(() => {
+					const th       = document.createElement('th');
+					th.className   = 'stage-header-name-3';
+					th.textContent = 'new';
+					tr.append(th)
+				}, 3000);
+
+				setTimeout(() => {
+					const th       = tr.querySelector('.stage-header-name-3');
+					th.textContent = 'HELM changed';
+				}, 4000);
+			});
+    </script>
+</head>
+<body>
+<div id="pipeline-box">
+    <h2>Stage View</h2>
+    <div class="table-box">
+        <div class="table-viewPort">
+            <table class="jobsTable" style="max-width:20em">
+                <colgroup>
+                    <col class="start-group">
+                    <col class="stage-group" style="max-width:10em;">
+                    <col class="stage-group" style="max-width:10em;">
+                </colgroup>
+                <thead>
+                <tr class="header">
+                    <th class="stage-start"></th>
+                    <th class="stage-header-name-0">🔍 변경 감지</th>
+                    <th class="stage-header-name-1">JAVA exists</th>
+                </tr>
+                </thead>
+                <tbody class="totals-box">
+                <tr class="totals">
+                    <td class="stage-start">
+                        <div class="cell-color">
+                            Average stage times:<br>
+                            &nbsp;
+                        </div>
+                    </td>
+                    <td class="stage-total-0">
+                        <div class="cell-color">
+                            <div class="duration">15s</div>
+                            <div class="stackedBarChart">
+                                <div class="stackedBarChart inner clearfix">
+                                    <div class="bar highlight" style="width: 11.7549%;"></div>
+                                    <div class="bar posthighlight" style="width: 88.2451%;"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="stage-total-1">
+                        <div class="cell-color">
+                            <div class="duration">1min 58s</div>
+                            <div class="stackedBarChart">
+                                <div class="stackedBarChart inner clearfix">
+                                    <div class="bar prehighlight" style="width: 11.7549%;"></div>
+                                    <div class="bar highlight" style="width: 88.2451%;"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

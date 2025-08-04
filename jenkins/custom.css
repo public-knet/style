@@ -38,15 +38,12 @@ svg[tooltip="In progress"] path,
   font-size: 12px;
 }
 #pipeline-box .jobsTable thead tr th .stage-lang {
-  display: block;
   height: 50px !important;
 }
 #pipeline-box .jobsTable thead tr th .stage-title {
-  display: block;
   margin: 1em 0;
 }
 #pipeline-box .jobsTable thead tr th .stage-index {
-  display: block;
   font-size: 1.5em;
   font-weight: normal;
   line-height: 1;
