@@ -40,6 +40,7 @@ svg[tooltip="In progress"] path,
 #pipeline-box .jobsTable thead tr th .stage-lang {
   display: block;
   height: 50px !important;
+  margin-bottom: 1em;
 }
 #pipeline-box .jobsTable thead tr th .stage-index {
   display: block;
