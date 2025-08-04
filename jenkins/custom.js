@@ -107,27 +107,31 @@ function waitForElement(selector, timeout = 10000) {
 		if (svg) {
 			parts.shift(); // 첫번째 인덱스 제거
 			svgHtml = `<div class="stage-lang stage-lang-${lang}">${svg}</div>`;
+		} else {
+			svgHtml = `<div class="stage-lang">${questionMark}</div>`;
 		}
+
 
 		// 4. index
 		const index   = $th.index() - 1
-		let indexHtml = `<div class="stage-index">
-			<div class="stage-index-copy1">copy</div>
+		let indexHtml = `
+		<div class="stage-index">
+			<div class="stage-index-copy stage-index-copy1">copy</div>
 			<div class="stage-index-number">${index}</div>
-			<div class="stage-index-copy2">copy</div>
-		</div>`;
+			<div class="stage-index-copy stage-index-copy2">copy</div>
+		</div>
+		`;
 
 		// 6. title 적용
-		const titleHtml = `<div class="stage-title">${parts.join(' ')}</div>`;
+		const nameHtml = `<div class="stage-name">${parts.join(' ')}</div>`;
 
-		$th.html(
-			(svgHtml || `<div class="stage-lang">${questionMark}</div>`) +
-			titleHtml +
-			indexHtml
-		);
-
-		// 7. th 세로 정렬 변경
-		$th.css({verticalAlign: 'top'});
+		$th.html(`
+		<div class="stage-title-container">
+			${svgHtml}
+			${nameHtml}
+			${indexHtml}
+		</div>
+		`);
 	}
 
 	// -------------------------------------------------------------------------------------------------------------------------
@@ -137,10 +141,18 @@ function waitForElement(selector, timeout = 10000) {
 	const $stageView = await waitForElement('[fragcaption="Stage View"]');
 
 	const doPretty = () => {
-		$stageView.find('#pipeline-box .jobsTable thead tr th[class^=stage-header-name-]').filter(function () {
+		const $thArray = $stageView.find('#pipeline-box .jobsTable thead tr th[class^=stage-header-name-]').filter(function () {
 			return !$(this).hasClass('stage-header-name-0');
-		}).each(function () {
+		});
+
+		$thArray.each(function () {
 			prettyStageHeader($(this));
+		});
+
+		// th 높이와 .stage-title-container 높이를 같게
+		const height = $thArray.eq(0).height();
+		$thArray.each(function () {
+			$(this).find('.stage-title-container').height(height);
 		});
 	}
 
@@ -148,7 +160,7 @@ function waitForElement(selector, timeout = 10000) {
 	doPretty()
 
 	new MutationObserver((mutations) => {
-		const processed = $stageView.find('.stage-title').length > 0
+		const processed = $stageView.find('.stage-name').length > 0
 		if (!processed) {
 			console.log('> Pretty Stage Header : changed')
 			doPretty();
@@ -160,7 +172,7 @@ function waitForElement(selector, timeout = 10000) {
 		characterDataOldValue: true,
 	});
 
-	$stageView.on('click', '.stage-index-copy1, .stage-index-copy2', function () {
+	$stageView.on('click', '.stage-index-copy', function () {
 		const index = parseInt($(this).parent().find('.stage-index-number').text(), 10);
 
 		let indexes = [];

@@ -41,46 +41,52 @@ svg[tooltip="In progress"],
         th {
           padding:   5px !important;
           font-size: 12px;
+          height:    100%;
 
-          .stage-lang {
-            height: 50px !important;
-          }
+          .stage-title-container {
+            display:        flex;
+            flex-direction: column;
+            gap:            5px;
+            height:         100%;
 
-          .stage-title {
-            margin: 0.5em 0;
-          }
-
-          .stage-index {
-            position:    relative;
-            font-size:   1.5em;
-            font-weight: normal;
-            line-height: 1;
-            color:       gray;
-
-            .stage-index-copy1 {
-              position:   absolute;
-              top:        0.3em;
-              left:       0;
-              font-size:  0.7em;
-              cursor:     pointer;
-              opacity:    0;
-              transition: opacity 0.2s;
+            .stage-lang {
+              height: 50px !important;
             }
 
-            .stage-index-copy2 {
-              position:   absolute;
-              top:        0.3em;
-              right:      0;
-              font-size:  0.7em;
-              cursor:     pointer;
-              opacity:    0;
-              transition: opacity 0.2s;
+            .stage-name {
+              flex-grow:       1;
+              display:         flex;
+              align-items:     center;
+              justify-content: center;
             }
 
-            &:hover {
-              .stage-index-copy1,
-              .stage-index-copy2 {
-                opacity: 1;
+            .stage-index {
+              position:    relative;
+              font-size:   1.5em;
+              font-weight: normal;
+              line-height: 1;
+              color:       gray;
+
+              .stage-index-copy {
+                position:   absolute;
+                top:        0.3em;
+                font-size:  0.7em;
+                cursor:     pointer;
+                opacity:    0;
+                transition: opacity 0.2s;
+
+                &.stage-index-copy1 {
+                  left: 0;
+                }
+                &.stage-index-copy2 {
+                  right: 0;
+                }
+              }
+
+              &:hover {
+                .stage-index-copy {
+                  opacity: 1;
+                }
               }
             }
           }

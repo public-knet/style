@@ -36,40 +36,45 @@ svg[tooltip="In progress"] path,
 #pipeline-box .jobsTable thead tr th {
   padding: 5px !important;
   font-size: 12px;
+  height: 100%;
 }
-#pipeline-box .jobsTable thead tr th .stage-lang {
+#pipeline-box .jobsTable thead tr th .stage-title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100%;
+}
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-lang {
   height: 50px !important;
 }
-#pipeline-box .jobsTable thead tr th .stage-title {
-  margin: 0.5em 0;
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-name {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#pipeline-box .jobsTable thead tr th .stage-index {
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-index {
   position: relative;
   font-size: 1.5em;
   font-weight: normal;
   line-height: 1;
   color: gray;
 }
-#pipeline-box .jobsTable thead tr th .stage-index .stage-index-copy1 {
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-index .stage-index-copy {
   position: absolute;
   top: 0.3em;
+  font-size: 0.7em;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-index .stage-index-copy.stage-index-copy1 {
   left: 0;
-  font-size: 0.7em;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s;
 }
-#pipeline-box .jobsTable thead tr th .stage-index .stage-index-copy2 {
-  position: absolute;
-  top: 0.3em;
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-index .stage-index-copy.stage-index-copy2 {
   right: 0;
-  font-size: 0.7em;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s;
 }
-#pipeline-box .jobsTable thead tr th .stage-index:hover .stage-index-copy1,
-#pipeline-box .jobsTable thead tr th .stage-index:hover .stage-index-copy2 {
+#pipeline-box .jobsTable thead tr th .stage-title-container .stage-index:hover .stage-index-copy {
   opacity: 1;
 }
 #pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .stage-start-time {
