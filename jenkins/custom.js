@@ -114,13 +114,7 @@ function waitForElement(selector, timeout = 10000) {
 
 		// 4. index
 		const index   = $th.index() - 1
-		let indexHtml = `
-		<div class="stage-index">
-			<div class="stage-index-copy stage-index-copy1">copy</div>
-			<div class="stage-index-number">${index}</div>
-			<div class="stage-index-copy stage-index-copy2">copy</div>
-		</div>
-		`;
+		let indexHtml = `<div class="stage-index">${index}</div>`;
 
 		// 6. title 적용
 		const nameHtml = `<div class="stage-name">${parts.join(' ')}</div>`;
@@ -130,6 +124,8 @@ function waitForElement(selector, timeout = 10000) {
 			${svgHtml}
 			${nameHtml}
 			${indexHtml}
+			<div class="stage-copy stage-copy1">copy</div>
+			<div class="stage-copy stage-copy2">copy</div>
 		</div>
 		`);
 	}
@@ -172,8 +168,8 @@ function waitForElement(selector, timeout = 10000) {
 		characterDataOldValue: true,
 	});
 
-	$stageView.on('click', '.stage-index-copy', function () {
-		const index = parseInt($(this).parent().find('.stage-index-number').text(), 10);
+	$stageView.on('click', '.stage-copy', function () {
+		const index = parseInt($(this).parent().find('.stage-index').text(), 10);
 
 		let indexes = [];
 		for (let i = 1; i <= index; i++) {
@@ -181,7 +177,7 @@ function waitForElement(selector, timeout = 10000) {
 		}
 
 		let content = '';
-		if ($(this).hasClass('stage-index-copy1')) {
+		if ($(this).hasClass('stage-copy1')) {
 			content = indexes.join(',')
 		} else {
 			content = `SKIP_STAGES: '${indexes.join(',')}'`
