@@ -82,6 +82,7 @@ const replaceTitle = (thElement) => {
 }
 
 const getTableHeaders = (callback) => {
+	console.log('Stage View Header Replacement')
 	const thElements = document.querySelector('#pipeline-box .jobsTable thead tr th');
 	if (thElements) {
 		for (const thElement of thElements) {
@@ -89,7 +90,7 @@ const getTableHeaders = (callback) => {
 		}
 	}
 
-	setTimeout(callback, 1000);
+	setTimeout(callback, 3000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
