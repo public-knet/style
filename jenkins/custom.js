@@ -60,7 +60,12 @@ const replaceFunction = (thElement) => {
 	}
 
 	// 6. title 적용
-	thElement.textContent = parts.join(' ');
+	const titleElement       = document.createElement('span');
+	titleElement.className   = 'stage-title';
+	titleElement.textContent = parts.join(' ');
+
+	thElement.textContent = '';
+	thElement.append(titleElement);
 
 	// 7. element 삽입
 	if (svgElement)
