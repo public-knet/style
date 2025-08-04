@@ -28,12 +28,6 @@ const replaceFunction = (thElement) => {
 		index = match[1];
 	}
 
-	// 3. 추출된 언어나 인덱스가 없으면 종료
-	if (!svg && index === null) {
-		thElement.dataset.processed = 'true'; // 재실행 방지
-		return;
-	}
-
 	// 3. svg element 생성
 	const svg      = svgs[lang];
 	let svgElement = null;
@@ -51,20 +45,26 @@ const replaceFunction = (thElement) => {
 		indexElement.innerHTML = index;
 	}
 
-	// 5. title 적용
+	// 5. svg element 나 index element 가 없으면 종료
+	if (!svgElement && !indexElement) {
+		thElement.dataset.processed = 'true'; // 재실행 방지
+		return;
+	}
+
+	// 6. title 적용
 	thElement.textContent = parts.join(' ');
 
-	// 6. element 삽입
+	// 7. element 삽입
 	if (svgElement)
 		thElement.prepend(svgElement);
 
 	if (indexElement)
 		thElement.append(indexElement);
 
-	// 7. th 세로 정렬 변경
+	// 8. th 세로 정렬 변경
 	thElement.style.verticalAlign = 'top';
 
-	// 8. 중복 실행 방지를 위한 처리 완료 표시
+	// 9. 중복 실행 방지를 위한 처리 완료 표시
 	thElement.dataset.processed = 'true';
 }
 
