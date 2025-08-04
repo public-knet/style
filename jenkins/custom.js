@@ -17,6 +17,14 @@ function loadJQuery() {
 	});
 }
 
+function waitForDocumentReady() {
+	return new Promise((resolve, reject) => {
+		document.addEventListener('DOMContentLoaded', () => {
+			resolve();
+		})
+	});
+}
+
 function waitForElement(selector, timeout = 10000) {
 	return new Promise((resolve, reject) => {
 		const el = document.querySelector(selector);
@@ -48,9 +56,11 @@ function waitForElement(selector, timeout = 10000) {
 (async () => {
 
 	// -------------------------------------------------------------------------------------------------------------------------
-	// Jquery
+	// Jquery & Document
 	// -------------------------------------------------------------------------------------------------------------------------
 	await loadJQuery();
+
+	await waitForDocumentReady();
 
 	// -------------------------------------------------------------------------------------------------------------------------
 	// Stage Header Replacement
