@@ -1,6 +1,7 @@
 function loadJQuery() {
 	return new Promise((resolve, reject) => {
 		if (typeof window.jQuery !== 'undefined') {
+			console.log('jQuery already loaded!');
 			resolve();
 			return;
 		}
@@ -8,9 +9,11 @@ function loadJQuery() {
 		const script   = document.createElement('script');
 		script.src     = 'https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js';
 		script.onload  = () => {
-			resolve('jQuery loaded!');
+			console.log('jQuery loaded!');
+			resolve();
 		};
 		script.onerror = () => {
+			console.log('jQuery failed to load.');
 			reject('jQuery failed to load.');
 		};
 		document.head.appendChild(script);
@@ -127,15 +130,13 @@ function waitForElement(selector, timeout = 10000) {
 	// Event
 	// -------------------------------------------------------------------------------------------------------------------------
 
-	const $tr = await waitForElement('#pipeline-box .jobsTable thead tr');
+	const $stageView = await waitForElement('[fragcaption="Stage View"]');
 
 	const doPretty = () => {
-		$tr.find('th[class^=stage-header-name-]').filter(function () {
-			return !$(this).hasClass('stage-header-name-0') && !$(this).data('processed');
+		$stageView.find('#pipeline-box .jobsTable thead tr th[class^=stage-header-name-]').filter(function () {
+			return !$(this).hasClass('stage-header-name-0');
 		}).each(function () {
-			const $th = $(this);
-			prettyStageHeader($th);
-			$th.data('processed', true)
+			prettyStageHeader($(this));
 		});
 	}
 
@@ -145,31 +146,19 @@ function waitForElement(selector, timeout = 10000) {
 	new MutationObserver((mutations) => {
 		let changed = false;
 
-		for (const mutation of mutations) {
-			if (mutation.target === $tr[0]) {
-				changed = true;
-			} else {
-				// 타겟이 tr 이 아니고 addedNodes 에 text 만 있는 경우는 초기화 된 것
-				if (mutation.addedNodes.length > 0 && mutation.addedNodes[0].nodeType === Node.TEXT_NODE) {
-					$(mutation.target).data('processed', false);
-					changed = true;
-				}
-			}
-		}
-
-		if (changed) {
+		const processed = $stageView.find('.stage-title').length > 0
+		if (!processed) {
 			console.log('> Pretty Stage Header : changed')
 			doPretty();
 		}
-	}).observe($tr[0], {
+	}).observe($stageView[0], {
 		childList            : true, // 감지: <th> 추가/삭제
 		subtree              : true, // 하위 노드(<th> 내부 텍스트 포함)까지 감시
 		characterData        : true, // 텍스트 변경 감지
 		characterDataOldValue: true,
 	});
 
-
-	$tr.on('click', '.stage-index', function () {
+	$stageView.on('click', '.stage-index', function () {
 		const index = parseInt($(this).text(), 10);
 
 		let indexes = [];
@@ -188,7 +177,7 @@ function waitForElement(selector, timeout = 10000) {
 						transition: 'opacity 1s',
 						opacity   : 0
 					});
-				}, 500)
+				}, 200)
 			})
 			.catch((err) => {
 				console.error('복사 실패:', err);

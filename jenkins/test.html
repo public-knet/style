@@ -13,89 +13,177 @@
         }
     </style>
     <link rel="stylesheet" href="custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="custom.js"></script>
     <script>
 			document.addEventListener('DOMContentLoaded', () => {
-				const tr = document.querySelector('table thead tr');
-				setTimeout(() => {
-					const th       = tr.querySelector('.stage-header-name-1');
-					th.textContent = 'NODE changed';
-				}, 1000);
+				const $stageView = $('[fragcaption="Stage View"]');
+				const html       = $stageView.html();
 
-				setTimeout(() => {
-					const th       = document.createElement('th');
-					th.className   = 'stage-header-name-2';
-					th.textContent = 'GOLANG: new';
-					tr.append(th)
-				}, 2000);
+				const reset = () => {
+					setTimeout(() => {
+						$stageView.html('');
+						$stageView.html(html);
+						reset();
+					}, 2000);
+				}
 
-				setTimeout(() => {
-					const th       = document.createElement('th');
-					th.className   = 'stage-header-name-3';
-					th.textContent = 'new';
-					tr.append(th)
-				}, 3000);
-
-				setTimeout(() => {
-					const th       = tr.querySelector('.stage-header-name-3');
-					th.textContent = 'HELM changed';
-				}, 4000);
+				reset();
 			});
     </script>
 </head>
 <body>
-<div id="pipeline-box">
-    <h2>Stage View</h2>
-    <div class="table-box">
-        <div class="table-viewPort">
-            <table class="jobsTable" style="max-width:20em">
-                <colgroup>
-                    <col class="start-group">
-                    <col class="stage-group" style="max-width:10em;">
-                    <col class="stage-group" style="max-width:10em;">
-                </colgroup>
-                <thead>
-                <tr class="header">
-                    <th class="stage-start"></th>
-                    <th class="stage-header-name-0">🔍 변경 감지</th>
-                    <th class="stage-header-name-1">JAVA exists</th>
-                </tr>
-                </thead>
-                <tbody class="totals-box">
-                <tr class="totals">
-                    <td class="stage-start">
-                        <div class="cell-color">
-                            Average stage times:<br>
-                            &nbsp;
-                        </div>
-                    </td>
-                    <td class="stage-total-0">
-                        <div class="cell-color">
-                            <div class="duration">15s</div>
-                            <div class="stackedBarChart">
-                                <div class="stackedBarChart inner clearfix">
-                                    <div class="bar highlight" style="width: 11.7549%;"></div>
-                                    <div class="bar posthighlight" style="width: 88.2451%;"></div>
-                                    <div class="clearfix"></div>
+<div objecturl="/view/main/job/knet/job/barobill-core/job/main/" fragcaption="Stage View" cbwf-controller="pipeline-staged" class="cbwf-widget cbwf-controller-applied pipeline-staged">
+    <div>
+        <div id="pipeline-box">
+            <h2>Stage View</h2>
+            <div class="table-box">
+                <div class="table-viewPort">
+                    <table class="jobsTable" style="max-width:30em">
+                        <colgroup>
+                            <col class="start-group">
+                            <col class="stage-group" style="max-width:10em;">
+                            <col class="stage-group" style="max-width:10em;">
+                            <col class="stage-group" style="max-width:10em;">
+                        </colgroup>
+                        <thead>
+                        <tr class="header">
+                            <th class="stage-start"></th>
+                            <th class="stage-header-name-0">🔍 변경 감지</th>
+                            <th class="stage-header-name-1">JAVA barobill</th>
+                            <th class="stage-header-name-2">JAVA barobill-api</th>
+                        </tr>
+                        </thead>
+                        <tbody class="totals-box">
+                        <tr class="totals">
+                            <td class="stage-start">
+                                <div class="cell-color">
+                                    Average stage times:<br>
+                                    &nbsp;
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="stage-total-1">
-                        <div class="cell-color">
-                            <div class="duration">1min 58s</div>
-                            <div class="stackedBarChart">
-                                <div class="stackedBarChart inner clearfix">
-                                    <div class="bar prehighlight" style="width: 11.7549%;"></div>
-                                    <div class="bar highlight" style="width: 88.2451%;"></div>
-                                    <div class="clearfix"></div>
+                            </td>
+                            <td class="stage-total-0">
+                                <div class="cell-color">
+                                    <div class="duration">15s</div>
+                                    <div class="stackedBarChart">
+                                        <div class="stackedBarChart inner clearfix">
+                                            <div class="bar highlight" style="width: 7.96248%;"></div>
+                                            <div class="bar posthighlight" style="width: 72.9095%;"></div>
+                                            <div class="bar posthighlight" style="width: 19.128%;"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                            </td>
+                            <td class="stage-total-1">
+                                <div class="cell-color">
+                                    <div class="duration">2min 23s</div>
+                                    <div class="stackedBarChart">
+                                        <div class="stackedBarChart inner clearfix">
+                                            <div class="bar prehighlight" style="width: 7.96248%;"></div>
+                                            <div class="bar highlight" style="width: 72.9095%;"></div>
+                                            <div class="bar posthighlight" style="width: 19.128%;"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="stage-total-2">
+                                <div class="cell-color">
+                                    <div class="duration">37s</div>
+                                    <div class="stackedBarChart">
+                                        <div class="stackedBarChart inner clearfix">
+                                            <div class="bar prehighlight" style="width: 7.96248%;"></div>
+                                            <div class="bar prehighlight" style="width: 72.9095%;"></div>
+                                            <div class="bar highlight" style="width: 19.128%;"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tbody class="tobsTable-body">
+                        <tr class="job IN_PROGRESS" data-runid="13">
+                            <td class="stage-start">
+                                <div class="cell-color">
+                                    <div class="cell-box">
+                                        <div class="jobName"><span class="badge"><a href="13">#13</a></span></div>
+                                        <div class="stage-start-box">
+                                            <div class="stage-start-time">
+                                                <div class="date">8월 04일</div>
+                                                <div class="time">18:17</div>
+                                            </div>
+                                            <div class="changeset-box cbwf-widget cbwf-controller-applied run-changesets" cbwf-controller="run-changesets" objecturl="/view/main/job/knet/job/barobill-core/job/main/13/wfapi/changesets">
+                                                <div>
+                                                    <div class="run-changesets">
+                                                        <div class="run-changeset">
+                                                            <strong class="num">5</strong>
+                                                            <span class="changes commitLabel">commits</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="stage-end-icons extension-dock">
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="stage-cell stage-cell-0 SUCCESS" data-stageid="14">
+                                <div class="cell-color">
+                                    <div class="stage-wrapper">
+                                        <div class="duration">
+                                            <span style="font-size: 1.0370766311735387em; opacity: 0.5370766311735387;">15s</span>
+                                        </div>
+                                        <div cbwf-controller="stage-actions-popover" descurl="/view/main/job/knet/job/barobill-core/job/main/13/execution/node/14/wfapi/describe" notif="stage-actions-popover,stage-failed-popover" caption="Success" class="cbwf-widget cbwf-controller-applied stage-actions-popover"></div>
+                                        <div class="extension-dock"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="stage-cell stage-cell-1 SUCCESS" data-stageid="28">
+                                <div class="cell-color">
+                                    <div class="stage-wrapper">
+                                        <div class="duration">
+                                            <span style="font-size: 1.3394974324120223em; opacity: 0.8394974324120223;">2min 23s</span>
+                                        </div>
+                                        <div cbwf-controller="stage-actions-popover" descurl="/view/main/job/knet/job/barobill-core/job/main/13/execution/node/28/wfapi/describe" notif="stage-actions-popover,stage-failed-popover" caption="Success" class="cbwf-widget cbwf-controller-applied stage-actions-popover"></div>
+                                        <div class="extension-dock"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="stage-cell stage-cell-2 IN_PROGRESS" data-stageid="39">
+                                <div class="cell-color">
+                                    <div class="stage-wrapper">
+                                        <div class="duration">
+                                            <span style="font-size: 1.0890679278054674em; opacity: 0.5890679278054674;">37s</span>
+                                        </div>
+                                        <div cbwf-controller="stage-actions-popover" descurl="/view/main/job/knet/job/barobill-core/job/main/13/execution/node/39/wfapi/describe" notif="stage-actions-popover,stage-failed-popover" caption="In Progress" class="cbwf-widget cbwf-controller-applied stage-actions-popover"></div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped" style="width: 98%"></div>
+                                        </div>
+                                        <div class="extension-dock"></div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="in-progress-run">
+                            <td class="stage-start hide-cell"></td>
+                            <td class="totalComplete" colspan="3">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width:98%">
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
