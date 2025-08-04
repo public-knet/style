@@ -8,5 +8,8 @@
   "devDependencies": {
     "glob": "^11.0.3",
     "sass": "^1.89.2"
+  },
+  "dependencies": {
+    "jsdom": "^26.1.0"
   }
 }
