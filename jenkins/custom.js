@@ -1,8 +1,16 @@
 const langs = [
+	'html',
 	'java',
+	'kotlin',
 	'node',
+	'nodejs',
+	'go',
 	'golang',
+	'python',
 	'php',
+	'asp',
+	'dotnet',
+	'csharp',
 	'gradle',
 	'helm',
 ]
@@ -30,7 +38,7 @@ const replaceFunction = (thElement) => {
 
 	// 3. lang element 생성
 	let langElement = null;
-	if (langs.concat(lang)) {
+	if (langs.includes(lang)) {
 		parts.shift(); // 첫번째 인덱스 제거
 		langElement           = document.createElement('span');
 		langElement.className = 'stage-lang stage-lang-' + lang;
