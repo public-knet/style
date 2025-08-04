@@ -19,7 +19,7 @@ function loadJQuery() {
 
 function waitForDocumentReady() {
 	return new Promise((resolve, reject) => {
-		document.addEventListener('DOMContentLoaded', () => {
+		$(document).ready(() => {
 			resolve();
 		})
 	});
@@ -27,14 +27,14 @@ function waitForDocumentReady() {
 
 function waitForElement(selector, timeout = 10000) {
 	return new Promise((resolve, reject) => {
-		const el = document.querySelector(selector);
-		if (el) return resolve($(el)); // 이미 존재하면 바로 반환
+		const $el = $(selector);
+		if ($el.length > 0) return resolve($el); // 이미 존재하면 바로 반환
 
 		const observer = new MutationObserver(() => {
-			const el = document.querySelector(selector);
-			if (el) {
+			const $el = $(selector);
+			if ($el.length > 0) {
 				observer.disconnect(); // 감시 중단
-				resolve($(el));
+				resolve($el);
 			}
 		});
 
