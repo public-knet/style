@@ -23,7 +23,7 @@ const replaceFunction = (thElement) => {
 	// 2. 마지막 단어: 인덱스 숫자 추출
 	let index   = null;
 	const last  = parts[parts.length - 1];
-	const match = last.match(/^[\[\(\{](\d+)[\]\)\}]$/);
+	const match = last.match(/^[\[({](\d+)[\])}]$/);
 	if (match) {
 		index = match[1];
 	}
@@ -47,7 +47,7 @@ const replaceFunction = (thElement) => {
 
 	// 5. svg element 나 index element 가 없으면 종료
 	if (!svgElement && !indexElement) {
-		thElement.dataset.processed = 'true'; // 재실행 방지
+		thElement.dataset.processed = 'true'; // 중복 실행 방지를 위한 처리 완료 표시
 		return;
 	}
 
