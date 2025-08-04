@@ -13,7 +13,7 @@ const svgs = {
 	helm  : `<svg width="50" height="50" viewBox="0 0 128 128"><path fill="#b0b0b0" d="M35.5 30.5c-.2-.1-.3-.3-.5-.4-3.2-3.1-5.7-6.8-7.2-11.1-.4-1.2-.7-2.4-.7-3.7v-.4c.1-1.7 1.2-2.5 2.8-2.1.5.1 1 .3 1.4.6 1.8.9 3.2 2.2 4.5 3.7 2.3 2.5 4.2 5.5 5.5 8.7 0 .1.1.2.1.2s.1.1.2.1c6.2-3.8 13.3-6.1 20.6-6.5-.1-.2-.1-.4-.1-.6-.7-3.1-1-6.4-.7-9.6.1-1.9.5-3.8 1.1-5.7.3-1 .8-1.8 1.4-2.6.2-.3.5-.5.8-.7.6-.4 1.4-.4 2 0 .6.4 1.1 1 1.5 1.7.6 1.2 1.1 2.5 1.3 3.8.6 2.8.8 5.7.5 8.6-.1 1.7-.4 3.5-.9 5.2 1.8.3 3.6.6 5.4 1 1.8.4 3.5.9 5.2 1.6 1.7.6 3.4 1.4 5 2.2 1.6.8 3.1 1.8 4.7 2.7.1-.1.1-.2.2-.4 1.7-4.7 4.6-8.9 8.4-12.2.9-.8 1.9-1.4 3-1.8.3-.1.6-.2.9-.2 1.6-.2 2.3.8 2.4 2.1.1.9 0 1.8-.2 2.7-.6 2.3-1.5 4.4-2.7 6.4-1.7 2.9-3.8 5.4-6.4 7.5-.1.1-.2.1-.3.3 2.5 2.4 4.8 5.1 6.8 8-.2 0-.3.1-.4.1H93c-.3 0-.6-.2-.8-.4-5.9-6.6-13.8-10.8-22.4-12.1-2.5-.4-5.1-.5-7.7-.3-7.6.5-15 3.4-20.9 8.3-1.5 1.2-3 2.6-4.3 4.1-.2.3-.6.5-1 .5h-8.3c.2-.6 1.7-2.8 3.5-4.8 1.5-1.6 2.9-3 4.4-4.5zm65.4 58.9c-1.8 2.6-3.8 4.9-6.1 7.1.2.2.3.3.5.4 3.9 3.3 6.9 7.6 8.6 12.5.4 1.2.6 2.5.6 3.7 0 .3-.1.6-.2 1-.3.9-1.2 1.5-2.1 1.3-.6-.1-1.2-.3-1.7-.5-.8-.4-1.6-.9-2.3-1.5-3.8-3.2-6.7-7.4-8.4-12.1-.1-.1-.1-.3-.2-.5-2 1.4-4.1 2.6-6.3 3.6s-4.5 1.9-6.8 2.5c-2.4.6-4.7 1.1-7.2 1.4.1.2.1.4.1.6.8 3.1 1 6.3.8 9.5-.1 2-.5 3.9-1.1 5.8-.3.8-.7 1.5-1.1 2.3-.2.3-.4.5-.6.8-1 1.1-2.2 1.1-3.2 0-.4-.4-.7-.9-1-1.5-.8-1.5-1.2-3.1-1.5-4.8-.4-2.3-.5-4.6-.4-6.9.1-1.7.3-3.4.7-5 0-.1.1-.3.1-.4 0 0 0-.1-.1-.2-7.3-.4-14.3-2.6-20.6-6.5l-.3.6c-1.8 4.2-4.4 7.9-7.8 10.8-.9.8-1.9 1.4-3 1.8-.5.2-1.1.3-1.6.2-.6-.1-1.1-.5-1.4-1.2-.4-.9-.3-1.8-.2-2.7.2-1.3.6-2.5 1.1-3.7 1.5-3.7 3.9-7 6.7-9.8.1-.1.2-.2.4-.3 0-.1.1-.1.1-.2-2.7-2.4-5.2-5.1-7.2-8.1.3 0 .4-.1.6-.1h8c.4 0 .7.2.9.4 2.9 3.1 6.3 5.6 10 7.5 3.9 2.1 8.2 3.4 12.6 3.8 12 1.2 22.3-2.5 30.9-11.1.4-.4.9-.7 1.5-.6h8.1l.1.1zm-11.1-39c.7 0 1.4.1 2.1 0 .8-.1 1.3.2 1.9.7 3.2 3 6.4 6 9.7 9l.5.5c.2-.2.4-.3.6-.5 3.3-3.1 6.7-6.2 9.9-9.3.3-.3.7-.4 1.1-.4h2.5v27.4c-.4.1-6.3.2-7 0V63.9l-.1-.1c-2.3 2.1-4.6 4.3-6.9 6.4-2.3-2.2-4.6-4.3-7-6.4l-.1.1v14h-7c-.2-.5-.3-25.9-.2-27.5zm-64.2 0h6.9c.2.5.2 26.8 0 27.4h-6.9c-.1-1.7 0-3.5 0-5.2v-5.2H17v10.3c-.5.2-6.4.2-7 0V50.4h7v9.7c.5.2 7.8.2 8.6 0v-9.7zm15.2 27.4V50.5c.4-.1 15.6-.2 16.6-.1v5.8c-.2 0-.5.1-.7.1h-8.9v4.5h8.5v6h-8.4c-.2.5-.2 4.1-.1 5.1.2 0 .5.1.7.1h8.9v5.8H40.8zm24.6 0c-.1-.7-.1-26.9 0-27.4h6.9v20.2c.3 0 .5 0 .8.1H82v7.2l-16.6-.1z"></path></svg>`,
 };
 
-const replaceFunction = (thElement) => {
+const replaceTitle = (thElement) => {
 	if (thElement.dataset.processed) {
 		return;
 	}
@@ -81,73 +81,17 @@ const replaceFunction = (thElement) => {
 	thElement.dataset.processed = 'true';
 }
 
-setInterval(function () {
-	document.querySelector('#pipeline-box .jobsTable thead tr th').forEach(replaceFunction);
-}, 5000)
+const getTableHeaders = (callback) => {
+	const thElements = document.querySelector('#pipeline-box .jobsTable thead tr th');
+	if (thElements) {
+		for (const thElement of thElements) {
+			replaceTitle(thElement)
+		}
+	}
 
-//
-// document.addEventListener('DOMContentLoaded', () => {
-// 	/**
-// 	 * 지정된 셀렉터의 요소가 DOM에 나타날 때까지 기다린 후 콜백을 실행합니다.
-// 	 * @param {string} selector - 기다릴 요소의 CSS 셀렉터입니다.
-// 	 * @param {function} callback - 요소가 발견되었을 때 실행할 콜백 함수입니다.
-// 	 */
-// 	function waitForElement(selector, callback) {
-// 		// 1. 스크립트 실행 시점에 이미 요소가 있는지 즉시 확인합니다.
-// 		const element = document.querySelector(selector);
-// 		if (element) {
-// 			callback(element);
-// 			return;
-// 		}
-//
-// 		// 2. 요소가 없다면, 상위 DOM의 변경을 감시할 Observer를 설정합니다.
-// 		const observer = new MutationObserver((mutations, me) => {
-// 			// DOM에 변경이 일어날 때마다 다시 요소를 찾아봅니다.
-// 			const targetElement = document.querySelector(selector);
-// 			if (targetElement) {
-// 				// 3. 요소를 찾았다면!
-// 				me.disconnect(); // 더 이상 상위 DOM을 감시할 필요가 없으므로 Observer를 중단합니다. (매우 중요!)
-// 				callback(targetElement); // 원래 실행하려던 콜백 함수를 실행합니다.
-// 			}
-// 		});
-//
-// 		// 감시를 시작합니다. body 전체의 자식요소 및 하위 모든 요소의 변경을 감지합니다.
-// 		observer.observe(document.body, {
-// 			childList: true,
-// 			subtree  : true
-// 		});
-//
-// 		console.log(`'${selector}' 요소를 기다리는 중입니다...`);
-// 	}
-//
-// 	// --- 실제 실행 로직 ---
-//
-// 	// waitForElement 함수를 사용하여 '.jobsTable thead tr' 요소가 나타나면
-// 	// 그 안에 'th'를 감시하는 로직을 실행하도록 설정합니다.
-// 	waitForElement('#pipeline-box .jobsTable thead tr', (theadTrElement) => {
-// 		console.log(`성공! 요소를 찾았습니다. 이제 th 추가를 감시합니다.`);
-//
-// 		// 이곳의 코드는 theadTrElement가 확실히 존재할 때 실행됩니다.
-//
-// 		// 이미 존재하는 th 처리
-// 		theadTrElement.querySelectorAll('th').forEach(existingTh => {
-// 			replaceFunction(existingTh);
-// 		});
-//
-// 		// th 추가를 감시하는 두 번째(원래의 목표) MutationObserver를 설정합니다.
-// 		const thObserver = new MutationObserver((mutationsList) => {
-// 			for (const mutation of mutationsList) {
-// 				if (mutation.type === 'childList') {
-// 					mutation.addedNodes.forEach(node => {
-// 						if (node.nodeType === 1 && node.tagName === 'TH') {
-// 							replaceFunction(node);
-// 						}
-// 					});
-// 				}
-// 			}
-// 		});
-//
-// 		// thead 안의 tr 요소에 대한 감시를 시작합니다.
-// 		thObserver.observe(theadTrElement, {childList: true});
-// 	});
-// });
+	setTimeout(callback, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+	getTableHeaders();
+});
