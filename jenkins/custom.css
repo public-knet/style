@@ -1,4 +1,3 @@
-@charset "UTF-8";
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -22,7 +21,7 @@
   height: 0;
 }
 
-/* 빌드 아이콘 */
+/* Build Icon */
 svg[tooltip="In progress"] ellipse,
 .app-builds-container__item__icon[tooltip="In progress"] svg ellipse {
   stroke: rgb(26, 140, 255) !important;
@@ -32,11 +31,12 @@ svg[tooltip="In progress"] path,
   stroke: rgb(26, 140, 255) !important;
 }
 
-/* stage view */
+/* Stage View */
 #pipeline-box .jobsTable thead tr th {
   padding: 5px !important;
   font-size: 12px;
   height: 100%;
+  min-width: 10em;
 }
 #pipeline-box .jobsTable thead tr th .stage-title-container {
   position: relative;
@@ -100,7 +100,7 @@ svg[tooltip="In progress"] path,
   font-size: 13px;
 }
 
-/* 콘솔 */
+/* Console Output */
 .console-output {
   color: #bbbbbb !important;
   font-family: D2Coding, serif !important;

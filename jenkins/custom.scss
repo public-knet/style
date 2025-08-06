@@ -21,7 +21,7 @@
   height: 0;
 }
 
-/* 빌드 아이콘 */
+/* Build Icon */
 svg[tooltip="In progress"],
 .app-builds-container__item__icon[tooltip="In progress"] svg {
   ellipse {
@@ -33,7 +33,7 @@ svg[tooltip="In progress"],
   }
 }
 
-/* stage view */
+/* Stage View */
 #pipeline-box {
   .jobsTable {
     thead {
@@ -42,6 +42,7 @@ svg[tooltip="In progress"],
           padding:   5px !important;
           font-size: 12px;
           height:    100%;
+          min-width: 10em;
 
           .stage-title-container {
             position:       relative;
@@ -136,7 +137,7 @@ svg[tooltip="In progress"],
   }
 }
 
-/* 콘솔 */
+/* Console Output */
 .console-output {
   color:          #bbbbbb !important;
   font-family:    D2Coding, serif !important;
