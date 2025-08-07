@@ -32,40 +32,43 @@ svg[tooltip="In progress"] path,
 }
 
 /* Stage View */
-#pipeline-box .jobsTable thead tr th {
+.cbwf-stage-view {
+  overflow-y: hidden;
+}
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th {
   padding: 5px !important;
   font-size: 12px;
   height: 100%;
   min-width: 10em;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 5px;
   height: 100%;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-lang {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-lang {
   height: 50px !important;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-name {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-name {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-name > div:nth-child(1) {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-name > div:nth-child(1) {
   font-weight: normal;
   color: gray;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-index {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-index {
   font-size: 1.5em;
   font-weight: normal;
   line-height: 1;
   color: gray;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy {
   position: absolute;
   padding: 2px 4px 4px 4px;
   border: 1px solid #686868;
@@ -76,32 +79,32 @@ svg[tooltip="In progress"] path,
   opacity: 0;
   transition: opacity 0.2s;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-name {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-name {
   top: 0;
   right: 0;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-index1 {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-index1 {
   bottom: 0;
   left: 0;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-index2 {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-copy.stage-copy-index2 {
   bottom: 0;
   right: 0;
 }
-#pipeline-box .jobsTable thead tr th .stage-title-container:hover .stage-copy {
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container:hover .stage-copy {
   opacity: 1;
 }
-#pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .stage-start-time {
+.cbwf-stage-view #pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .stage-start-time {
   width: 6em !important;
 }
-#pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .changeset-box {
+.cbwf-stage-view #pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .changeset-box {
   left: 6em !important;
 }
-#pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .extension-dock {
+.cbwf-stage-view #pipeline-box .jobsTable tbody tr td.stage-start .stage-start-box .extension-dock {
   left: 11em !important;
   width: 7em !important;
 }
-#pipeline-box .jobsTable tbody tr.totals td.stage-start .cell-color {
+.cbwf-stage-view #pipeline-box .jobsTable tbody tr.totals td.stage-start .cell-color {
   font-size: 13px;
 }
 
