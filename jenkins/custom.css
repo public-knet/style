@@ -33,7 +33,7 @@ svg[tooltip="In progress"] path,
 
 /* Stage View */
 .cbwf-stage-view {
-  overflow-y: hidden;
+  overflow-y: hidden !important;
 }
 .cbwf-stage-view #pipeline-box .jobsTable thead tr th {
   padding: 5px !important;

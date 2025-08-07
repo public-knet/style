@@ -35,7 +35,7 @@ svg[tooltip="In progress"],
 
 /* Stage View */
 .cbwf-stage-view {
-  overflow-y: hidden;
+  overflow-y: hidden !important;
 
   #pipeline-box {
     .jobsTable {
