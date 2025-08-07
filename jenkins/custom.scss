@@ -171,8 +171,9 @@ svg[tooltip="In progress"],
   }
 
   span[style*="background-color:"] {
+    position:      relative;
     display:       flex;
-    margin-bottom: calc(-1rem);
+    margin-bottom: -1rem;
     border-bottom: 1px dotted #383840;
 
     > span:nth-child(1) {
@@ -185,6 +186,16 @@ svg[tooltip="In progress"],
       flex-shrink: 1;
       min-width:   0;
       word-break:  break-all;
+    }
+
+    &::before {
+      content:    "";
+      position:   absolute;
+      left:       calc(-1em - 6px);
+      top:        50%;
+      margin-top: calc(-0.5em - 2px);
+      color:      #a68ebf;
+      font-size:  1em;
     }
 
     /* info & default */
@@ -212,6 +223,10 @@ svg[tooltip="In progress"],
       > span[style="color: #000000;"] {
         color: #a68ebf !important;
       }
+
+      &::before {
+        content: "⚠️";
+      }
     }
 
     /* error */
@@ -221,7 +236,15 @@ svg[tooltip="In progress"],
       > span[style="color: #000000;"] {
         color: #ea9595 !important;
       }
+
+      &::before {
+        content: "⛔️";
+      }
     }
+  }
+
+  a[href] {
+    color: #5e92cf;
   }
 }
 

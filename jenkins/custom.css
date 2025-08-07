@@ -1,3 +1,4 @@
+@charset "UTF-8";
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -127,6 +128,7 @@ svg[tooltip="In progress"] path,
   margin: 10px 0;
 }
 .console-output span[style*="background-color:"] {
+  position: relative;
   display: flex;
   margin-bottom: -1rem;
   border-bottom: 1px dotted #383840;
@@ -144,6 +146,15 @@ svg[tooltip="In progress"] path,
   flex-shrink: 1;
   min-width: 0;
   word-break: break-all;
+}
+.console-output span[style*="background-color:"]::before {
+  content: "";
+  position: absolute;
+  left: calc(-1em - 6px);
+  top: 50%;
+  margin-top: calc(-0.5em - 2px);
+  color: #a68ebf;
+  font-size: 1em;
 }
 .console-output span[style*="background-color:"][style="background-color: #FFFFFF;"] {
   background-color: transparent !important;
@@ -163,11 +174,20 @@ svg[tooltip="In progress"] path,
 .console-output span[style*="background-color:"][style="background-color: #FFFF00;"] > span[style="color: #000000;"] {
   color: #a68ebf !important;
 }
+.console-output span[style*="background-color:"][style="background-color: #FFFF00;"]::before {
+  content: "⚠️";
+}
 .console-output span[style*="background-color:"][style="background-color: #FF0000;"] {
   background-color: #2b0000 !important;
 }
 .console-output span[style*="background-color:"][style="background-color: #FF0000;"] > span[style="color: #000000;"] {
   color: #ea9595 !important;
+}
+.console-output span[style*="background-color:"][style="background-color: #FF0000;"]::before {
+  content: "⛔️";
+}
+.console-output a[href] {
+  color: #5e92cf;
 }
 
 /* yaml */
