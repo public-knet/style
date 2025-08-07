@@ -103,7 +103,7 @@ function waitForElement(selector, timeout = 10000) {
 			return;
 		}
 
-		let svgHtml = null;
+		let svgHtml;
 		if (svg) {
 			parts.shift(); // 첫번째 인덱스 제거
 			svgHtml = `<div class="stage-lang stage-lang-${lang}">${svg}</div>`;
@@ -111,13 +111,19 @@ function waitForElement(selector, timeout = 10000) {
 			svgHtml = `<div class="stage-lang">${questionMark}</div>`;
 		}
 
-
 		// 4. index
 		const index   = $th.index() - 1
 		let indexHtml = `<div class="stage-index">${index}</div>`;
 
 		// 6. title 적용
-		const nameHtml = `<div class="stage-name">${parts.join(' ')}</div>`;
+		const names = parts.join(' ').split(':')
+
+		let nameHtml;
+		if (names.length === 1) {
+			nameHtml = `<div class="stage-name"><div></div><div>${names[0]}</div></div>`;
+		} else {
+			nameHtml = `<div class="stage-name"><div>${names.splice(0, names.length - 1).join('<br/>')}</div><div>${names[names.length - 1]}</div></div>`;
+		}
 
 		$th.html(`
 		<div class="stage-title-container">
@@ -151,12 +157,24 @@ function waitForElement(selector, timeout = 10000) {
 		$thArray.each(function () {
 			$(this).find('.stage-title-container').height(height);
 		});
+
+		// .stage-name 의 첫번째 div 높이를 모두 같게
+		let maxHeight = 0;
+		$thArray.each(function () {
+			const height = $(this).find('.stage-name > div:first-child').height();
+			if (height > maxHeight) {
+				maxHeight = height;
+			}
+		})
+		$thArray.each(function () {
+			$(this).find('.stage-name > div:first-child').height(maxHeight);
+		});
 	}
 
 	console.log('> Pretty Stage Header : init')
 	doPretty()
 
-	new MutationObserver((mutations) => {
+	new MutationObserver(() => {
 		const processed = $stageView.find('.stage-name').length > 0
 		if (!processed) {
 			console.log('> Pretty Stage Header : changed')
@@ -170,7 +188,7 @@ function waitForElement(selector, timeout = 10000) {
 	});
 
 	$stageView.on('click', '.stage-copy', function () {
-		let content = '';
+		let content;
 
 		if ($(this).hasClass('stage-copy-name')) {
 			content = $(this).parent().find('.stage-name').text();
