@@ -4,8 +4,8 @@
 // @version      1.0
 // @description  Jenkins 스타일 변경
 // @author       nofaterock
-// @updateURL    https://raw.githubusercontent.com/public-knet/style/main/jenkins/script.user.js
-// @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/jenkins/script.user.js
+// @updateURL    https://raw.githubusercontent.com/public-knet/style/main/jenkins/tampermonkey.user.js
+// @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/jenkins/tampermonkey.user.js
 // @match        *://jenkins.knetbiz.com/*
 // @match        *://jenkins.devops.knetbiz.com/*
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js

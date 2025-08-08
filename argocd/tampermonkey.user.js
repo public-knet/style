@@ -4,8 +4,8 @@
 // @version      1.0
 // @description  ArgoCD 스타일 변경
 // @author       nofaterock
-// @updateURL    https://raw.githubusercontent.com/public-knet/style/main/argocd/script.user.js
-// @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/argocd/script.user.js
+// @updateURL    https://raw.githubusercontent.com/public-knet/style/main/argocd/tampermonkey.user.js
+// @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/argocd/tampermonkey.user.js
 // @match        *://argocd.devops.knetbiz.com/*
 // @require      https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
 // @grant        GM.xmlHttpRequest
