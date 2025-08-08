@@ -16,8 +16,8 @@
 	'use strict';
 
 	document.addEventListener("DOMContentLoaded", function () {
-		inject('style', 'https://public-knet-style.knetdev.workers.dev/aws/custom.css');
-		inject('script', 'https://public-knet-style.knetdev.workers.dev/aws/custom.js');
+		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/aws/custom.css');
+		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/aws/custom.js');
 	});
 })();
 
