@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jenkins
 // @namespace    https://github.com/public-knet/style
-// @version      1.2
+// @version      1.3
 // @description  Jenkins 스타일 변경
 // @author       nofaterock
 // @icon         https://jenkins.devops.knetbiz.com/static/d9ac7ab9/favicon.ico
@@ -16,7 +16,7 @@
 (function() {
 	'use strict';
 
-	document.addEventListener("DOMContentLoaded", function () {
+	window.addEventListener('load', () => {
 		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/jenkins/custom.css');
 		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/jenkins/custom.js');
 	});

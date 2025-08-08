@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ArgoCD
 // @namespace    https://github.com/public-knet/style
-// @version      1.2
+// @version      1.3
 // @description  ArgoCD 스타일 변경
 // @author       nofaterock
 // @icon         https://argocd.devops.knetbiz.com/assets/favicon/favicon-32x32.png
@@ -15,7 +15,7 @@
 (function() {
 	'use strict';
 
-	document.addEventListener("DOMContentLoaded", function () {
+	window.addEventListener('load', () => {
 		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/argocd/custom.css');
 		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/argocd/custom.js');
 	});
