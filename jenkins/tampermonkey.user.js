@@ -8,9 +8,8 @@
 // @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/jenkins/tampermonkey.user.js
 // @match        *://jenkins.knetbiz.com/*
 // @match        *://jenkins.devops.knetbiz.com/*
-// @require      https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
 // @grant        GM.xmlHttpRequest
-// @connect      public-knet-style.knetdev.workers.dev
+// @connect      raw.githubusercontent.com
 // ==/UserScript==
 
 (function() {
