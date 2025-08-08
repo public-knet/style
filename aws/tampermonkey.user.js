@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AWS Console
 // @namespace    https://www.knetbiz.com
-// @version      1.0
+// @version      1.1
 // @description  AWS Console 스타일 변경
 // @author       nofaterock
 // @updateURL    https://raw.githubusercontent.com/public-knet/style/main/aws/tampermonkey.user.js

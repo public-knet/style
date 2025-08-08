@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jenkins
 // @namespace    https://www.knetbiz.com
-// @version      1.0
+// @version      1.1
 // @description  Jenkins 스타일 변경
 // @author       nofaterock
 // @updateURL    https://raw.githubusercontent.com/public-knet/style/main/jenkins/tampermonkey.user.js
