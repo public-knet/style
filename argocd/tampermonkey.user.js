@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         ArgoCD
-// @namespace    https://www.knetbiz.com
+// @namespace    https://github.com/public-knet/style
 // @version      1.1
 // @description  ArgoCD 스타일 변경
 // @author       nofaterock
+// @icon         https://argocd.devops.knetbiz.com/assets/favicon/favicon-32x32.png
 // @updateURL    https://raw.githubusercontent.com/public-knet/style/main/argocd/tampermonkey.user.js
 // @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/argocd/tampermonkey.user.js
 // @match        *://argocd.devops.knetbiz.com/*
