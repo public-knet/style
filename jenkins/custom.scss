@@ -192,8 +192,7 @@ svg[tooltip="In progress"],
       content:    "";
       position:   absolute;
       left:       calc(-1em - 6px);
-      top:        50%;
-      margin-top: -0.5em;
+      top:        0;
       color:      #a68ebf;
       font-size:  1em;
     }
@@ -226,7 +225,6 @@ svg[tooltip="In progress"],
 
       &::before {
         content:    "⚠️";
-        margin-top: calc(-0.5em - 2px);
       }
     }
 

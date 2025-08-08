@@ -151,8 +151,7 @@ svg[tooltip="In progress"] path,
   content: "";
   position: absolute;
   left: calc(-1em - 6px);
-  top: 50%;
-  margin-top: -0.5em;
+  top: 0;
   color: #a68ebf;
   font-size: 1em;
 }
@@ -176,7 +175,6 @@ svg[tooltip="In progress"] path,
 }
 .console-output span[style*="background-color:"][style="background-color: #FFFF00;"]::before {
   content: "⚠️";
-  margin-top: calc(-0.5em - 2px);
 }
 .console-output span[style*="background-color:"][style="background-color: #FF0000;"] {
   background-color: #2b0000 !important;
