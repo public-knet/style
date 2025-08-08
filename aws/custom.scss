@@ -1,0 +1,63 @@
+::-webkit-scrollbar {
+  width:  10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius:    10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius:    10px;
+  background-color: #515b62;
+  background-clip:  padding-box;
+  border:           2px solid transparent;
+  border-left:      1px solid transparent;
+}
+
+::-webkit-scrollbar-button {
+  width:  0;
+  height: 0;
+}
+
+/* ECR 목록 */
+div[data-analytics="Private repositories"] {
+  tr {
+    th:nth-child(3),
+    td:nth-child(3) {
+      width: 45em;
+      > div > span > span {
+        display: flex;
+        > span:nth-child(2) {
+          max-width:      40em;
+          overflow-x:     hidden;
+          overflow-y:     hidden;
+          text-overflow:  ellipsis;
+          text-wrap-mode: nowrap;
+        }
+      }
+    }
+    th:nth-child(4),
+    td:nth-child(4) {
+      width: 20em;
+    }
+    th:nth-child(5),
+    td:nth-child(5) {
+      width: 10em;
+    }
+    th:nth-child(6),
+    th:nth-child(6) {
+      width: 8em;
+    }
+  }
+}
+
+div[data-testid="images-list-table"] {
+  tr {
+    th:nth-child(7),
+    td:nth-child(7) {
+      max-width: 12em;
+    }
+  }
+}

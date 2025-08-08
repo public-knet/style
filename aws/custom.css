@@ -1,0 +1,60 @@
+@charset "UTF-8";
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #515b62;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left: 1px solid transparent;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+/* ECR 목록 */
+div[data-analytics="Private repositories"] tr th:nth-child(3),
+div[data-analytics="Private repositories"] tr td:nth-child(3) {
+  width: 45em;
+}
+div[data-analytics="Private repositories"] tr th:nth-child(3) > div > span > span,
+div[data-analytics="Private repositories"] tr td:nth-child(3) > div > span > span {
+  display: flex;
+}
+div[data-analytics="Private repositories"] tr th:nth-child(3) > div > span > span > span:nth-child(2),
+div[data-analytics="Private repositories"] tr td:nth-child(3) > div > span > span > span:nth-child(2) {
+  max-width: 40em;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  text-wrap-mode: nowrap;
+}
+div[data-analytics="Private repositories"] tr th:nth-child(4),
+div[data-analytics="Private repositories"] tr td:nth-child(4) {
+  width: 20em;
+}
+div[data-analytics="Private repositories"] tr th:nth-child(5),
+div[data-analytics="Private repositories"] tr td:nth-child(5) {
+  width: 10em;
+}
+div[data-analytics="Private repositories"] tr th:nth-child(6),
+div[data-analytics="Private repositories"] tr th:nth-child(6) {
+  width: 8em;
+}
+
+div[data-testid=images-list-table] tr th:nth-child(7),
+div[data-testid=images-list-table] tr td:nth-child(7) {
+  max-width: 12em;
+}
+
+/*# sourceMappingURL=custom.css.map */
