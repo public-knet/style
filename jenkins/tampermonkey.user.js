@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jenkins
 // @namespace    https://github.com/public-knet/style
-// @version      1.1
+// @version      1.2
 // @description  Jenkins 스타일 변경
 // @author       nofaterock
 // @icon         https://jenkins.devops.knetbiz.com/static/d9ac7ab9/favicon.ico

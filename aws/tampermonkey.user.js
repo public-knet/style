@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AWS Console
 // @namespace    https://github.com/public-knet/style
-// @version      1.1
+// @version      1.2
 // @description  AWS Console 스타일 변경
 // @author       nofaterock
 // @icon         https://a.b.cdn.console.awsstatic.com/a/v1/YMDV5OFQK7UFN5N2QPZNRZZN2QIHTD4OSMMQG6VKETYTJ357ZJ2Q/icon/de7db04805a33606a40b897578543648-c0174badf433f1e0148e43426ae8e43a.svg
