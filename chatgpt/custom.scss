@@ -11,7 +11,7 @@ article[data-testid^="conversation-turn"] {
     min-width: 60vw;
 
     div[data-message-id] {
-      font-family: NanumBarunGothic, serif !important;
+      font-family: NanumBarunGothic, sans-serif !important;
       font-size:   14px !important;
       font-weight: 300;
 
@@ -25,7 +25,7 @@ article[data-testid^="conversation-turn"] {
         }
 
         code {
-          font-family:      D2Coding, serif !important;
+          font-family:      D2Coding, sans-serif !important;
           background-color: #000;
           font-size:        13px;
         }
@@ -58,7 +58,7 @@ article[data-testid^="conversation-turn"] {
           padding:          .15rem .3rem;
           border-radius:    .25rem;
           background-color: #000;
-          font-family:      D2Coding, serif !important;
+          font-family:      D2Coding, sans-serif !important;
           font-size:        13px;
         }
 

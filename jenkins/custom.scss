@@ -153,7 +153,7 @@ svg[tooltip="In progress"],
 /* Console Output */
 .console-output {
   color:          #bbbbbb !important;
-  font-family:    D2Coding, serif !important;
+  font-family:    D2Coding, sans-serif !important;
   font-size:      13px !important;
   letter-spacing: -0.5px !important;
   line-height:    1.2 !important;
@@ -189,12 +189,12 @@ svg[tooltip="In progress"],
     }
 
     &::before {
-      content:    "";
-      position:   absolute;
-      left:       calc(-1em - 6px);
-      top:        0;
-      color:      #a68ebf;
-      font-size:  1em;
+      content:   "";
+      position:  absolute;
+      left:      calc(-1em - 6px);
+      top:       0;
+      color:     #a68ebf;
+      font-size: 1em;
     }
 
     /* info & default */
@@ -224,7 +224,7 @@ svg[tooltip="In progress"],
       }
 
       &::before {
-        content:    "⚠️";
+        content: "⚠️";
       }
     }
 
@@ -250,7 +250,7 @@ svg[tooltip="In progress"],
 /* yaml */
 code.language-yaml {
   color:          #A9B7C6;
-  font-family:    D2Coding, serif !important;
+  font-family:    D2Coding, sans-serif !important;
   letter-spacing: -0.5px;
   line-height:    1;
 
