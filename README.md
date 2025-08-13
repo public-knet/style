@@ -15,4 +15,5 @@
     * Jenkins: https://raw.githubusercontent.com/public-knet/style/main/jenkins/tampermonkey.user.js
     * ArgoCD: https://raw.githubusercontent.com/public-knet/style/main/argocd/tampermonkey.user.js
     * AWS Console: https://raw.githubusercontent.com/public-knet/style/main/aws/tampermonkey.user.js
+    * ChatGPT: https://raw.githubusercontent.com/public-knet/style/main/chatgpt/tampermonkey.user.js
 5. `설치` 버튼을 클릭하여 스크립트 설치
