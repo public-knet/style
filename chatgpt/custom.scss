@@ -1,11 +1,51 @@
-main > div > div > header ~ div {
-  background-color: #191919;
+/* 크기 변경 */
+main > div > div > header {
+  /* 상단 영역 */
+  & {
+    background-color: #191919;
+  }
 
-  &:last-child > div > div {
-    min-width: 100%;
+  & ~ div {
+    background-color: #191919;
+
+    /* 중단 영역 */
+    &:nth-child(2) > div > div {
+      min-width: 60vw;
+    }
+
+    /* 하단 영역 */
+    &:last-child > div > div {
+      min-width: 100%;
+    }
   }
 }
 
+/* 프롬프트 */
+#prompt-textarea {
+  font-family: NanumBarunGothic, sans-serif !important;
+  font-size:   14px;
+  font-weight: 300;
+}
+
+/* 프로젝트 */
+main > div > div > header ~ div:nth-child(2) > div > div {
+  > div {
+    min-width:   100%;
+    font-family: NanumBarunGothic, sans-serif !important;
+
+    .text-token-text-secondary {
+      margin-top:  0.3em;
+      font-weight: 300;
+      color:       rgb(226, 226, 229);
+    }
+    .text-token-text-tertiary {
+      min-width:      4em;
+      letter-spacing: -1px;
+    }
+  }
+}
+
+/* 대화 */
 article[data-testid^="conversation-turn"] {
   > div > div {
     min-width: 60vw;
@@ -76,10 +116,4 @@ article[data-testid^="conversation-turn"] {
       }
     }
   }
-}
-
-#prompt-textarea {
-  font-family: NanumBarunGothic, sans-serif !important;
-  font-size:   14px;
-  font-weight: 300;
 }
