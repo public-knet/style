@@ -93,9 +93,13 @@
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(2), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(5), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(8), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(9), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(10) {
   display: none;
 }
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row.applications-tiles__actions {
+  text-align: right;
+}
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-3 {
   min-width: 123px;
   flex-basis: unset;
+  color: #7c838c;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-9 {
   padding-left: 0;

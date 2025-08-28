@@ -105,9 +105,14 @@
             display: none;
           }
 
+          &.applications-tiles__actions {
+            text-align: right;
+          }
+
           .columns.small-3 {
             min-width:  123px;
             flex-basis: unset;
+            color:      #7c838c;
           }
           .columns.small-9 {
             padding-left: 0;
