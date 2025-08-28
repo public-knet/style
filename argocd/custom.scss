@@ -50,19 +50,20 @@
               align-items: center;
 
               .applications-list__title {
-                display:        flex;
-                flex-direction: column;
-                padding:        0;
-                margin-left:    10px;
+                position:    relative;
+                padding:     0;
+                margin-left: 10px;
+                font-size:   14px;
+                line-height: 1.2;
+                text-wrap:   wrap;
 
                 .profile {
-                  font-weight: normal;
+                  position:    absolute;
+                  top:         -13px;
+                  left:        0;
                   color:       red;
-                }
-                .title {
-                  font-size:   14px;
-                  line-height: 1.2;
-                  text-wrap:   wrap;
+                  font-size:   12px;
+                  font-weight: normal;
                 }
               }
             }

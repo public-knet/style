@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ArgoCD
 // @namespace    https://github.com/public-knet/style
-// @version      1.9
+// @version      1.10
 // @description  ArgoCD 스타일 변경
 // @author       한승룡
 // @icon         https://argocd.devops.knetbiz.com/assets/favicon/favicon-32x32.png

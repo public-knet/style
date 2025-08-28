@@ -48,19 +48,20 @@
   align-items: center;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   padding: 0;
   margin-left: 10px;
-}
-.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile {
-  font-weight: normal;
-  color: red;
-}
-.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .title {
   font-size: 14px;
   line-height: 1.2;
   text-wrap: wrap;
+}
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile {
+  position: absolute;
+  top: -13px;
+  left: 0;
+  color: red;
+  font-size: 12px;
+  font-weight: normal;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-3 {
   color: #7c838c;
