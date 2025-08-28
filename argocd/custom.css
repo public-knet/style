@@ -33,24 +33,36 @@
   row-gap: 0;
   column-gap: 16px;
 }
-.applications-tiles .applications-list__entry .applications-list__title {
-  margin-left: 5px;
-  font-size: 14px;
-}
-.applications-tiles .applications-list__entry .applications-list__info {
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info {
   padding-left: 0;
   padding-right: 0;
 }
-.applications-tiles .applications-list__entry .applications-list__info .row {
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row {
   line-height: 1.3;
 }
-.applications-tiles .applications-list__entry .applications-list__info .row:first-child {
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child {
   padding-bottom: 10px;
 }
-.applications-tiles .applications-list__entry .applications-list__info .row .columns.small-3 {
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child {
+  display: flex;
+  align-items: center;
+}
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title {
+  padding: 0;
+  margin-left: 10px;
+}
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile {
+  color: red;
+}
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .title {
+  font-size: 14px;
+  line-height: 1.2;
+  text-wrap: wrap;
+}
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-3 {
   color: #7c838c;
 }
-.applications-tiles .applications-list__entry .applications-list__info .row .columns.small-9 {
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-9 {
   padding-left: 0;
 }
 .applications-tiles .applications-list__entry--actions a {

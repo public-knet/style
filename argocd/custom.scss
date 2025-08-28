@@ -52,9 +52,15 @@
               .applications-list__title {
                 padding:     0;
                 margin-left: 10px;
-                font-size:   14px;
-                line-height: 1.2;
-                text-wrap:   wrap;
+
+                .profile {
+                  color: red;
+                }
+                .title {
+                  font-size:   14px;
+                  line-height: 1.2;
+                  text-wrap:   wrap;
+                }
               }
             }
           }
