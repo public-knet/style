@@ -62,11 +62,11 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: -39px;
   width: 32px;
   height: 32px;
-  padding: 0;
+  margin-top: -16px;
   border-radius: 5px;
   font-size: 11px;
   text-align: center;
@@ -78,7 +78,7 @@
   color: white;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile.profile-dev {
-  background: #36b987;
+  background: #18be94;
   color: white;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile.profile-prod {
