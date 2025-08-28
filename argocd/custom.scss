@@ -34,22 +34,37 @@
   column-gap:            16px;
 
   .applications-list__entry {
-    .applications-list__info {
-      padding-left:  0;
-      padding-right: 0;
+    .applications-tiles__wrapper {
+      .applications-list__info {
+        padding-left:  0;
+        padding-right: 0;
 
-      .row {
-        line-height: 1.3;
+        .row {
+          line-height: 1.3;
 
-        &:first-child {
-          padding-bottom: 10px;
-        }
+          &:first-child {
+            padding-bottom: 10px;
 
-        .columns.small-3 {
-          color: #7c838c;
-        }
-        .columns.small-9 {
-          padding-left: 0;
+            > .columns:first-child {
+              display:     flex;
+              align-items: center;
+
+              .applications-list__title {
+                padding:     0;
+                margin-left: 10px;
+                font-size:   14px;
+                line-height: 1.2;
+                text-wrap:   wrap;
+              }
+            }
+          }
+
+          .columns.small-3 {
+            color: #7c838c;
+          }
+          .columns.small-9 {
+            padding-left: 0;
+          }
         }
       }
     }

@@ -33,6 +33,10 @@
   row-gap: 0;
   column-gap: 16px;
 }
+.applications-tiles .applications-list__entry .applications-list__title {
+  margin-left: 5px;
+  font-size: 14px;
+}
 .applications-tiles .applications-list__entry .applications-list__info {
   padding-left: 0;
   padding-right: 0;
