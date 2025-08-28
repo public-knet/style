@@ -48,6 +48,7 @@
   align-items: center;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title {
+  display: flex;
   padding: 0;
   margin-left: 10px;
 }
