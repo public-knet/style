@@ -50,9 +50,10 @@
               align-items: center;
 
               .applications-list__title {
-                display:     flex;
-                padding:     0;
-                margin-left: 10px;
+                display:        flex;
+                flex-direction: column;
+                padding:        0;
+                margin-left:    10px;
 
                 .profile {
                   color: red;
