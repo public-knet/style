@@ -97,6 +97,14 @@
             }
           }
 
+          &:nth-child(2),
+          &:nth-child(5),
+          &:nth-child(8),
+          &:nth-child(9),
+          &:nth-child(10) {
+            display: none;
+          }
+
           .columns.small-3 {
             color: #7c838c;
           }

@@ -90,6 +90,9 @@
   line-height: 1;
   text-wrap: wrap;
 }
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(2), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(5), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(8), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(9), .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:nth-child(10) {
+  display: none;
+}
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-3 {
   color: #7c838c;
 }
