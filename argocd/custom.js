@@ -78,7 +78,7 @@ function waitForElement(selector, timeout = 10000) {
 		const name    = title.substring(0, title.lastIndexOf('-'));
 
 		$title.html(`
-			<span class="profile">${profile}</span>
+			<span class="profile profile-${profile}">${profile}</span>
 			<span class="title">${name}</span>
 		`);
 	}
@@ -101,7 +101,9 @@ function waitForElement(selector, timeout = 10000) {
 	doPretty()
 
 	new MutationObserver(() => {
-		const processed = $applicationTiles.find('.profile').length > 0
+		const processed = $applicationTiles.find('.applications-list__title').filter(function () {
+			return $(this).find('.profile').length === 0;
+		}).length > 0
 		if (!processed) {
 			console.log('> Pretty Application Title : changed')
 			doPretty();

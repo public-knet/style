@@ -54,6 +54,7 @@
   margin-left: 10px;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile {
+  font-weight: normal;
   color: red;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .title {
