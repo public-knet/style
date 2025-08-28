@@ -74,12 +74,12 @@ function waitForElement(selector, timeout = 10000) {
 
 		console.log($title.index() - 1, title);
 
-		const profile = title.substring(title.lastIndexOf('-'));
+		const profile = title.substring(title.lastIndexOf('-')).replace('-', '');
 		const name    = title.substring(0, title.lastIndexOf('-'));
 
 		$title.html(`
-			<div class="profile">${profile}</div>
-			<div class="title">${name}</div>
+			<span class="profile">${profile}</span>
+			<span class="title">${name}</span>
 		`);
 	}
 
