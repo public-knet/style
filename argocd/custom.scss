@@ -106,10 +106,12 @@
           }
 
           .columns.small-3 {
-            color: #7c838c;
+            min-width:  123px;
+            flex-basis: unset;
           }
           .columns.small-9 {
             padding-left: 0;
+            flex-basis:   unset;
           }
         }
       }

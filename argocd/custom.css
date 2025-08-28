@@ -94,10 +94,12 @@
   display: none;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-3 {
-  color: #7c838c;
+  min-width: 123px;
+  flex-basis: unset;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row .columns.small-9 {
   padding-left: 0;
+  flex-basis: unset;
 }
 .applications-tiles .applications-list__entry--actions a {
   padding-left: 12px;

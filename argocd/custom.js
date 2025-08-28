@@ -69,10 +69,10 @@ function waitForElement(selector, timeout = 10000) {
 	// Application Title Replacement
 	// -------------------------------------------------------------------------------------------------------------------------
 
-	const prettyApplicationTitle = ($title) => {
-		let title = $title.text().trim();
-
-		console.log($title.index() - 1, title);
+	const prettyApplicationTitle = ($info) => {
+		// title 변경
+		const $title = $info.find('.applications-list__title');
+		let title    = $title.text().trim();
 
 		const profile = title.substring(title.lastIndexOf('-')).replace('-', '');
 		const name    = title.substring(0, title.lastIndexOf('-'));
@@ -81,6 +81,17 @@ function waitForElement(selector, timeout = 10000) {
 			<span class="profile profile-${profile}">${profile === 'devops' ? 'dev<br/>ops' : profile}</span>
 			<span class="title">${name}</span>
 		`);
+
+		// Labels 변경
+		const $labelsValue = $info.find('.row:nth-child(3)').find('div:nth-child(2) span');
+		$labelsValue.html($labelsValue.text().replace('name=', ''))
+
+		// Last Sync 변경
+		const $lastSyncValue = $info.find('.row:nth-child(11)').find('div:nth-child(2) span');
+		let lastSync         = $lastSyncValue.text();
+		lastSync             = lastSync.split('(')[1]
+		lastSync             = lastSync.substring(0, lastSync.length - 1)
+		$lastSyncValue.html(lastSync)
 	}
 
 	// -------------------------------------------------------------------------------------------------------------------------
@@ -90,28 +101,15 @@ function waitForElement(selector, timeout = 10000) {
 	const $applicationTiles = await waitForElement('.applications-tiles');
 
 	const doPretty = () => {
-		const $titleArray = $applicationTiles.find('.applications-list__title');
+		const $infoArray = $applicationTiles.find('.applications-list__info');
 
-		$titleArray.each(function () {
+		$infoArray.each(function () {
 			prettyApplicationTitle($(this));
 		});
 	}
 
 	console.log('> Pretty Application Title : init')
 	doPretty()
-
-	new MutationObserver(() => {
-		const processed = $applicationTiles.find('.profile').length > 0
-		if (!processed) {
-			console.log('> Pretty Application Title : changed')
-			doPretty();
-		}
-	}).observe($applicationTiles[0], {
-		childList            : true, // 감지: <th> 추가/삭제
-		subtree              : true, // 하위 노드(<th> 내부 텍스트 포함)까지 감시
-		characterData        : true, // 텍스트 변경 감지
-		characterDataOldValue: true,
-	});
 
 	// -------------------------------------------------------------------------------------------------------------------------
 
