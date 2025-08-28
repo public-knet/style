@@ -58,23 +58,31 @@
   margin-left: 10px;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 0;
   left: -39px;
   width: 32px;
-  padding: 7px 0;
+  height: 32px;
+  padding: 0;
   border-radius: 5px;
   font-size: 11px;
   text-align: center;
   text-transform: uppercase;
+  line-height: 1;
+}
+.applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile.profile-devops {
+  background: #4b7ce1;
+  color: white;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile.profile-dev {
-  background: #666;
+  background: #36b987;
   color: white;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .profile.profile-prod {
-  background: #ff3434;
+  background: #f45050;
   color: white;
 }
 .applications-tiles .applications-list__entry .applications-tiles__wrapper .applications-list__info .row:first-child > .columns:first-child .applications-list__title .title {

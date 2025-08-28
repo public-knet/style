@@ -78,7 +78,7 @@ function waitForElement(selector, timeout = 10000) {
 		const name    = title.substring(0, title.lastIndexOf('-'));
 
 		$title.html(`
-			<span class="profile profile-${profile}">${profile}</span>
+			<span class="profile profile-${profile}">${profile === 'devops' ? 'dev<br/>ops' : profile}</span>
 			<span class="title">${name}</span>
 		`);
 	}
