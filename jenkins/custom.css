@@ -203,4 +203,9 @@ code.language-yaml .token.string {
   color: #6a8759 !important;
 }
 
+/* Editor */
+div[id*=workflow-editor-] .ace_text-layer .ace_line {
+  font-family: D2Coding, sans-serif;
+}
+
 /*# sourceMappingURL=custom.css.map */
