@@ -15,7 +15,7 @@ main > div > div > header ~ div:nth-child(2) > div > div {
   min-width: 60vw;
 }
 main > div > div > header ~ div:last-child > div > div {
-  min-width: 100%;
+  min-width: 60vw;
 }
 
 /* 프롬프트 */
@@ -29,6 +29,12 @@ main > div > div > header ~ div:last-child > div > div {
 main > div > div > header ~ div:nth-child(2) > div > div > div {
   min-width: 100%;
   font-family: NanumBarunGothic, sans-serif !important;
+}
+main > div > div > header ~ div:nth-child(2) > div > div > div > div {
+  min-width: 60vw;
+}
+main > div > div > header ~ div:nth-child(2) > div > div > div > div > div > div {
+  background-color: #191919;
 }
 main > div > div > header ~ div:nth-child(2) > div > div > div .text-token-text-secondary {
   margin-top: 0.3em;

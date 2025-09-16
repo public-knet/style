@@ -15,7 +15,7 @@ main > div > div > header {
 
     /* 하단 영역 */
     &:last-child > div > div {
-      min-width: 100%;
+      min-width: 60vw;
     }
   }
 }
@@ -32,6 +32,14 @@ main > div > div > header ~ div:nth-child(2) > div > div {
   > div {
     min-width:   100%;
     font-family: NanumBarunGothic, sans-serif !important;
+
+    > div {
+      min-width: 60vw;
+
+      > div > div {
+        background-color: #191919;
+      }
+    }
 
     .text-token-text-secondary {
       margin-top:  0.3em;
