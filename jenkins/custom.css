@@ -109,25 +109,29 @@ svg[tooltip="In progress"] path,
   font-size: 13px;
 }
 
-/* Console Output */
-.console-output {
+/* Console Output & OrganizationScan */
+.console-output,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out {
   color: #bbbbbb !important;
   font-family: D2Coding, sans-serif !important;
   font-size: 13px !important;
   letter-spacing: -0.5px !important;
   line-height: 1.2 !important;
 }
-.console-output .pipeline-new-node {
+.console-output .pipeline-new-node,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out .pipeline-new-node {
   color: #636c72;
 }
-.console-output .pipeline-new-node[label] {
+.console-output .pipeline-new-node[label],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out .pipeline-new-node[label] {
   display: block;
   color: #d69a6b;
   background: #3d3223;
   padding: 10px 0;
   margin: 10px 0;
 }
-.console-output span[style*="background-color:"] {
+.console-output span[style*="background-color:"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"] {
   position: relative;
   display: flex;
   margin-bottom: -1rem;
@@ -137,17 +141,20 @@ svg[tooltip="In progress"] path,
   /* warning */
   /* error */
 }
-.console-output span[style*="background-color:"] > span:nth-child(1) {
+.console-output span[style*="background-color:"] > span:nth-child(1),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"] > span:nth-child(1) {
   flex-shrink: 0;
   flex-grow: 0;
 }
-.console-output span[style*="background-color:"] > span:nth-child(2) {
+.console-output span[style*="background-color:"] > span:nth-child(2),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"] > span:nth-child(2) {
   flex-grow: 1;
   flex-shrink: 1;
   min-width: 0;
   word-break: break-all;
 }
-.console-output span[style*="background-color:"]::before {
+.console-output span[style*="background-color:"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"]::before {
   content: "";
   position: absolute;
   left: calc(-1em - 6px);
@@ -155,37 +162,48 @@ svg[tooltip="In progress"] path,
   color: #a68ebf;
   font-size: 1em;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFFFF;"] {
+.console-output span[style*="background-color:"][style="background-color: #FFFFFF;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FFFFFF;"] {
   background-color: transparent !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"] {
+.console-output span[style*="background-color:"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"] {
   color: #bbbbbb !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #4C4C4C;"] {
+.console-output span[style*="background-color:"][style="background-color: #4C4C4C;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #4C4C4C;"] {
   background-color: transparent !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"] {
+.console-output span[style*="background-color:"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"] {
   color: #808080 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFF00;"] {
+.console-output span[style*="background-color:"][style="background-color: #FFFF00;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FFFF00;"] {
   background-color: #1A0037 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFF00;"] > span[style="color: #000000;"] {
+.console-output span[style*="background-color:"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FFFF00;"] > span[style="color: #000000;"] {
   color: #a68ebf !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFF00;"]::before {
+.console-output span[style*="background-color:"][style="background-color: #FFFF00;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FFFF00;"]::before {
   content: "⚠️";
 }
-.console-output span[style*="background-color:"][style="background-color: #FF0000;"] {
+.console-output span[style*="background-color:"][style="background-color: #FF0000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FF0000;"] {
   background-color: #2b0000 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FF0000;"] > span[style="color: #000000;"] {
+.console-output span[style*="background-color:"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FF0000;"] > span[style="color: #000000;"] {
   color: #ea9595 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FF0000;"]::before {
+.console-output span[style*="background-color:"][style="background-color: #FF0000;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out span[style*="background-color:"][style="background-color: #FF0000;"]::before {
   content: "⛔️";
 }
-.console-output a[href] {
+.console-output a[href],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out a[href] {
   color: #5e92cf;
 }
 
