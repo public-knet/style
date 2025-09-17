@@ -151,7 +151,7 @@ svg[tooltip="In progress"],
 
 /* Console Output & OrganizationScan */
 .console-output,
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] pre#out {
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre {
   color:          #bbbbbb !important;
   font-family:    D2Coding, sans-serif !important;
   font-size:      13px !important;
