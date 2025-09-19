@@ -36,9 +36,21 @@ main > div > div > header ~ div:nth-child(2) > div > div > div {
     min-width:   60vw;
     font-family: NanumBarunGothic, sans-serif !important;
 
-    > div:nth-child(1) > div {
-      &::after {
+    > div:nth-child(1) {
+      > div::after {
         background: linear-gradient(to top, transparent, #191919 25px);
+      }
+
+      > section {
+        .text-token-text-secondary {
+          margin-top:  0.3em;
+          font-weight: 300;
+          color:       rgb(226, 226, 229);
+        }
+        .text-token-text-tertiary {
+          min-width:      4em;
+          letter-spacing: -1px;
+        }
       }
     }
 
