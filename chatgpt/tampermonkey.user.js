@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT
 // @namespace    https://github.com/public-knet/style
-// @version      1.4
+// @version      1.5
 // @description  ChatGPT 스타일 변경
 // @author       한승룡
 // @icon         https://cdn.oaistatic.com/assets/favicon-l4nq08hd.svg
