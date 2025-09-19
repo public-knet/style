@@ -17,3 +17,5 @@
     * AWS Console: https://raw.githubusercontent.com/public-knet/style/main/aws/tampermonkey.user.js
     * ChatGPT: https://raw.githubusercontent.com/public-knet/style/main/chatgpt/tampermonkey.user.js
 5. `설치` 버튼을 클릭하여 스크립트 설치
+6. mattermost 는 Tampermonkey 를 사용하지 않고 plugin 을 만드는 방식
+    * ruby 를 설치하고 `build:mattermost` 실행

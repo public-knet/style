@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build:scss": "node build-scss.js"
+    "build:scss": "node build-scss.js",
+    "build:mattermost": "npm run build:scss && ruby mattermost/build.rb"
   },
   "devDependencies": {
     "glob": "^11.0.3",
