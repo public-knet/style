@@ -80,6 +80,20 @@ svg[tooltip="In progress"],
                 color:       gray;
               }
 
+              .stage-ecr {
+                position:      absolute;
+                top:           0;
+                left:          0;
+                padding:       2px 4px 4px 4px;
+                border:        1px solid #686868;
+                border-radius: 3px;
+                font-size:     0.7em;
+                line-height:   1;
+                cursor:        pointer;
+                opacity:       0;
+                transition:    opacity 0.2s;
+              }
+
               .stage-copy {
                 position:      absolute;
                 padding:       2px 4px 4px 4px;

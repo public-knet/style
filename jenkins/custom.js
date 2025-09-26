@@ -130,6 +130,7 @@ function waitForElement(selector, timeout = 10000) {
 			${svgHtml}
 			${nameHtml}
 			${indexHtml}
+			<div class="stage-ecr">ECR</div>
 			<div class="stage-copy stage-copy-name">copy</div>
 			<div class="stage-copy stage-copy-index1">copy</div>
 			<div class="stage-copy stage-copy-index2">copy</div>
@@ -141,6 +142,9 @@ function waitForElement(selector, timeout = 10000) {
 	// Event
 	// -------------------------------------------------------------------------------------------------------------------------
 
+	const projectName = $('#breadcrumbBar ol li').filter(function() {
+		return $(this).index() === $('#breadcrumbBar ol li').length - 2
+	}).text()
 	const $stageView = await waitForElement('[fragcaption="Stage View"]');
 
 	const doPretty = () => {
@@ -186,6 +190,12 @@ function waitForElement(selector, timeout = 10000) {
 		characterData        : true, // 텍스트 변경 감지
 		characterDataOldValue: true,
 	});
+
+	$stageView.on('click', '.stage-ecr', function () {
+		let repoName = $(this).parent().find('.stage-name').text();
+
+		window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}?region=ap-northeast-2`)
+	})
 
 	$stageView.on('click', '.stage-copy', function () {
 		let content;
