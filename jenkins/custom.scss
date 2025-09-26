@@ -120,6 +120,7 @@ svg[tooltip="In progress"],
               }
 
               &:hover {
+                .stage-ecr,
                 .stage-copy {
                   opacity: 1;
                 }

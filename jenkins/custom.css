@@ -105,6 +105,7 @@ svg[tooltip="In progress"] path,
   bottom: 0;
   right: 0;
 }
+.cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container:hover .stage-ecr,
 .cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container:hover .stage-copy {
   opacity: 1;
 }
