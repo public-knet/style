@@ -145,6 +145,8 @@ function waitForElement(selector, timeout = 10000) {
 	const projectName = $('#breadcrumbBar ol li').filter(function() {
 		return $(this).index() === $('#breadcrumbBar ol li').length - 2
 	}).text()
+	console.log(`> Project : ${projectName}`)
+
 	const $stageView = await waitForElement('[fragcaption="Stage View"]');
 
 	const doPretty = () => {
