@@ -196,8 +196,8 @@ function waitForElement(selector, timeout = 10000) {
 	$stageView.on('click', '.stage-ecr', function () {
 		let repoName = $(this).parent().find('.stage-name').text();
 
-		window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}?region=ap-northeast-2`)
-	})
+		window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}?region=ap-northeast-2`);
+	});
 
 	$stageView.on('click', '.stage-copy', function () {
 		let content;
@@ -229,7 +229,7 @@ function waitForElement(selector, timeout = 10000) {
 			.catch((err) => {
 				console.error('복사 실패:', err);
 			});
-	})
+	});
 
 	// -------------------------------------------------------------------------------------------------------------------------
 
