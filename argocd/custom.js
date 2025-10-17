@@ -1,3 +1,5 @@
+// region util
+
 function loadJQuery() {
 	return new Promise((resolve, reject) => {
 		if (typeof window.jQuery !== 'undefined') {
@@ -56,63 +58,57 @@ function waitForElement(selector, timeout = 10000) {
 	});
 }
 
-(async () => {
+// endregion
 
-	// -------------------------------------------------------------------------------------------------------------------------
-	// Jquery & Document
-	// -------------------------------------------------------------------------------------------------------------------------
-	await loadJQuery();
+// region core
 
-	await waitForDocumentReady();
+const prettyApplicationTitle = ($info) => {
+	// title 변경
+	const $title = $info.find('.applications-list__title');
+	let title = $title.text().trim();
 
-	// -------------------------------------------------------------------------------------------------------------------------
-	// Application Title Replacement
-	// -------------------------------------------------------------------------------------------------------------------------
+	const profile = title.substring(title.lastIndexOf('-')).replace('-', '');
+	const name = title.substring(0, title.lastIndexOf('-'));
 
-	const prettyApplicationTitle = ($info) => {
-		// title 변경
-		const $title = $info.find('.applications-list__title');
-		let title = $title.text().trim();
-
-		const profile = title.substring(title.lastIndexOf('-')).replace('-', '');
-		const name = title.substring(0, title.lastIndexOf('-'));
-
-		$title.html(`
+	$title.html(`
 			<span class="profile profile-${profile}">${profile === 'devops' ? 'dev<br/>ops' : profile}</span>
 			<span class="title">${name}</span>
 		`);
 
-		// Labels 변경
-		const $labelsValue = $info.find('.row:nth-child(3)').find('div:nth-child(2) span');
-		$labelsValue.html($labelsValue.text().replace('name=', ''))
+	// Labels 변경
+	const $labelsValue = $info.find('.row:nth-child(3)').find('div:nth-child(2) span');
+	$labelsValue.html($labelsValue.text().replace('name=', ''))
 
-		// Last Sync 변경
-		const $lastSyncValue = $info.find('.row:nth-child(11)').find('div:nth-child(2) span');
-		let lastSync = $lastSyncValue.text();
-		lastSync = lastSync.split('(')[1]
-		lastSync = lastSync.substring(0, lastSync.length - 1)
-		$lastSyncValue.html(lastSync)
-	}
+	// Last Sync 변경
+	const $lastSyncValue = $info.find('.row:nth-child(11)').find('div:nth-child(2) span');
+	let lastSync = $lastSyncValue.text();
+	lastSync = lastSync.split('(')[1]
+	lastSync = lastSync.substring(0, lastSync.length - 1)
+	$lastSyncValue.html(lastSync)
+}
 
-	// -------------------------------------------------------------------------------------------------------------------------
-	// Event
-	// -------------------------------------------------------------------------------------------------------------------------
+async function doPretty() {
+	const $applicationTiles = await waitForElement('.applications-tiles');
 
-	const doPretty = async () => {
-		const $applicationTiles = await waitForElement('.applications-tiles');
+	const $infoArray = $applicationTiles.find('.applications-list__info');
+	$infoArray.each(function () {
+		prettyApplicationTitle($(this));
+	});
+}
 
-		const $infoArray = $applicationTiles.find('.applications-list__info');
-		$infoArray.each(function () {
-			prettyApplicationTitle($(this));
-		});
-	}
+// endregion
 
-	window.addEventListener('popstate', function (event) {
+(async () => {
+
+	await loadJQuery();
+	await waitForDocumentReady();
+
+	window.addEventListener('popstate', async () => {
 		if (location.pathname !== '/applications')
 			return;
 
 		console.log('> Pretty Application Title : URL changed.')
-		doPretty();
+		await doPretty();
 	});
 
 	console.log('> Pretty Application Title : init')
