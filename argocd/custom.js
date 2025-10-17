@@ -98,22 +98,25 @@ function waitForElement(selector, timeout = 10000) {
 	// Event
 	// -------------------------------------------------------------------------------------------------------------------------
 
-	const $applicationTiles = await waitForElement('.applications-tiles');
+	const doPretty = async () => {
+		const $applicationTiles = await waitForElement('.applications-tiles');
 
-	const doPretty = () => {
 		const $infoArray = $applicationTiles.find('.applications-list__info');
-
 		$infoArray.each(function () {
 			prettyApplicationTitle($(this));
 		});
 	}
 
-	console.log('> Pretty Application Title : init')
-	doPretty();
-
 	window.addEventListener('popstate', function (event) {
+		if (location.pathname !== '/applications')
+			return;
+
+		console.log('> Pretty Application Title : URL changed.')
 		doPretty();
 	});
+
+	console.log('> Pretty Application Title : init')
+	await doPretty();
 
 	// -------------------------------------------------------------------------------------------------------------------------
 
