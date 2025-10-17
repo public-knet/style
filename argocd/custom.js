@@ -49,5 +49,4 @@ KNET.doPretty = async () => {
 		console.log('> Pretty : URL changed.')
 		await KNET.doPretty();
 	});
-
 })();

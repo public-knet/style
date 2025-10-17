@@ -16,9 +16,8 @@
 	'use strict';
 
 	window.addEventListener('load', () => {
-		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/_commons/commons.js');
-
 		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/argocd/custom.css');
+		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/_commons/commons.js');
 		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/argocd/custom.js');
 	});
 })();
@@ -36,7 +35,7 @@ function inject(type, url) {
 				css.textContent = res.responseText;
 				document.body.parentNode.insertBefore(css, document.body.nextSibling);
 			} else if (type === 'script') {
-				var script = document.createElement("script");
+				const script = document.createElement("script");
 				script.textContent = res.responseText;
 				document.body.parentNode.insertBefore(script, document.body.nextSibling);
 			}
