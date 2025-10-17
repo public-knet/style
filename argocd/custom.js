@@ -1,4 +1,8 @@
 KNET.pretty = ($info) => {
+	if ($info.data('pretty')) {
+		return;
+	}
+
 	// title 변경
 	const $title = $info.find('.applications-list__title');
 	let title = $title.text().trim();
@@ -21,6 +25,8 @@ KNET.pretty = ($info) => {
 	lastSync = lastSync.split('(')[1]
 	lastSync = lastSync.substring(0, lastSync.length - 1)
 	$lastSyncValue.html(lastSync)
+
+	$info.data('pretty', true)
 }
 
 KNET.doPretty = async () => {
