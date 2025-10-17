@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ArgoCD
 // @namespace    https://github.com/public-knet/style
-// @version      1.19
+// @version      1.20
 // @description  ArgoCD 스타일 변경
 // @author       한승룡
 // @icon         https://argocd.devops.knetbiz.com/assets/favicon/favicon-32x32.png
@@ -16,6 +16,8 @@
 	'use strict';
 
 	window.addEventListener('load', () => {
+		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/_commons/commons.js');
+
 		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/argocd/custom.css');
 		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/argocd/custom.js');
 	});
@@ -24,7 +26,7 @@
 function inject(type, url) {
 	GM.xmlHttpRequest({
 		method: "GET",
-		url: url,
+		_url: url,
 		onload: res => {
 			console.log(`Inject KNET ${type}: ${url}`)
 			if (type === 'style') {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ChatGPT
 // @namespace    https://github.com/public-knet/style
-// @version      1.6
+// @version      1.7
 // @description  ChatGPT 스타일 변경
 // @author       한승룡
 // @icon         https://cdn.oaistatic.com/assets/favicon-l4nq08hd.svg
@@ -16,7 +16,10 @@
 	'use strict';
 
 	window.addEventListener('load', () => {
+		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/_commons/commons.js');
+
 		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/chatgpt/custom.css');
+		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/chatgpt/custom.js');
 	});
 })();
 
