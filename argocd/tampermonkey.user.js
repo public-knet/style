@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ArgoCD
 // @namespace    https://github.com/public-knet/style
-// @version      1.21
+// @version      1.22
 // @description  ArgoCD 스타일 변경
 // @author       한승룡
 // @icon         https://argocd.devops.knetbiz.com/assets/favicon/favicon-32x32.png
@@ -30,12 +30,13 @@ function inject(type, url) {
 			console.log(`Inject KNET ${type}: ${url}`)
 			if (type === 'style') {
 				const css = document.createElement('style');
-				css.setAttribute("type", "text/css");
 				css.setAttribute("author", "KNET");
+				css.setAttribute("type", "text/css");
 				css.textContent = res.responseText;
 				document.body.parentNode.insertBefore(css, document.body.nextSibling);
 			} else if (type === 'script') {
 				const script = document.createElement("script");
+				script.setAttribute("author", "KNET");
 				script.textContent = res.responseText;
 				document.body.parentNode.insertBefore(script, document.body.nextSibling);
 			}

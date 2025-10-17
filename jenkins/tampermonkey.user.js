@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jenkins
 // @namespace    https://github.com/public-knet/style
-// @version      1.19
+// @version      1.20
 // @description  Jenkins 스타일 변경
 // @author       한승룡
 // @icon         https://jenkins.devops.knetbiz.com/static/d9ac7ab9/favicon.ico
@@ -33,12 +33,13 @@ function inject(type, url) {
 			console.log(`Inject KNET ${type}: ${url}`)
 			if (type === 'style') {
 				const css = document.createElement('style');
-				css.setAttribute('type', 'text/css');
 				css.setAttribute('author', 'KNET');
+				css.setAttribute('type', 'text/css');
 				css.textContent = res.responseText;
 				document.body.parentNode.insertBefore(css, document.body.nextSibling);
 			} else if (type === 'script') {
 				const script = document.createElement('script');
+				script.setAttribute("author", "KNET");
 				script.textContent = res.responseText;
 				document.body.parentNode.insertBefore(script, document.body.nextSibling);
 			}
