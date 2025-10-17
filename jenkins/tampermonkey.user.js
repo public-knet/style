@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Jenkins
 // @namespace    https://github.com/public-knet/style
-// @version      1.18
+// @version      1.19
 // @description  Jenkins 스타일 변경
 // @author       한승룡
 // @icon         https://jenkins.devops.knetbiz.com/static/d9ac7ab9/favicon.ico
@@ -19,8 +19,8 @@
 	'use strict';
 
 	window.addEventListener('load', () => {
-		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/jenkins/custom.css');
 		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/_commons/commons.js');
+		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/jenkins/custom.css');
 		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/jenkins/custom.js');
 	});
 })();
