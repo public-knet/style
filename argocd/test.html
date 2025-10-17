@@ -1,0 +1,285 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        .applications-list {
+            padding: 1em;
+            min-height: 88vh;
+        }
+        .applications-tiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(305px, 1fr));
+            row-gap: 0;
+            column-gap: 16px;
+            padding: 0 12px;
+        }
+        .applications-tiles .argo-table-list__row {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .argo-table-list--clickable .argo-table-list__row {
+            cursor: pointer;
+        }
+        .theme-light .argo-table-list__row {
+            background: #fff;
+            color: #495763;
+        }
+        .applications-list__entry--health-Healthy {
+            border-left-color: #18be94;
+        }
+        .applications-list__entry {
+            padding-left: 1em;
+            border-left: 5px solid #ccd6dd;
+            padding-right: 1em;
+            color: #495763;
+        }
+        .argo-table-list__row {
+            position: relative;
+            margin: 8px 0;
+            line-height: 60px;
+            font-size: .8125em;
+            border-radius: 4px;
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, .1);
+        }
+    </style>
+    <link rel="stylesheet" href="custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="custom.js"></script>
+</head>
+<body>
+<div class="applications-list">
+    <div class="applications-tiles argo-table-list argo-table-list--clickable">
+        <div class="argo-table-list__row applications-list__entry applications-list__entry--health-Healthy ">
+            <div class="row applications-tiles__wrapper">
+                <div class="columns small-12 applications-list__info qe-applications-list-argocd_biz4in-api-dev applications-tiles__item">
+                    <div class="row ">
+                        <div class="columns small-11"><i class="icon argo-icon-helm"></i><span class="applications-list__title" aria-expanded="false">biz4in-api-dev</span></div>
+                        <div class="columns small-1">
+                            <div class="applications-list__external-link">
+                                <button class="large-text-height" aria-expanded="false"><i class="far fa-star fa-lg" style="cursor: pointer; margin-left: 7px; color: rgb(143, 164, 177);"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Project:">Project:</div>
+                        <div class="columns small-9">knet-dev</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Labels:">Labels:</div>
+                        <div class="columns small-9"><span aria-expanded="false">name=biz4in-core</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Status:">Status:</div>
+                        <div class="columns small-9" qe-id="applications-tiles-health-status"><i qe-id="utils-health-status-title" title="Healthy" class="fa fa-heart utils-health-status-icon" style="color: rgb(24, 190, 148);"></i> Healthy&nbsp;<i qe-id="utils-sync-status-title" title="Synced" class="fa fa-check-circle" style="color: rgb(24, 190, 148);"></i> Synced&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Repository:">Repository:</div>
+                        <div class="columns small-9"><span aria-expanded="false">395488743412.dkr.ecr.ap-northeast-2.amazonaws.com</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Target Revision:">Target Revision:</div>
+                        <div class="columns small-9">1.0.24</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Chart:">Chart:</div>
+                        <div class="columns small-9">helm-charts/knet</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Destination:">Destination:</div>
+                        <div class="columns small-9"><span aria-expanded="false">knet-dev</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Namespace:">Namespace:</div>
+                        <div class="columns small-9">biz4in-core</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Age:">Created At:</div>
+                        <div class="columns small-9"><span>05/30/2025 16:00:36<i style="padding: 2px;"></i> (5 months ago)</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Last sync:">Last Sync:</div>
+                        <div class="columns small-9"><span>10/17/2025 15:24:14<i style="padding: 2px;"></i> (5 minutes ago)</span></div>
+                    </div>
+                    <div class="row applications-tiles__actions">
+                        <div class="columns applications-list__entry--actions"><a class="argo-button argo-button--base" qe-id="applications-tiles-button-sync"><i class="fa fa-sync"></i> Sync</a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-refresh"><i class="fa fa-redo"></i> <span class="show-for-xxlarge">Refresh</span></a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-delete"><i class="fa fa-times-circle"></i> <span class="show-for-xxlarge">Delete</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="argo-table-list__row applications-list__entry applications-list__entry--health-Healthy ">
+            <div class="row applications-tiles__wrapper">
+                <div class="columns small-12 applications-list__info qe-applications-list-argocd_biz4in-manager-web-dev applications-tiles__item">
+                    <div class="row ">
+                        <div class="columns small-10"><i class="icon argo-icon-helm"></i><span class="applications-list__title" aria-expanded="false">biz4in-manager-web-dev</span></div>
+                        <div class="columns small-2">
+                            <div class="applications-list__external-link">
+                                <div class="applications-list__external-links-icon-container"><a title="http://manager.dev.biz4in.com/"><i class="fa fa-external-link-alt"></i> </a></div>
+                                <button class="large-text-height" aria-expanded="false"><i class="far fa-star fa-lg" style="cursor: pointer; margin-left: 7px; color: rgb(143, 164, 177);"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Project:">Project:</div>
+                        <div class="columns small-9">knet-dev</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Labels:">Labels:</div>
+                        <div class="columns small-9"><span aria-expanded="false">name=biz4in-web</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Status:">Status:</div>
+                        <div class="columns small-9" qe-id="applications-tiles-health-status"><i qe-id="utils-health-status-title" title="Healthy" class="fa fa-heart utils-health-status-icon" style="color: rgb(24, 190, 148);"></i> Healthy&nbsp;<i qe-id="utils-sync-status-title" title="Synced" class="fa fa-check-circle" style="color: rgb(24, 190, 148);"></i> Synced&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Repository:">Repository:</div>
+                        <div class="columns small-9"><span aria-expanded="false">395488743412.dkr.ecr.ap-northeast-2.amazonaws.com</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Target Revision:">Target Revision:</div>
+                        <div class="columns small-9">1.0.24</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Chart:">Chart:</div>
+                        <div class="columns small-9">helm-charts/knet</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Destination:">Destination:</div>
+                        <div class="columns small-9"><span aria-expanded="false">knet-dev</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Namespace:">Namespace:</div>
+                        <div class="columns small-9">biz4in-web</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Age:">Created At:</div>
+                        <div class="columns small-9"><span>07/09/2025 10:59:03<i style="padding: 2px;"></i> (3 months ago)</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Last sync:">Last Sync:</div>
+                        <div class="columns small-9"><span>10/17/2025 13:23:19<i style="padding: 2px;"></i> (2 hours ago)</span></div>
+                    </div>
+                    <div class="row applications-tiles__actions">
+                        <div class="columns applications-list__entry--actions"><a class="argo-button argo-button--base" qe-id="applications-tiles-button-sync"><i class="fa fa-sync"></i> Sync</a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-refresh"><i class="fa fa-redo"></i> <span class="show-for-xxlarge">Refresh</span></a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-delete"><i class="fa fa-times-circle"></i> <span class="show-for-xxlarge">Delete</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="argo-table-list__row applications-list__entry applications-list__entry--health-Healthy ">
+            <div class="row applications-tiles__wrapper">
+                <div class="columns small-12 applications-list__info qe-applications-list-argocd_biz4in-processor-dev applications-tiles__item">
+                    <div class="row ">
+                        <div class="columns small-11"><i class="icon argo-icon-helm"></i><span class="applications-list__title" aria-expanded="false">biz4in-processor-dev</span></div>
+                        <div class="columns small-1">
+                            <div class="applications-list__external-link">
+                                <button class="large-text-height" aria-expanded="false"><i class="far fa-star fa-lg" style="cursor: pointer; margin-left: 7px; color: rgb(143, 164, 177);"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Project:">Project:</div>
+                        <div class="columns small-9">knet-dev</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Labels:">Labels:</div>
+                        <div class="columns small-9"><span aria-expanded="false">name=biz4in-core</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Status:">Status:</div>
+                        <div class="columns small-9" qe-id="applications-tiles-health-status"><i qe-id="utils-health-status-title" title="Healthy" class="fa fa-heart utils-health-status-icon" style="color: rgb(24, 190, 148);"></i> Healthy&nbsp;<i qe-id="utils-sync-status-title" title="Synced" class="fa fa-check-circle" style="color: rgb(24, 190, 148);"></i> Synced&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Repository:">Repository:</div>
+                        <div class="columns small-9"><span aria-expanded="false">395488743412.dkr.ecr.ap-northeast-2.amazonaws.com</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Target Revision:">Target Revision:</div>
+                        <div class="columns small-9">1.0.24</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Chart:">Chart:</div>
+                        <div class="columns small-9">helm-charts/knet</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Destination:">Destination:</div>
+                        <div class="columns small-9"><span aria-expanded="false">knet-dev</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Namespace:">Namespace:</div>
+                        <div class="columns small-9">biz4in-core</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Age:">Created At:</div>
+                        <div class="columns small-9"><span>05/30/2025 16:00:33<i style="padding: 2px;"></i> (5 months ago)</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Last sync:">Last Sync:</div>
+                        <div class="columns small-9"><span>10/17/2025 15:24:34<i style="padding: 2px;"></i> (5 minutes ago)</span></div>
+                    </div>
+                    <div class="row applications-tiles__actions">
+                        <div class="columns applications-list__entry--actions"><a class="argo-button argo-button--base" qe-id="applications-tiles-button-sync"><i class="fa fa-sync"></i> Sync</a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-refresh"><i class="fa fa-redo"></i> <span class="show-for-xxlarge">Refresh</span></a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-delete"><i class="fa fa-times-circle"></i> <span class="show-for-xxlarge">Delete</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="argo-table-list__row applications-list__entry applications-list__entry--health-Healthy ">
+            <div class="row applications-tiles__wrapper">
+                <div class="columns small-12 applications-list__info qe-applications-list-argocd_biz4in-web-dev applications-tiles__item">
+                    <div class="row ">
+                        <div class="columns small-10"><i class="icon argo-icon-helm"></i><span class="applications-list__title" aria-expanded="false">biz4in-web-dev</span></div>
+                        <div class="columns small-2">
+                            <div class="applications-list__external-link">
+                                <div class="applications-list__external-links-icon-container"><a title="http://www.dev.biz4in.com/"><i class="fa fa-external-link-alt"></i> </a></div>
+                                <button class="large-text-height" aria-expanded="false"><i class="far fa-star fa-lg" style="cursor: pointer; margin-left: 7px; color: rgb(143, 164, 177);"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Project:">Project:</div>
+                        <div class="columns small-9">knet-dev</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Labels:">Labels:</div>
+                        <div class="columns small-9"><span aria-expanded="false">name=biz4in-web</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Status:">Status:</div>
+                        <div class="columns small-9" qe-id="applications-tiles-health-status"><i qe-id="utils-health-status-title" title="Healthy" class="fa fa-heart utils-health-status-icon" style="color: rgb(24, 190, 148);"></i> Healthy&nbsp;<i qe-id="utils-sync-status-title" title="Synced" class="fa fa-check-circle" style="color: rgb(24, 190, 148);"></i> Synced&nbsp;</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Repository:">Repository:</div>
+                        <div class="columns small-9"><span aria-expanded="false">395488743412.dkr.ecr.ap-northeast-2.amazonaws.com</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Target Revision:">Target Revision:</div>
+                        <div class="columns small-9">1.0.24</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Chart:">Chart:</div>
+                        <div class="columns small-9">helm-charts/knet</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Destination:">Destination:</div>
+                        <div class="columns small-9"><span aria-expanded="false">knet-dev</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Namespace:">Namespace:</div>
+                        <div class="columns small-9">biz4in-web</div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Age:">Created At:</div>
+                        <div class="columns small-9"><span>07/09/2025 10:59:01<i style="padding: 2px;"></i> (3 months ago)</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns small-3" title="Last sync:">Last Sync:</div>
+                        <div class="columns small-9"><span>10/13/2025 16:48:46<i style="padding: 2px;"></i> (4 days ago)</span></div>
+                    </div>
+                    <div class="row applications-tiles__actions">
+                        <div class="columns applications-list__entry--actions"><a class="argo-button argo-button--base" qe-id="applications-tiles-button-sync"><i class="fa fa-sync"></i> Sync</a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-refresh"><i class="fa fa-redo"></i> <span class="show-for-xxlarge">Refresh</span></a>&nbsp;<a class="argo-button argo-button--base" qe-id="applications-tiles-button-delete"><i class="fa fa-times-circle"></i> <span class="show-for-xxlarge">Delete</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

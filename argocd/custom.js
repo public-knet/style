@@ -6,9 +6,9 @@ function loadJQuery() {
 			return;
 		}
 
-		const script   = document.createElement('script');
-		script.src     = 'https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js';
-		script.onload  = () => {
+		const script = document.createElement('script');
+		script.src = 'https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js';
+		script.onload = () => {
 			console.log('jQuery loaded!');
 			resolve();
 		};
@@ -43,7 +43,7 @@ function waitForElement(selector, timeout = 10000) {
 
 		observer.observe(document.body, {
 			childList: true,
-			subtree  : true,
+			subtree: true,
 		});
 
 		// 타임아웃 설정 (선택 사항)
@@ -72,10 +72,10 @@ function waitForElement(selector, timeout = 10000) {
 	const prettyApplicationTitle = ($info) => {
 		// title 변경
 		const $title = $info.find('.applications-list__title');
-		let title    = $title.text().trim();
+		let title = $title.text().trim();
 
 		const profile = title.substring(title.lastIndexOf('-')).replace('-', '');
-		const name    = title.substring(0, title.lastIndexOf('-'));
+		const name = title.substring(0, title.lastIndexOf('-'));
 
 		$title.html(`
 			<span class="profile profile-${profile}">${profile === 'devops' ? 'dev<br/>ops' : profile}</span>
@@ -88,9 +88,9 @@ function waitForElement(selector, timeout = 10000) {
 
 		// Last Sync 변경
 		const $lastSyncValue = $info.find('.row:nth-child(11)').find('div:nth-child(2) span');
-		let lastSync         = $lastSyncValue.text();
-		lastSync             = lastSync.split('(')[1]
-		lastSync             = lastSync.substring(0, lastSync.length - 1)
+		let lastSync = $lastSyncValue.text();
+		lastSync = lastSync.split('(')[1]
+		lastSync = lastSync.substring(0, lastSync.length - 1)
 		$lastSyncValue.html(lastSync)
 	}
 
@@ -109,7 +109,11 @@ function waitForElement(selector, timeout = 10000) {
 	}
 
 	console.log('> Pretty Application Title : init')
-	doPretty()
+	doPretty();
+
+	window.addEventListener('popstate', function (event) {
+		doPretty();
+	});
 
 	// -------------------------------------------------------------------------------------------------------------------------
 

@@ -23,7 +23,7 @@
 function inject(type, url) {
 	GM.xmlHttpRequest({
 		method: 'GET',
-		url   : url,
+		url: url,
 		onload: res => {
 			console.log(`Inject KNET ${type}: ${url}`)
 			if (type === 'style') {
@@ -33,7 +33,7 @@ function inject(type, url) {
 				css.textContent = res.responseText;
 				document.body.parentNode.insertBefore(css, document.body.nextSibling);
 			} else if (type === 'script') {
-				var script         = document.createElement('script');
+				var script = document.createElement('script');
 				script.textContent = res.responseText;
 				document.body.parentNode.insertBefore(script, document.body.nextSibling);
 			}

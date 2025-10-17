@@ -12,7 +12,7 @@
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
 
-(function() {
+(function () {
 	'use strict';
 
 	window.addEventListener('load', () => {

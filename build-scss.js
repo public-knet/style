@@ -6,14 +6,14 @@ const execAsync = promisify(exec);
 
 (async () => {
 	const files = await glob('**/*.scss', {
-		cwd     : process.cwd(),
+		cwd: process.cwd(),
 		absolute: true,
-		ignore  : ['**/node_modules/**'],
+		ignore: ['**/node_modules/**'],
 	});
 
 	for (const file of files) {
 		const outFile = file.replace(/\.scss$/, '.css');
-		const cmd     = `sass "${file}" "${outFile}"`;
+		const cmd = `sass "${file}" "${outFile}"`;
 
 		try {
 			await execAsync(cmd);
