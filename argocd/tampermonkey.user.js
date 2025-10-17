@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ArgoCD
 // @namespace    https://github.com/public-knet/style
-// @version      1.22
+// @version      1.23
 // @description  ArgoCD 스타일 변경
 // @author       한승룡
 // @icon         https://argocd.devops.knetbiz.com/assets/favicon/favicon-32x32.png
@@ -25,7 +25,7 @@
 function inject(type, url) {
 	GM.xmlHttpRequest({
 		method: "GET",
-		_url: url,
+		url: url,
 		onload: res => {
 			console.log(`Inject KNET ${type}: ${url}`)
 			if (type === 'style') {
