@@ -1,23 +1,23 @@
 ::-webkit-scrollbar {
-  width:  10px;
+  width: 10px;
   height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius:    10px;
+  border-radius: 10px;
   background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius:    10px;
+  border-radius: 10px;
   background-color: #c1c1c1;
-  background-clip:  padding-box;
-  border:           2px solid transparent;
-  border-left:      1px solid transparent;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left: 1px solid transparent;
 }
 
 ::-webkit-scrollbar-button {
-  width:  0;
+  width: 0;
   height: 0;
 }
 
@@ -34,7 +34,7 @@ header {
   }
 }
 .doc-main {
-  height:     calc(100% - 41px) !important;
+  height: calc(100% - 41px) !important;
   margin-top: 40px !important;
 }
 
@@ -57,8 +57,8 @@ header {
 .menu_group {
   .list_menu {
     > li {
-      height:         26px;
-      padding-top:    2px !important;
+      height: 26px;
+      padding-top: 2px !important;
       padding-bottom: 3px !important;
 
       a.link_mail {
@@ -76,9 +76,9 @@ header {
             display: none !important;
           }
           .on_link {
-            color:       #a6a6a6;
-            font-family: monospace;
-            font-size:   12px !important;
+            color: #a6a6a6;
+            font-family: gulim !important;
+            font-size: 12px !important;
             font-weight: normal;
           }
         }
@@ -120,9 +120,9 @@ header {
     }
 
     #searchMails {
-      top:   3px;
+      top: 3px;
       right: unset;
-      left:  590px;
+      left: 590px;
     }
   }
 }
@@ -133,16 +133,16 @@ header {
   .mail_head {
     .info_search {
       margin-top: 0;
-      height:     38px;
+      height: 38px;
     }
 
     &::before {
-      top:    43px;
+      top: 43px;
       margin: 0;
     }
 
     &::after {
-      margin:           0;
+      margin: 0;
       background-color: #e0e0e0;
     }
   }
@@ -153,24 +153,24 @@ header {
 
   .info_move {
     position: relative;
-    height:   100%;
+    height: 100%;
 
     .group_mail {
-      position:   absolute;
-      top:        109px;
-      right:      0;
-      bottom:     0;
-      left:       0;
-      height:     auto;
+      position: absolute;
+      top: 109px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: auto;
       max-height: unset;
     }
 
     .box_add {
-      position:      absolute;
-      top:           0;
-      right:         0;
-      left:          0;
-      border-top:    none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      border-top: none;
       border-bottom: 1px solid rgb(241, 241, 241);
     }
   }
@@ -189,7 +189,7 @@ header {
 
     .box_content {
       padding-bottom: 5px;
-      font-size:      11px !important;
+      font-size: 11px !important;
 
       .tit_content {
         font-size: 11px !important;
@@ -199,10 +199,10 @@ header {
         font-size: 12px !important;
         a {
           strong {
-            overflow:      hidden;
-            white-space:   nowrap;
+            overflow: hidden;
+            white-space: nowrap;
             text-overflow: ellipsis;
-            word-break:    break-all;
+            word-break: break-all;
           }
         }
       }
@@ -210,18 +210,18 @@ header {
   }
 
   .inner_list {
-    height:  100% !important;
+    height: 100% !important;
     padding: 0 !important;
 
     .list_mail {
-      height:     calc(100% - 80px) !important;
+      height: calc(100% - 80px) !important;
       overflow-y: scroll;
 
       .mail_item {
         .info_from {
           .link_from {
             font-weight: normal;
-            opacity:     0.6;
+            opacity: 0.6;
           }
         }
 
@@ -232,18 +232,18 @@ header {
     }
 
     .wrap_paging {
-      border-top:     1px solid #f2f2f2;
-      padding-top:    10px;
+      border-top: 1px solid #f2f2f2;
+      padding-top: 10px;
       padding-bottom: 0;
-      text-align:     left;
+      text-align: left;
 
       .paging_mail {
-        text-align:  center;
+        text-align: center;
         margin-left: 10px;
       }
 
       .box_viewsetting {
-        top:   10px;
+        top: 10px;
         right: 10px;
       }
     }
