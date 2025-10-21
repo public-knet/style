@@ -15,8 +15,10 @@ KNET.pretty = ($li) => {
 
 	console.log($li.index(), title);
 
+	$link.addClass('seperator');
+
 	title = title.split(' ')[1] + ' ';
-	$linkText.addClass('seperator').html(title.padEnd(30, '-'))
+	$linkText.html(title.padEnd(30, '-'))
 
 	$li.data('pretty', true)
 }
