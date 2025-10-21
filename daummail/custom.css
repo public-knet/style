@@ -55,16 +55,25 @@ header #gnbContent {
 .menu_group .list_menu > li a.link_mail {
   max-width: 200px;
 }
-.menu_group .list_menu > li a.link_mail .on_link {
-  opacity: 0.8;
-}
-.menu_group .list_menu > li.on a.link_mail .on_link {
-  opacity: 1;
-}
 .menu_group .list_menu > li a.link_mail .img_mail_v1 {
   opacity: 0.3;
 }
+.menu_group .list_menu > li a.link_mail .on_link {
+  opacity: 0.8;
+}
+.menu_group .list_menu > li a.link_mail.seperator .img_mail_v1 {
+  display: none !important;
+}
+.menu_group .list_menu > li a.link_mail.seperator .on_link {
+  color: #a6a6a6;
+  font-family: monospace;
+  font-size: 12px !important;
+  font-weight: normal;
+}
 .menu_group .list_menu > li.on a.link_mail .img_mail_v1 {
+  opacity: 1;
+}
+.menu_group .list_menu > li.on a.link_mail .on_link {
   opacity: 1;
 }
 .menu_group .list_menu > li a.link_receivenum .txt_receivenum {
@@ -175,7 +184,7 @@ header #gnbContent {
 #mailList .inner_list .wrap_paging {
   border-top: 1px solid #f2f2f2;
   padding-top: 10px;
-  padding-bottom: 0px;
+  padding-bottom: 0;
   text-align: left;
 }
 #mailList .inner_list .wrap_paging .paging_mail {
