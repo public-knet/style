@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DaumMail
 // @namespace    https://github.com/public-knet/style
-// @version      1.4
+// @version      1.5
 // @description  Daum메일 스타일 변경
 // @author       한승룡
 // @icon         https://mail.daum.net/favicon_daum.ico
@@ -16,9 +16,9 @@
 	'use strict';
 
 	window.addEventListener('load', () => {
-		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/_commons/commons.js');
-		inject('style', 'https://raw.githubusercontent.com/public-knet/style/main/daummail/custom.css');
-		inject('script', 'https://raw.githubusercontent.com/public-knet/style/main/daummail/custom.js');
+		inject('script', `https://raw.githubusercontent.com/public-knet/style/main/_commons/commons.js?${new Date().getTime()}`);
+		inject('style', `https://raw.githubusercontent.com/public-knet/style/main/daummail/custom.css?${new Date().getTime()}`);
+		inject('script', `https://raw.githubusercontent.com/public-knet/style/main/daummail/custom.js?${new Date().getTime()}`);
 	});
 })();
 
