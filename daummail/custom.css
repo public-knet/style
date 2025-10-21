@@ -1,0 +1,201 @@
+@charset "UTF-8";
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #c1c1c1;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-left: 1px solid transparent;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+/* header */
+header {
+  height: 40px !important;
+}
+header .util_mail {
+  top: 5px;
+}
+header #gnbContent {
+  top: 41px;
+}
+
+.doc-main {
+  height: calc(100% - 41px) !important;
+  margin-top: 40px !important;
+}
+
+/* 안읽음 색상 */
+.utill_mail .link_util:not(.link_on) .img_mail_v1 {
+  opacity: 0.2;
+}
+.utill_mail .link_util .num_util {
+  color: #ff5e5f;
+}
+
+/* 메뉴 디자인 변경 */
+.menu_group .list_menu > li {
+  height: 26px;
+  padding-top: 2px !important;
+  padding-bottom: 3px !important;
+}
+.menu_group .list_menu > li a.link_mail {
+  max-width: 200px;
+}
+.menu_group .list_menu > li a.link_mail .on_link {
+  opacity: 0.8;
+}
+.menu_group .list_menu > li.on a.link_mail .on_link {
+  opacity: 1;
+}
+.menu_group .list_menu > li a.link_mail .img_mail_v1 {
+  opacity: 0.3;
+}
+.menu_group .list_menu > li.on a.link_mail .img_mail_v1 {
+  opacity: 1;
+}
+.menu_group .list_menu > li a.link_receivenum .txt_receivenum {
+  color: #ff5e5f;
+}
+
+/* 메일 상단 메뉴 */
+.doc-main {
+  padding-top: 44px !important;
+}
+
+#mainSub .mail_head {
+  padding: 3px 0 3px 0;
+}
+#mainSub .mail_head #mailToolbar .inner_toolbar .select_all {
+  margin-left: 4px;
+}
+#mainSub .mail_head #searchMails {
+  top: 3px;
+  right: unset;
+  left: 590px;
+}
+
+.doc-main.cont_search {
+  padding-top: 83px !important;
+}
+
+#mainSub .mail_head .info_search {
+  margin-top: 0;
+  height: 38px;
+}
+#mainSub .mail_head::before {
+  top: 43px;
+  margin: 0;
+}
+#mainSub .mail_head::after {
+  margin: 0;
+  background-color: #e0e0e0;
+}
+
+#mailsToolbarMoveContextmenue {
+  height: 70vh;
+}
+#mailsToolbarMoveContextmenue .info_move {
+  position: relative;
+  height: 100%;
+}
+#mailsToolbarMoveContextmenue .info_move .group_mail {
+  position: absolute;
+  top: 109px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: auto;
+  max-height: unset;
+}
+#mailsToolbarMoveContextmenue .info_move .box_add {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-top: none;
+  border-bottom: 1px solid rgb(241, 241, 241);
+}
+
+/* 메일 목록 */
+#daBannerWrapper {
+  display: none;
+}
+
+#mailList {
+  overflow: hidden !important;
+}
+#mailList #infoNotice {
+  padding-top: 5px;
+}
+#mailList #infoNotice .box_content {
+  padding-bottom: 5px;
+  font-size: 11px !important;
+}
+#mailList #infoNotice .box_content .tit_content {
+  font-size: 11px !important;
+}
+#mailList #infoNotice .box_content .info_subject {
+  font-size: 12px !important;
+}
+#mailList #infoNotice .box_content .info_subject a strong {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+#mailList .inner_list {
+  height: 100% !important;
+  padding: 0 !important;
+}
+#mailList .inner_list .list_mail {
+  height: calc(100% - 80px) !important;
+  overflow-y: scroll;
+}
+#mailList .inner_list .list_mail .mail_item .info_from .link_from {
+  font-weight: normal;
+  opacity: 0.6;
+}
+#mailList .inner_list .list_mail .mail_item .info_subject {
+  padding-right: 30px;
+}
+#mailList .inner_list .wrap_paging {
+  border-top: 1px solid #f2f2f2;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  text-align: left;
+}
+#mailList .inner_list .wrap_paging .paging_mail {
+  text-align: center;
+  margin-left: 10px;
+}
+#mailList .inner_list .wrap_paging .box_viewsetting {
+  top: 10px;
+  right: 10px;
+}
+
+/* 메일 내부 메뉴 */
+#mailViewer .mail_head #mailToolbar {
+  margin: 0;
+}
+#mailViewer .mail_head #mailToolbar .inner_toolbar {
+  padding: 5px 10px;
+}
+#mailViewer .mail_cont {
+  top: 50px;
+}
+
+/*# sourceMappingURL=custom.css.map */
