@@ -80,6 +80,17 @@ const KNET = {
 			})(window.history);
 
 			window.addEventListener('urlchange', func);
+		},
+		getByteLength(s) {
+			let len = 0;
+			for (let i = 0; i < s.length; i++) {
+				if (escape(s.charAt(i)).length > 3) { // 한글은 %xx 형태로 변환되므로 길이가 4가 됩니다.
+					len += 2;
+				} else {
+					len += 1;
+				}
+			}
+			return len;
 		}
 	},
 }

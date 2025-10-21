@@ -17,8 +17,11 @@ KNET.pretty = ($li) => {
 
 	$link.addClass('seperator');
 
-	title = title.split(' ')[1] + ' ';
-	$linkText.html(title.padEnd(30, '-'))
+	title = ' ' + title.split(' ')[1] + ' ';
+	const titleLength = KNET.getByteLength(title)
+	const padStartLength = Math.floor((30 - titleLength) / 2)
+	const padEndLength = 30 - titleLength - padStartLength
+	$linkText.html(title.padStart(padStartLength, '-').padEnd(padEndLength, '-'))
 
 	$li.data('pretty', true)
 }
