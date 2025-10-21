@@ -7,7 +7,7 @@ KNET.pretty = ($entry) => {
 	const $title = $entry.find('.applications-list__title');
 	let title = $title.text().trim();
 
-	console.log($entry.index() - 1, title);
+	console.log($entry.index(), title);
 
 	const profile = title.substring(title.lastIndexOf('-')).replace('-', '');
 	const name = title.substring(0, title.lastIndexOf('-'));

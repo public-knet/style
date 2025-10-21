@@ -4,7 +4,7 @@ KNET.pretty = ($li) => {
 	}
 
 	const $link = $li.find('a.link_mail');
-	const $linkText = $link.find('on_link');
+	const $linkText = $link.find('.on_link');
 
 	// title 변경
 	let title = $linkText.text().trim();
@@ -13,7 +13,7 @@ KNET.pretty = ($li) => {
 		return;
 	}
 
-	console.log($li.index() - 1, title);
+	console.log($li.index(), title);
 
 	title = title.split(' ')[1] + ' ';
 	$linkText.addClass('seperator').html(title.padEnd(30, '-'))
