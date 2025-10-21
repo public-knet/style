@@ -1,13 +1,13 @@
-KNET.pretty = ($info) => {
-	if ($info.data('pretty')) {
+KNET.pretty = ($entry) => {
+	if ($entry.data('pretty')) {
 		return;
 	}
 
 	// title 변경
-	const $title = $info.find('.applications-list__title');
+	const $title = $entry.find('.applications-list__title');
 	let title = $title.text().trim();
 
-	console.log($info.index() - 1, title);
+	console.log($entry.index() - 1, title);
 
 	const profile = title.substring(title.lastIndexOf('-')).replace('-', '');
 	const name = title.substring(0, title.lastIndexOf('-'));
@@ -18,23 +18,23 @@ KNET.pretty = ($info) => {
 		`);
 
 	// Labels 변경
-	const $labelsValue = $info.find('.row:nth-child(3)').find('div:nth-child(2) span');
+	const $labelsValue = $entry.find('.row:nth-child(3)').find('div:nth-child(2) span');
 	$labelsValue.html($labelsValue.text().replace('name=', ''))
 
 	// Last Sync 변경
-	const $lastSyncValue = $info.find('.row:nth-child(11)').find('div:nth-child(2) span');
+	const $lastSyncValue = $entry.find('.row:nth-child(11)').find('div:nth-child(2) span');
 	let lastSync = $lastSyncValue.text();
 	lastSync = lastSync.split('(')[1]
 	lastSync = lastSync.substring(0, lastSync.length - 1)
 	$lastSyncValue.html(lastSync)
 
-	$info.data('pretty', true)
+	$entry.data('pretty', true)
 }
 
 KNET.doPretty = async () => {
 	const $applicationTiles = await KNET.util.waitForElement('.applications-tiles');
 
-	$applicationTiles.find('.applications-list__info').each(function () {
+	$applicationTiles.find('.applications-list__entry').each(function () {
 		KNET.pretty($(this));
 	});
 }
