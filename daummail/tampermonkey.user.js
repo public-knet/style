@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DaumMail
 // @namespace    https://github.com/public-knet/style
-// @version      1.6
+// @version      1.7
 // @description  Daum메일 스타일 변경
 // @author       한승룡
 // @icon         https://mail.daum.net/favicon_daum.ico

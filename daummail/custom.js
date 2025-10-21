@@ -9,21 +9,24 @@ KNET.pretty = ($li) => {
 	// title 변경
 	let title = $linkText.text().trim();
 	if (!title.startsWith('--')) {
-		$li.data('pretty', true)
+		$li.data('pretty', true);
 		return;
 	}
 
+	$li.addClass('seperator');
+
+	const maxSize = 30
+	title = title.replace(/-/g, '');
+	const titleLength = document.KNET.util.getByteLength(title);
+	const padStartLength = Math.floor((maxSize - titleLength) / 2);
+	const padEndLength = maxSize - titleLength - padStartLength;
+	title = ''.padStart(padStartLength, '-') + title;
+	title = title + ''.padEnd(padEndLength, '-');
+	$linkText.html(title.replace(/ /g, '&nbsp;'));
+
 	console.log($li.index(), title);
 
-	$link.addClass('seperator');
-
-	title = ' ' + title.split(' ')[1] + ' ';
-	const titleLength = KNET.util.getByteLength(title)
-	const padStartLength = Math.floor((30 - titleLength) / 2)
-	const padEndLength = 30 - titleLength - padStartLength
-	$linkText.html(title.padStart(padStartLength, '-').padEnd(padEndLength, '-'))
-
-	$li.data('pretty', true)
+	$li.data('pretty', true);
 }
 
 KNET.doPretty = async () => {
