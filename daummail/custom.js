@@ -1,4 +1,4 @@
-document.KNET.pretty = ($li) => {
+KNET.pretty = ($li) => {
 	if ($li.data('pretty')) {
 		return;
 	}
@@ -17,7 +17,7 @@ document.KNET.pretty = ($li) => {
 
 	const maxSize = 30
 	title = title.replace(/-/g, '');
-	const titleLength = document.KNET.util.getByteLength(title);
+	const titleLength = KNET.util.getByteLength(title);
 	const padStartLength = Math.floor((maxSize - titleLength) / 2);
 	const padEndLength = maxSize - titleLength - padStartLength;
 	title = ''.padStart(padStartLength, '-') + title;
@@ -28,21 +28,21 @@ document.KNET.pretty = ($li) => {
 	$li.data('pretty', true)
 }
 
-document.KNET.doPretty = async () => {
-	const $menuGroup1 = await document.KNET.util.waitForElement('#menuGroup1');
+KNET.doPretty = async () => {
+	const $menuGroup1 = await KNET.util.waitForElement('#menuGroup1');
 
 	$menuGroup1.find('> li').each(function () {
-		document.KNET.pretty($(this));
+		KNET.pretty($(this));
 	});
 }
 
 // ----------------------------------------------------------------
 
 (async () => {
-	await document.KNET.util.loadJQuery();
-	await document.KNET.util.waitForDocumentReady();
+	await KNET.util.loadJQuery();
+	await KNET.util.waitForDocumentReady();
 
 	// 최초 1회 실행
 	console.log('> Pretty : init')
-	await document.KNET.doPretty();
+	await KNET.doPretty();
 })();
