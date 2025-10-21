@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         ChatGPT
 // @namespace    https://github.com/public-knet/style
-// @version      1.10
+// @version      1.11
 // @description  ChatGPT 스타일 변경
 // @author       한승룡
 // @icon         https://cdn.oaistatic.com/assets/favicon-l4nq08hd.svg
 // @updateURL    https://raw.githubusercontent.com/public-knet/style/main/chatgpt/tampermonkey.user.js
 // @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/chatgpt/tampermonkey.user.js
-// @match        *://chatgpt.com/*
+// @include      /^https:\/\/chatgpt\.com.*$/
 // @grant        GM.xmlHttpRequest
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
