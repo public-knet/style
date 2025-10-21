@@ -70,6 +70,18 @@ header {
         .on_link {
           opacity: 0.8;
         }
+
+        &.seperator {
+          .img_mail_v1 {
+            display: none !important;
+          }
+          .on_link {
+            color:       #a6a6a6;
+            font-family: monospace;
+            font-size:   12px !important;
+            font-weight: normal;
+          }
+        }
       }
       &.on {
         a.link_mail {
@@ -79,17 +91,6 @@ header {
           .on_link {
             opacity: 1;
           }
-        }
-      }
-
-      &.seperator {
-        .img_mail_v1 {
-          display: none;
-        }
-        .on_link {
-          color:       #a6a6a6;
-          font-family: monospace;
-          font-size:   12px !important;
         }
       }
 
