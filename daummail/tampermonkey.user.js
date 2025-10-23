@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         DaumMail
 // @namespace    https://github.com/public-knet/style
-// @version      1.12
+// @version      1.13
 // @description  Daum메일 스타일 변경
 // @author       한승룡
 // @icon         https://mail.daum.net/favicon_daum.ico
 // @updateURL    https://raw.githubusercontent.com/public-knet/style/main/daummail/tampermonkey.user.js
 // @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/daummail/tampermonkey.user.js
-// @include      /^https:\/\/mail\.daum\.net(\/top)?.*$/
+// @include      /^https:\/\/mail\.daum\.net(?:\/(?!newWindow(?:\/|$)).*)?$/
 // @grant        GM.xmlHttpRequest
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
