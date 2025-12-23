@@ -47,39 +47,37 @@
         .dPiqXj {
           .hIUejk {
             .icrzSA {
-              .ifCEFH {
-                .caGhnx {
-                  > table {
-                    width:     100%;
-                    max-width: 100%;
+              .caGhnx {
+                > table {
+                  width:     100%;
+                  max-width: 100%;
 
-                    thead {
-                      tr {
-                        th[role="gridcell"] {
-                          padding: 8px;
-                        }
+                  thead {
+                    tr {
+                      th[role="gridcell"] {
+                        padding: 8px;
                       }
                     }
-                    tbody {
-                      tr {
-                        td[role="gridcell"] {
-                          padding: 8px;
+                  }
+                  tbody {
+                    tr {
+                      td[role="gridcell"] {
+                        padding: 8px;
 
-                          &:has(button[role="checkbox"]) {
-                            width: 56px;
-                          }
+                        &:has(button[role="checkbox"]) {
+                          width: 56px;
+                        }
 
-                          &:has(div[role="status"]) {
-                            width: 81px;
-                          }
+                        &:has(div[role="status"]) {
+                          width: 81px;
+                        }
 
-                          &:has(button.bbRHss) {
-                            width: 48px;
-                          }
+                        &:has(button.bbRHss) {
+                          width: 48px;
+                        }
 
-                          span {
-                            max-width: 35em;
-                          }
+                        span {
+                          max-width: 35em;
                         }
                       }
                     }

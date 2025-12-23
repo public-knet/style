@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Strapi5
 // @namespace    https://github.com/public-knet/style
-// @version      1.29
+// @version      1.1
 // @description  Strapi5 스타일 변경
 // @author       한승룡
 // @icon         https://dev.cms.knetbiz.com/favicon.ico
