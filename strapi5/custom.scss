@@ -1,0 +1,102 @@
+::-webkit-scrollbar {
+  width:  10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius:    10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius:    10px;
+  background-color: #32324d;
+  background-clip:  padding-box;
+  border:           2px solid transparent;
+  border-left:      1px solid transparent;
+}
+
+::-webkit-scrollbar-button {
+  width:  0;
+  height: 0;
+}
+
+/* 좌측 메뉴 */
+@media (min-width: 768px) {
+  .hvygbM {
+    .dHQLbf {
+      width: 350px;
+
+      nav {
+        width: 100%;
+        .eTJBjc {
+          .ckKhkE {
+            > div {
+              .fyRZgV {
+                max-width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* Content Manager */
+    .cXYHzM {
+      main {
+        .dPiqXj {
+          .hIUejk {
+            .icrzSA {
+              .ifCEFH {
+                .caGhnx {
+                  > table {
+                    width:     100%;
+                    max-width: 100%;
+
+                    thead {
+                      tr {
+                        th[role="gridcell"] {
+                          padding: 8px;
+                        }
+                      }
+                    }
+                    tbody {
+                      tr {
+                        td[role="gridcell"] {
+                          padding: 8px;
+
+                          &:has(button[role="checkbox"]) {
+                            width: 56px;
+                          }
+
+                          &:has(div[role="status"]) {
+                            width: 81px;
+                          }
+
+                          &:has(button.bbRHss) {
+                            width: 48px;
+                          }
+
+                          span {
+                            max-width: 35em;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media Library */
+@media (min-width: 768px) {
+  .gthUzY {
+    grid-column: span 2;
+  }
+}

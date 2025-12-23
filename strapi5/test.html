@@ -1,0 +1,1550 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex">
+    <meta name="referrer" content="same-origin">
+    <title>바로빌 개발자센터 - API 가이드 | Strapi</title>
+    <style>
+        html,
+        body,
+        #strapi {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+    <style type="text/css">[data-sonner-toaster][dir=ltr], html[dir=ltr] {--toast-icon-margin-start: -3px;--toast-icon-margin-end: 4px;--toast-svg-margin-start: -1px;--toast-svg-margin-end: 0px;--toast-button-margin-start: auto;--toast-button-margin-end: 0;--toast-close-button-start: 0;--toast-close-button-end: unset;--toast-close-button-transform: translate(-35%, -35%)}
+    [data-sonner-toaster][dir=rtl], html[dir=rtl] {--toast-icon-margin-start: 4px;--toast-icon-margin-end: -3px;--toast-svg-margin-start: 0px;--toast-svg-margin-end: -1px;--toast-button-margin-start: 0;--toast-button-margin-end: auto;--toast-close-button-start: unset;--toast-close-button-end: 0;--toast-close-button-transform: translate(35%, -35%)}
+    [data-sonner-toaster] {position: fixed;width: var(--width);font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;--gray1: hsl(0, 0%, 99%);--gray2: hsl(0, 0%, 97.3%);--gray3: hsl(0, 0%, 95.1%);--gray4: hsl(0, 0%, 93%);--gray5: hsl(0, 0%, 90.9%);--gray6: hsl(0, 0%, 88.7%);--gray7: hsl(0, 0%, 85.8%);--gray8: hsl(0, 0%, 78%);--gray9: hsl(0, 0%, 56.1%);--gray10: hsl(0, 0%, 52.3%);--gray11: hsl(0, 0%, 43.5%);--gray12: hsl(0, 0%, 9%);--border-radius: 8px;box-sizing: border-box;padding: 0;margin: 0;list-style: none;outline: 0;z-index: 999999999;transition: transform .4s ease}
+    @media (hover: none) and (pointer: coarse) {
+        [data-sonner-toaster][data-lifted=true] {transform: none}
+    }
+    [data-sonner-toaster][data-x-position=right] {right: var(--offset-right)}
+    [data-sonner-toaster][data-x-position=left] {left: var(--offset-left)}
+    [data-sonner-toaster][data-x-position=center] {left: 50%;transform: translateX(-50%)}
+    [data-sonner-toaster][data-y-position=top] {top: var(--offset-top)}
+    [data-sonner-toaster][data-y-position=bottom] {bottom: var(--offset-bottom)}
+    [data-sonner-toast] {--y: translateY(100%);--lift-amount: calc(var(--lift) * var(--gap));z-index: var(--z-index);position: absolute;opacity: 0;transform: var(--y);touch-action: none;transition: transform .4s, opacity .4s, height .4s, box-shadow .2s;box-sizing: border-box;outline: 0;overflow-wrap: anywhere}
+    [data-sonner-toast][data-styled=true] {padding: 16px;background: var(--normal-bg);border: 1px solid var(--normal-border);color: var(--normal-text);border-radius: var(--border-radius);box-shadow: 0 4px 12px rgba(0, 0, 0, .1);width: var(--width);font-size: 13px;display: flex;align-items: center;gap: 6px}
+    [data-sonner-toast]:focus-visible {box-shadow: 0 4px 12px rgba(0, 0, 0, .1), 0 0 0 2px rgba(0, 0, 0, .2)}
+    [data-sonner-toast][data-y-position=top] {top: 0;--y: translateY(-100%);--lift: 1;--lift-amount: calc(1 * var(--gap))}
+    [data-sonner-toast][data-y-position=bottom] {bottom: 0;--y: translateY(100%);--lift: -1;--lift-amount: calc(var(--lift) * var(--gap))}
+    [data-sonner-toast][data-styled=true] [data-description] {font-weight: 400;line-height: 1.4;color: #3f3f3f}
+    [data-rich-colors=true][data-sonner-toast][data-styled=true] [data-description] {color: inherit}
+    [data-sonner-toaster][data-sonner-theme=dark] [data-description] {color: #e8e8e8}
+    [data-sonner-toast][data-styled=true] [data-title] {font-weight: 500;line-height: 1.5;color: inherit}
+    [data-sonner-toast][data-styled=true] [data-icon] {display: flex;height: 16px;width: 16px;position: relative;justify-content: flex-start;align-items: center;flex-shrink: 0;margin-left: var(--toast-icon-margin-start);margin-right: var(--toast-icon-margin-end)}
+    [data-sonner-toast][data-promise=true] [data-icon] > svg {opacity: 0;transform: scale(.8);transform-origin: center;animation: sonner-fade-in .3s ease forwards}
+    [data-sonner-toast][data-styled=true] [data-icon] > * {flex-shrink: 0}
+    [data-sonner-toast][data-styled=true] [data-icon] svg {margin-left: var(--toast-svg-margin-start);margin-right: var(--toast-svg-margin-end)}
+    [data-sonner-toast][data-styled=true] [data-content] {display: flex;flex-direction: column;gap: 2px}
+    [data-sonner-toast][data-styled=true] [data-button] {border-radius: 4px;padding-left: 8px;padding-right: 8px;height: 24px;font-size: 12px;color: var(--normal-bg);background: var(--normal-text);margin-left: var(--toast-button-margin-start);margin-right: var(--toast-button-margin-end);border: none;font-weight: 500;cursor: pointer;outline: 0;display: flex;align-items: center;flex-shrink: 0;transition: opacity .4s, box-shadow .2s}
+    [data-sonner-toast][data-styled=true] [data-button]:focus-visible {box-shadow: 0 0 0 2px rgba(0, 0, 0, .4)}
+    [data-sonner-toast][data-styled=true] [data-button]:first-of-type {margin-left: var(--toast-button-margin-start);margin-right: var(--toast-button-margin-end)}
+    [data-sonner-toast][data-styled=true] [data-cancel] {color: var(--normal-text);background: rgba(0, 0, 0, .08)}
+    [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-styled=true] [data-cancel] {background: rgba(255, 255, 255, .3)}
+    [data-sonner-toast][data-styled=true] [data-close-button] {position: absolute;left: var(--toast-close-button-start);right: var(--toast-close-button-end);top: 0;height: 20px;width: 20px;display: flex;justify-content: center;align-items: center;padding: 0;color: var(--gray12);background: var(--normal-bg);border: 1px solid var(--gray4);transform: var(--toast-close-button-transform);border-radius: 50%;cursor: pointer;z-index: 1;transition: opacity .1s, background .2s, border-color .2s}
+    [data-sonner-toast][data-styled=true] [data-close-button]:focus-visible {box-shadow: 0 4px 12px rgba(0, 0, 0, .1), 0 0 0 2px rgba(0, 0, 0, .2)}
+    [data-sonner-toast][data-styled=true] [data-disabled=true] {cursor: not-allowed}
+    [data-sonner-toast][data-styled=true]:hover [data-close-button]:hover {background: var(--gray2);border-color: var(--gray5)}
+    [data-sonner-toast][data-swiping=true]::before {content: '';position: absolute;left: -100%;right: -100%;height: 100%;z-index: -1}
+    [data-sonner-toast][data-y-position=top][data-swiping=true]::before {bottom: 50%;transform: scaleY(3) translateY(50%)}
+    [data-sonner-toast][data-y-position=bottom][data-swiping=true]::before {top: 50%;transform: scaleY(3) translateY(-50%)}
+    [data-sonner-toast][data-swiping=false][data-removed=true]::before {content: '';position: absolute;inset: 0;transform: scaleY(2)}
+    [data-sonner-toast][data-expanded=true]::after {content: '';position: absolute;left: 0;height: calc(var(--gap) + 1px);bottom: 100%;width: 100%}
+    [data-sonner-toast][data-mounted=true] {--y: translateY(0);opacity: 1}
+    [data-sonner-toast][data-expanded=false][data-front=false] {--scale: var(--toasts-before) *0.05 +1;--y: translateY(calc(var(--lift-amount) * var(--toasts-before))) scale(calc(-1 * var(--scale)));height: var(--front-toast-height)}
+    [data-sonner-toast] > * {transition: opacity .4s}
+    [data-sonner-toast][data-x-position=right] {right: 0}
+    [data-sonner-toast][data-x-position=left] {left: 0}
+    [data-sonner-toast][data-expanded=false][data-front=false][data-styled=true] > * {opacity: 0}
+    [data-sonner-toast][data-visible=false] {opacity: 0;pointer-events: none}
+    [data-sonner-toast][data-mounted=true][data-expanded=true] {--y: translateY(calc(var(--lift) * var(--offset)));height: var(--initial-height)}
+    [data-sonner-toast][data-removed=true][data-front=true][data-swipe-out=false] {--y: translateY(calc(var(--lift) * -100%));opacity: 0}
+    [data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=true] {--y: translateY(calc(var(--lift) * var(--offset) + var(--lift) * -100%));opacity: 0}
+    [data-sonner-toast][data-removed=true][data-front=false][data-swipe-out=false][data-expanded=false] {--y: translateY(40%);opacity: 0;transition: transform .5s, opacity .2s}
+    [data-sonner-toast][data-removed=true][data-front=false]::before {height: calc(var(--initial-height) + 20%)}
+    [data-sonner-toast][data-swiping=true] {transform: var(--y) translateY(var(--swipe-amount-y, 0)) translateX(var(--swipe-amount-x, 0));transition: none}
+    [data-sonner-toast][data-swiped=true] {user-select: none}
+    [data-sonner-toast][data-swipe-out=true][data-y-position=bottom], [data-sonner-toast][data-swipe-out=true][data-y-position=top] {animation-duration: .2s;animation-timing-function: ease-out;animation-fill-mode: forwards}
+    [data-sonner-toast][data-swipe-out=true][data-swipe-direction=left] {animation-name: swipe-out-left}
+    [data-sonner-toast][data-swipe-out=true][data-swipe-direction=right] {animation-name: swipe-out-right}
+    [data-sonner-toast][data-swipe-out=true][data-swipe-direction=up] {animation-name: swipe-out-up}
+    [data-sonner-toast][data-swipe-out=true][data-swipe-direction=down] {animation-name: swipe-out-down}
+    @keyframes swipe-out-left {
+        from {transform: var(--y) translateX(var(--swipe-amount-x));opacity: 1}
+        to {transform: var(--y) translateX(calc(var(--swipe-amount-x) - 100%));opacity: 0}
+    }
+    @keyframes swipe-out-right {
+        from {transform: var(--y) translateX(var(--swipe-amount-x));opacity: 1}
+        to {transform: var(--y) translateX(calc(var(--swipe-amount-x) + 100%));opacity: 0}
+    }
+    @keyframes swipe-out-up {
+        from {transform: var(--y) translateY(var(--swipe-amount-y));opacity: 1}
+        to {transform: var(--y) translateY(calc(var(--swipe-amount-y) - 100%));opacity: 0}
+    }
+    @keyframes swipe-out-down {
+        from {transform: var(--y) translateY(var(--swipe-amount-y));opacity: 1}
+        to {transform: var(--y) translateY(calc(var(--swipe-amount-y) + 100%));opacity: 0}
+    }
+    @media (max-width: 600px) {
+        [data-sonner-toaster] {position: fixed;right: var(--mobile-offset-right);left: var(--mobile-offset-left);width: 100%}
+        [data-sonner-toaster][dir=rtl] {left: calc(var(--mobile-offset-left) * -1)}
+        [data-sonner-toaster] [data-sonner-toast] {left: 0;right: 0;width: calc(100% - var(--mobile-offset-left) * 2)}
+        [data-sonner-toaster][data-x-position=left] {left: var(--mobile-offset-left)}
+        [data-sonner-toaster][data-y-position=bottom] {bottom: var(--mobile-offset-bottom)}
+        [data-sonner-toaster][data-y-position=top] {top: var(--mobile-offset-top)}
+        [data-sonner-toaster][data-x-position=center] {left: var(--mobile-offset-left);right: var(--mobile-offset-right);transform: none}
+    }
+    [data-sonner-toaster][data-sonner-theme=light] {--normal-bg: #fff;--normal-border: var(--gray4);--normal-text: var(--gray12);--success-bg: hsl(143, 85%, 96%);--success-border: hsl(145, 92%, 87%);--success-text: hsl(140, 100%, 27%);--info-bg: hsl(208, 100%, 97%);--info-border: hsl(221, 91%, 93%);--info-text: hsl(210, 92%, 45%);--warning-bg: hsl(49, 100%, 97%);--warning-border: hsl(49, 91%, 84%);--warning-text: hsl(31, 92%, 45%);--error-bg: hsl(359, 100%, 97%);--error-border: hsl(359, 100%, 94%);--error-text: hsl(360, 100%, 45%)}
+    [data-sonner-toaster][data-sonner-theme=light] [data-sonner-toast][data-invert=true] {--normal-bg: #000;--normal-border: hsl(0, 0%, 20%);--normal-text: var(--gray1)}
+    [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast][data-invert=true] {--normal-bg: #fff;--normal-border: var(--gray3);--normal-text: var(--gray12)}
+    [data-sonner-toaster][data-sonner-theme=dark] {--normal-bg: #000;--normal-bg-hover: hsl(0, 0%, 12%);--normal-border: hsl(0, 0%, 20%);--normal-border-hover: hsl(0, 0%, 25%);--normal-text: var(--gray1);--success-bg: hsl(150, 100%, 6%);--success-border: hsl(147, 100%, 12%);--success-text: hsl(150, 86%, 65%);--info-bg: hsl(215, 100%, 6%);--info-border: hsl(223, 43%, 17%);--info-text: hsl(216, 87%, 65%);--warning-bg: hsl(64, 100%, 6%);--warning-border: hsl(60, 100%, 9%);--warning-text: hsl(46, 87%, 65%);--error-bg: hsl(358, 76%, 10%);--error-border: hsl(357, 89%, 16%);--error-text: hsl(358, 100%, 81%)}
+    [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button] {background: var(--normal-bg);border-color: var(--normal-border);color: var(--normal-text)}
+    [data-sonner-toaster][data-sonner-theme=dark] [data-sonner-toast] [data-close-button]:hover {background: var(--normal-bg-hover);border-color: var(--normal-border-hover)}
+    [data-rich-colors=true][data-sonner-toast][data-type=success] {background: var(--success-bg);border-color: var(--success-border);color: var(--success-text)}
+    [data-rich-colors=true][data-sonner-toast][data-type=success] [data-close-button] {background: var(--success-bg);border-color: var(--success-border);color: var(--success-text)}
+    [data-rich-colors=true][data-sonner-toast][data-type=info] {background: var(--info-bg);border-color: var(--info-border);color: var(--info-text)}
+    [data-rich-colors=true][data-sonner-toast][data-type=info] [data-close-button] {background: var(--info-bg);border-color: var(--info-border);color: var(--info-text)}
+    [data-rich-colors=true][data-sonner-toast][data-type=warning] {background: var(--warning-bg);border-color: var(--warning-border);color: var(--warning-text)}
+    [data-rich-colors=true][data-sonner-toast][data-type=warning] [data-close-button] {background: var(--warning-bg);border-color: var(--warning-border);color: var(--warning-text)}
+    [data-rich-colors=true][data-sonner-toast][data-type=error] {background: var(--error-bg);border-color: var(--error-border);color: var(--error-text)}
+    [data-rich-colors=true][data-sonner-toast][data-type=error] [data-close-button] {background: var(--error-bg);border-color: var(--error-border);color: var(--error-text)}
+    .sonner-loading-wrapper {--size: 16px;height: var(--size);width: var(--size);position: absolute;inset: 0;z-index: 10}
+    .sonner-loading-wrapper[data-visible=false] {transform-origin: center;animation: sonner-fade-out .2s ease forwards}
+    .sonner-spinner {position: relative;top: 50%;left: 50%;height: var(--size);width: var(--size)}
+    .sonner-loading-bar {animation: sonner-spin 1.2s linear infinite;background: var(--gray11);border-radius: 6px;height: 8%;left: -10%;position: absolute;top: -3.9%;width: 24%}
+    .sonner-loading-bar:first-child {animation-delay: -1.2s;transform: rotate(.0001deg) translate(146%)}
+    .sonner-loading-bar:nth-child(2) {animation-delay: -1.1s;transform: rotate(30deg) translate(146%)}
+    .sonner-loading-bar:nth-child(3) {animation-delay: -1s;transform: rotate(60deg) translate(146%)}
+    .sonner-loading-bar:nth-child(4) {animation-delay: -.9s;transform: rotate(90deg) translate(146%)}
+    .sonner-loading-bar:nth-child(5) {animation-delay: -.8s;transform: rotate(120deg) translate(146%)}
+    .sonner-loading-bar:nth-child(6) {animation-delay: -.7s;transform: rotate(150deg) translate(146%)}
+    .sonner-loading-bar:nth-child(7) {animation-delay: -.6s;transform: rotate(180deg) translate(146%)}
+    .sonner-loading-bar:nth-child(8) {animation-delay: -.5s;transform: rotate(210deg) translate(146%)}
+    .sonner-loading-bar:nth-child(9) {animation-delay: -.4s;transform: rotate(240deg) translate(146%)}
+    .sonner-loading-bar:nth-child(10) {animation-delay: -.3s;transform: rotate(270deg) translate(146%)}
+    .sonner-loading-bar:nth-child(11) {animation-delay: -.2s;transform: rotate(300deg) translate(146%)}
+    .sonner-loading-bar:nth-child(12) {animation-delay: -.1s;transform: rotate(330deg) translate(146%)}
+    @keyframes sonner-fade-in {
+        0% {opacity: 0;transform: scale(.8)}
+        100% {opacity: 1;transform: scale(1)}
+    }
+    @keyframes sonner-fade-out {
+        0% {opacity: 1;transform: scale(1)}
+        100% {opacity: 0;transform: scale(.8)}
+    }
+    @keyframes sonner-spin {
+        0% {opacity: 1}
+        100% {opacity: .15}
+    }
+    @media (prefers-reduced-motion) {
+        .sonner-loading-bar, [data-sonner-toast], [data-sonner-toast] > * {transition: none !important;animation: none !important}
+    }
+    .sonner-loader {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);transform-origin: center;transition: opacity .2s, transform .2s}
+    .sonner-loader[data-visible=false] {opacity: 0;transform: scale(.8) translate(-50%, -50%)}</style>
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/AuthenticatedLayout-BrZSXosC.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/lt-Bl7mRxH3.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/users-Dre-oh2V.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/index-AjB92Y4V.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/index-BRVyLNfZ.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/PrivateRoute-Du0o4OV1.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/index-BaIz6P4z.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/HomePage-BwSeRDwx.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/useDragLayer-C6JwkUWg.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/WidgetHelpers-5um3yBfQ.js">
+    <style data-styled="active" data-styled-version="6.1.13">.fffbQL {height: 100dvh;}
+    .dDvrYk {height: 100%;}
+    .ihYfrC {background: #181826;}
+    .ggjsty {padding-block-start: 12px;padding-inline-end: 12px;padding-block-end: 12px;padding-inline-start: 12px;top: -100%;left: -100%;color: #212134;background: #7b79ff;border-radius: 4px;z-index: 9999;position: absolute;}
+    .gNUfLq {top: 0;width: 100dvw;background: #212134;z-index: 3;}
+    @media (min-width: 1080px) {
+        .gNUfLq {width: 56px;}
+    }
+    .hDbkDE {padding-block-start: 12px;padding-inline-end: 12px;padding-block-end: 12px;padding-inline-start: 12px;}
+    .gDcFdp {width: 3.2rem;height: 3.2rem;}
+    .klkusm {background: #32324d;}
+    .grmjRT {padding-block-start: 12px;padding-block-end: 12px;padding-inline-start: 12px;padding-inline-end: 12px;flex: 1;}
+    @media (min-width: 1080px) {
+        .grmjRT {padding-inline-start: 0;padding-inline-end: 0;}
+    }
+    .pfFCB {padding-block-start: 12px;padding-inline-end: 12px;padding-block-end: 12px;padding-inline-start: 12px;border-style: solid;border-width: 0;border-color: #32324d;display: none;}
+    @media (min-width: 1080px) {
+        .pfFCB {border-width: 1px 0 0 0;display: flex;}
+    }
+    .eMVVwy {padding-inline-start: 16px;padding-inline-end: 16px;width: 100%;border-radius: 4px;cursor: pointer;}
+    .ldBMYE {padding-block-start: 12px;padding-inline-end: 12px;padding-block-end: 12px;padding-inline-start: 12px;display: flex;}
+    @media (min-width: 1080px) {
+        .ldBMYE {display: none;}
+    }
+    .bhNqYS {border-radius: 4px;display: inline-flex;cursor: pointer;}
+    .gFntXO {width: 100%;height: auto;overflow: auto;flex: 1;}
+    @media (min-width: 1080px) {
+        .gFntXO {height: 100%;}
+    }
+    .hxlkPW {padding-block-end: 16px;}
+    @media (min-width: 768px) {
+        .hxlkPW {padding-block-end: 24px;}
+    }
+    @media (min-width: 1080px) {
+        .hxlkPW {padding-block-end: 56px;}
+    }
+    .cGxozl {padding-block-start: 16px;padding-block-end: 16px;padding-inline-start: 16px;padding-inline-end: 16px;background: #181826;}
+    @media (min-width: 768px) {
+        .cGxozl {padding-inline-start: 24px;padding-inline-end: 24px;}
+    }
+    @media (min-width: 1080px) {
+        .cGxozl {padding-block-start: 40px;padding-block-end: 40px;padding-inline-start: 56px;padding-inline-end: 56px;}
+    }
+    .iTZzDK {min-width: 0;}
+    .fXOkAX {padding-inline-start: 16px;padding-inline-end: 16px;border-radius: 4px;cursor: pointer;}
+    .bfreMm {padding-block-start: 16px;}
+    @media (min-width: 1080px) {
+        .bfreMm {padding-block-start: 0;}
+    }
+    .dPiqXj {padding-inline-start: 16px;padding-inline-end: 16px;}
+    @media (min-width: 768px) {
+        .dPiqXj {padding-inline-start: 24px;padding-inline-end: 24px;}
+    }
+    @media (min-width: 1080px) {
+        .dPiqXj {padding-inline-start: 56px;padding-inline-end: 56px;}
+    }
+    .iErOHb {padding-block-end: 56px;}
+    .bcIgZC {top: 0;left: 0;bottom: 0;right: 0;position: absolute;}
+    .hoZSSu {position: relative;}
+    .kOfJLP {padding-block-start: 24px;padding-inline-end: 24px;padding-block-end: 24px;padding-inline-start: 24px;width: 100%;background: #212134;border-radius: 4px;border-style: solid;border-width: 1px;border-color: #32324d;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.2);position: relative;}
+    .KVyJT {width: 100%;min-height: 2.25rem;}
+    .kkkMeo {margin-inline-end: auto;}
+    .bZdzmu {text-align: right;}
+    .kxznfL {border-radius: 4px;display: inline-flex;cursor: grab;}
+    .ejHSMY {width: 100%;height: 261px;overflow: auto;}
+    .iqSHuF {text-align: center;}
+    .fOjtKo {margin-block-start: 8px;}
+    .bYJmbh {padding-inline-start: 8px;padding-inline-end: 8px;min-width: 20px;background: #32324d;}
+    .dCjVPx {padding-inline-start: 16px;padding-inline-end: 16px;}
+    @media (min-width: 1080px) {
+        .dCjVPx {padding-inline-start: 20px;padding-inline-end: 20px;}
+    }
+    .dkfRIA {padding-block-start: 16px;padding-block-end: 0;padding-inline-start: 16px;padding-inline-end: 16px;}
+    @media (min-width: 1080px) {
+        .dkfRIA {padding-block-start: 20px;padding-inline-start: 20px;padding-inline-end: 20px;}
+    }
+    .fyRZgV {padding-block-start: 16px;padding-block-end: 16px;max-width: 100%;}
+    @media (min-width: 768px) {
+        .fyRZgV {max-width: 23.2rem;}
+    }
+    .gXSpQQ {padding-inline-end: 4px;}
+    .isYxil {margin-inline-start: 4px;margin-inline-end: 4px;}
+    @media (min-width: 1080px) {
+        .isYxil {margin-inline-start: 8px;margin-inline-end: 8px;}
+    }
+    .kRjbhE {padding-inline-start: 12px;padding-inline-end: 12px;width: 100%;border-radius: 4px;}
+    .kCLFOl {width: 100%;}
+    .eguKUx {width: 80dvw;overflow: hidden;}
+    @media (min-width: 768px) {
+        .eguKUx {width: 100%;}
+    }
+    .hZiiIv {padding-block-start: 16px;padding-block-end: 16px;padding-inline-start: 16px;padding-inline-end: 16px;background: #181826;}
+    @media (min-width: 768px) {
+        .hZiiIv {padding-inline-start: 24px;padding-inline-end: 24px;}
+    }
+    @media (min-width: 1080px) {
+        .hZiiIv {padding-block-start: 24px;padding-block-end: 40px;padding-inline-start: 56px;padding-inline-end: 56px;}
+    }
+    .lmPZGO {cursor: pointer;}
+    .iQtddd {padding-inline-start: 16px;padding-inline-end: 16px;margin-inline-start: 8px;min-width: max-content;border-radius: 4px;cursor: pointer;}
+    .gOeJgg {padding-block-end: 16px;padding-inline-start: 16px;padding-inline-end: 16px;}
+    @media (min-width: 768px) {
+        .gOeJgg {padding-inline-start: 24px;padding-inline-end: 24px;}
+    }
+    @media (min-width: 1080px) {
+        .gOeJgg {padding-inline-start: 56px;padding-inline-end: 56px;}
+    }
+    .fwfHpQ {flex-shrink: 0;}
+    .bvTxUR {background: #212134;border-radius: 4px;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.2);}
+    .CKRBb {padding-inline-start: 24px;padding-inline-end: 24px;}
+    .eVYwLq {color: #a5a5ba;}
+    .bcyhAF {color: #ffffff;}
+    .eOJTlN {padding-block-start: 4px;padding-block-end: 4px;padding-inline-start: 8px;padding-inline-end: 8px;max-width: min-content;color: #5cb176;background: #181826;border-radius: 4px;border-style: solid;border-width: 1px;border-color: #4a4a6a;}
+    .hdpRQE {padding-block-start: 4px;padding-inline-start: 7px;padding-inline-end: 7px;border-radius: 4px;cursor: pointer;}
+    .hdpYRr {padding-block-start: 16px;padding-block-end: 16px;}
+    .lmVLhG {background: #212134;border-radius: 4px;cursor: default;position: relative;overflow: hidden;}
+    .gHCzMh {flex: 1;}
+    .jGxefY {width: 100%;height: 1px;}
+    .ldYQLR {max-width: 30rem;}
+    .irSppn {max-width: 50rem;}
+    .BsDfz {padding-inline-start: 0;padding-inline-end: 0;}
+    .hymMdM {padding-block-start: 20px;padding-inline-end: 20px;padding-block-end: 20px;padding-inline-start: 20px;}
+    .efcWiT {padding-inline-start: 16px;padding-inline-end: 16px;width: 100%;border-radius: 4px;cursor: pointer;flex: 1;}
+    .flaJFu {width: 50rem;max-width: 100%;}
+    .kvnEME {padding-block-start: 20px;padding-inline-end: 24px;padding-block-end: 20px;padding-inline-start: 20px;background: #181826;border-radius: 4px;border-style: solid;border-width: 1px;border-color: #4a4a6a;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);}
+    .fLDmlJ {width: 2rem;height: 2rem;flex-shrink: 0;}
+    .kQFUxc {margin-block-start: 4px;width: 1.6rem;height: 1.6rem;color: #eaeaef;background: transparent;}
+    .etUWla {width: 24px;text-align: center;}
+    .glbfPQ {background: #212134;border-radius: 4px;border-style: solid;border-width: 1px;border-color: #32324d;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);overflow: auto;}
+    .byoXYe {background: #212134;box-shadow: none;}
+    .egWQZX {padding-inline-start: 16px;padding-inline-end: 16px;}
+    .hpYdXB {overflow: hidden;}
+    .bYEAMh {width: 3.2rem;height: 3.2rem;flex-shrink: 0;}
+    .gzoqjU {padding-block-start: 8px;padding-inline-end: 8px;padding-block-end: 8px;padding-inline-start: 8px;}
+    .jEfejG {padding-inline-start: 8px;padding-inline-end: 8px;background: #212134;border-radius: 4px;border-style: solid;border-width: 1px;border-color: #4a4a6a;}
+    .iKxvZH {padding-block-start: 4px;padding-block-end: 4px;}
+    .JbGds {padding-block-end: 8px;}
+    .cwWhlS {padding-block-start: 12px;padding-inline-end: 12px;padding-block-end: 12px;padding-inline-start: 12px;background: #212134;border-radius: 4px;border-style: solid;border-width: 1px;border-color: #32324d;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.2);cursor: pointer;}
+    .eYqzaK {z-index: 2;position: relative;}
+    .iJIWIr {padding-block-start: 8px;padding-block-end: 8px;padding-inline-start: 12px;padding-inline-end: 12px;color: #66b7f1;background: #181826;border-radius: 4px;}
+    .bbEGPf {max-width: 100%;position: relative;overflow: hidden;}
+    .gljOEQ {padding-block-start: 4px;padding-inline-end: 4px;padding-block-end: 4px;padding-inline-start: 4px;max-width: 100%;}
+    .broPxg {max-width: 100%;}
+    .eLVqLc {right: 16px;}
+    .bwCzfQ {align-items: center;justify-content: center;flex-direction: row;display: flex;}
+    .dDSRXA {align-items: flex-start;flex-direction: column;display: flex;}
+    @media (min-width: 1080px) {
+        .dDSRXA {flex-direction: row;}
+    }
+    .kDApux {align-items: normal;flex-direction: row;display: flex;}
+    @media (min-width: 1080px) {
+        .kDApux {flex-direction: column;}
+    }
+    .ihHuRM {align-items: center;justify-content: center;flex-direction: column;display: flex;}
+    .hQNVqK {align-items: center;flex-direction: row;display: flex;}
+    .irSEDe {gap: 12px;align-items: center;justify-content: center;flex-direction: row;display: flex;}
+    @media (min-width: 1080px) {
+        .irSEDe {justify-content: flex-start;flex-direction: column;}
+    }
+    .irjOGg {gap: 8px;align-items: center;justify-content: flex-start;flex-direction: row;display: inline-flex;}
+    .kaBsXU {gap: 12px;align-items: center;flex-direction: row;display: flex;}
+    .eKQPuW {gap: 8px;align-items: initial;flex-direction: column;display: flex;}
+    .bxMNQD {gap: 16px;align-items: center;justify-content: space-between;flex-wrap: wrap;flex-direction: row;display: flex;}
+    .cAbQNR {gap: 8px;align-items: center;justify-content: center;flex-direction: row;display: inline-flex;}
+    .ddSgkv {gap: 40px;align-items: stretch;flex-direction: column;display: flex;}
+    .ccmECB {gap: 16px;align-items: flex-start;flex-direction: column;display: flex;}
+    .flgAFT {gap: 8px;align-items: center;flex-direction: row;display: flex;}
+    .hblBxy {gap: 12px;align-items: center;justify-content: center;flex-direction: column;display: flex;}
+    .frXtfW {gap: 4px;align-items: center;flex-wrap: wrap;flex-direction: row;display: flex;}
+    .bVtsYY {align-items: center;justify-content: center;flex-direction: row;display: inline-flex;}
+    .btJeLs {align-items: center;justify-content: space-between;flex-direction: row;display: flex;}
+    .fHkKMI {gap: 12px;align-items: stretch;flex-direction: column;display: flex;}
+    .hOXSn {gap: 4px;align-items: stretch;flex-direction: column;display: flex;}
+    .wlhcd {gap: 8px;align-items: center;justify-content: space-between;flex-direction: row;display: flex;}
+    .jgQRyR {gap: 20px;align-items: stretch;flex-direction: column;display: flex;}
+    .kHsFSH {gap: 8px;align-items: stretch;flex-direction: column;display: flex;}
+    .eoAyv {gap: 4px;align-items: center;flex-direction: row;display: flex;}
+    .gkLKbx {gap: 2px;align-items: stretch;flex-direction: column;display: flex;}
+    .gEOQtB {gap: 4px;align-items: center;justify-content: space-between;flex-direction: row;display: flex;}
+    .gKoNzd {align-items: flex-start;justify-content: space-between;flex-direction: row;display: flex;}
+    .kyPtnu {gap: 8px;align-items: center;flex-wrap: wrap;flex-direction: row;display: flex;}
+    .hIUejk {gap: 16px;align-items: stretch;flex-direction: column;display: flex;}
+    .fMSIvK {align-items: flex-end;justify-content: space-between;flex-direction: row;display: flex;}
+    .fINGZO {gap: 16px;align-items: center;justify-content: space-between;flex-direction: row;display: flex;}
+    .fZQOKJ {gap: 12px;align-items: flex-start;flex-direction: row;display: flex;}
+    .blkbbR {gap: 4px;align-items: start;flex-wrap: wrap;flex-direction: row;display: flex;}
+    .MPcVA {gap: 16px;align-items: center;flex-direction: row;display: flex;}
+    .eHgrGr {gap: 4px;align-items: center;justify-content: flex-end;flex-direction: row;display: flex;}
+    .dVvlrO {align-items: stretch;flex-direction: column;display: flex;}
+    .jxuDtT {align-items: flex-start;flex-direction: column;display: flex;}
+    .kQbgcB {align-items: start;flex-direction: column;display: flex;}
+    .dvHOXc {font-size: 1.2rem;line-height: 1.33;color: currentcolor;font-weight: 600;}
+    .diPmPF {font-weight: 600;font-size: 3.2rem;line-height: 1.25;color: currentcolor;}
+    .eCTGDm {font-size: 1.6rem;line-height: 1.5;color: #a5a5ba;}
+    .bxNVCh {font-weight: 600;font-size: 1.1rem;line-height: 1.45;text-transform: uppercase;color: #c0c0cf;}
+    .loGCsW {font-size: 1.4rem;line-height: 1.43;color: #7b79ff;}
+    .fDisXc {font-size: 1.4rem;line-height: 1.43;color: currentcolor;text-transform: uppercase;font-weight: 600;}
+    .dqtGbw {font-size: 1.4rem;line-height: 1.43;color: currentcolor;text-transform: none;font-weight: 600;}
+    .hvvwPm {font-size: 1.4rem;line-height: 1.43;color: #a5a5ba;}
+    .bjjcHP {font-weight: 600;font-size: 1.1rem;line-height: 1.45;text-transform: uppercase;color: #a5a5ba;line-height: 1rem;}
+    .glFSHi {font-weight: 600;font-size: 1.8rem;line-height: 1.22;color: currentcolor;}
+    .ixlqCr {font-weight: 600;font-size: 1.1rem;line-height: 1.45;text-transform: uppercase;color: #a5a5ba;}
+    .jjYjBE {font-size: 1.4rem;line-height: 1.43;color: currentcolor;line-height: 32px;}
+    .eSnerJ {font-size: 1.4rem;line-height: 1.43;color: currentcolor;font-weight: 600;}
+    .iYEWgw {font-size: 1.4rem;line-height: 1.43;display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #ffffff;}
+    .ibKklh {font-size: 1.2rem;line-height: 1.33;color: currentcolor;line-height: revert;font-weight: 600;}
+    .fxLLuG {font-size: 1.2rem;line-height: 1.33;color: currentcolor;line-height: revert;}
+    .jjjZgH {font-size: 1.4rem;line-height: 1.43;color: currentcolor;line-height: 20px;}
+    .dpcZMB {font-size: 1.4rem;line-height: 1.43;color: #ffffff;}
+    .kmNmlI {font-size: 1.4rem;line-height: 1.43;display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #ffffff;text-decoration: none;font-weight: 600;}
+    .EhBoS {font-size: 1.4rem;line-height: 1.43;color: #ee5e52;}
+    .gbGMjI {font-weight: 500;font-size: 1.6rem;line-height: 1.25;color: currentcolor;font-weight: 500;}
+    .lnyEhI {font-size: 1.4rem;line-height: 1.43;display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #ffffff;font-weight: 500;}
+    .dTdWse {font-size: 1.2rem;line-height: 1.33;display: block;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: #a5a5ba;}
+    .ihrEqy {border: 0;clip: rect(0 0 0 0);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}
+    .kaUyvO {position: relative;outline: none;}
+    .kaUyvO:after {transition-property: all;transition-duration: 0.2s;border-radius: 8px;content: '';position: absolute;top: -4px;bottom: -4px;left: -4px;right: -4px;border: 2px solid transparent;}
+    .kaUyvO:focus-visible {outline: none;}
+    .kaUyvO:focus-visible:after {border-radius: 8px;content: '';position: absolute;top: -5px;bottom: -5px;left: -5px;right: -5px;border: 2px solid #7b79ff;}
+    .iWiFYA svg {height: 100%;width: 100%;}
+    .iWiFYA svg path {fill: #7b79ff;}
+    .fYkPuQ {position: relative;z-index: 0;display: inline-flex;align-items: center;justify-content: center;vertical-align: middle;overflow: hidden;user-select: none;overflow: hidden;border-radius: 50%;width: 3.2rem;height: 3.2rem;background-color: #7b79ff;color: #212134;}
+    .zerkR {width: 100%;height: 100%;object-fit: cover;border-radius: inherit;}
+    .hVDKRd {border-radius: 4px;padding-block: 0.7rem;}
+    .jwBCsG {text-decoration: none;}
+    .jwBCsG:visited {color: inherit;}
+    .bbRHss {height: 3.2rem;text-decoration: none;border: 1px solid transparent;background: transparent;color: #ffffff;}
+    .bbRHss svg {fill: #c0c0cf;}
+    .bbRHss:hover {background-color: #181826;}
+    .bbRHss:active {background-color: #32324d;}
+    .bbRHss[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .bbRHss {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .jKnOEE {height: 3.2rem;text-decoration: none;border: 1px solid #4a4a6a;background: #212134;color: #ffffff;}
+    .jKnOEE:hover {background-color: #181826;}
+    .jKnOEE:active {background-color: #32324d;}
+    .jKnOEE[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .jKnOEE {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .eycxJg {height: 3.2rem;text-decoration: none;border: 1px solid #4945ff;background: #4945ff;color: #ffffff;}
+    .eycxJg:hover {border: 1px solid #7b79ff;background: #7b79ff;}
+    .eycxJg:active {border: 1px solid #7b79ff;background: #7b79ff;}
+    .eycxJg[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .eycxJg {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .iyoZup {height: 3.2rem;text-decoration: none;border: 1px solid #4a4a6a;background: #181826;color: #7b79ff;}
+    .iyoZup:hover {background-color: #212134;}
+    .iyoZup:active {background-color: #212134;border: 1px solid #7b79ff;color: #7b79ff;}
+    .iyoZup[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .iyoZup {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .dhlRBF {background-color: #ffffff;color: #212134;padding-inline: 8px;padding-block: 8px;border-radius: 4px;z-index: 1000;will-change: opacity;transform-origin: var(--radix-tooltip-content-transform-origin);}
+    @media (prefers-reduced-motion: no-preference) {
+        .dhlRBF {animation: gUdGlN 200ms cubic-bezier(.4, 0, .2, 1);}
+    }
+    .bxLDyM {text-decoration: none;padding-block: 0.7rem;padding-inline: 0.7rem;border: 1px solid #4a4a6a;background: #212134;color: #ffffff;color: #c0c0cf;}
+    .bxLDyM:hover {background-color: #181826;color: #a5a5ba;}
+    .bxLDyM:active {background-color: #32324d;}
+    .bxLDyM[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .bxLDyM {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .eburNj {text-decoration: none;padding-block: 0.2rem;padding-inline: 0.2rem;border: 1px solid #4a4a6a;background: #181826;color: #ee5e52;}
+    .eburNj:hover {background-color: #212134;}
+    .eburNj:active {background-color: #212134;border: 1px solid #ee5e52;color: #ee5e52;}
+    .eburNj[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .eburNj {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .laPEUE {text-decoration: none;padding-block: 0.2rem;padding-inline: 0.2rem;border: 1px solid #4a4a6a;background: #212134;color: #ffffff;color: #c0c0cf;}
+    .laPEUE:hover {background-color: #181826;color: #a5a5ba;}
+    .laPEUE:active {background-color: #32324d;}
+    .laPEUE[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .laPEUE {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .fEqJBa {text-decoration: none;padding-block: 0.7rem;padding-inline: 0.7rem;border: 1px solid transparent;background: transparent;color: #ffffff;}
+    .fEqJBa svg {fill: #c0c0cf;}
+    .fEqJBa:hover {background-color: #181826;}
+    .fEqJBa:active {background-color: #32324d;}
+    .fEqJBa[aria-disabled='true'] {border: 1px solid #4a4a6a;background: #32324d;color: #a5a5ba;cursor: default;}
+    @media (prefers-reduced-motion: no-preference) {
+        .fEqJBa {transition: background-color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), color 120ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+    }
+    .bULIHi {display: inline-flex;align-items: center;text-decoration: none;gap: 8px;position: relative;outline: none;}
+    .bULIHi svg {font-size: 1rem;}
+    .bULIHi svg path {fill: #7b79ff;}
+    .bULIHi:hover > span {color: #7b79ff;}
+    .bULIHi:hover svg path {fill: #7b79ff;}
+    .bULIHi:active {color: #7b79ff;}
+    .bULIHi:after {transition-property: all;transition-duration: 0.2s;border-radius: 8px;content: '';position: absolute;top: -4px;bottom: -4px;left: -4px;right: -4px;border: 2px solid transparent;}
+    .bULIHi:focus-visible {outline: none;}
+    .bULIHi:focus-visible:after {border-radius: 8px;content: '';position: absolute;top: -5px;bottom: -5px;left: -5px;right: -5px;border: 2px solid #7b79ff;}
+    .jaAsdg {position: absolute;top: 12px;right: 12px;}
+    .hRYLdd {background: #212134;width: 2rem;height: 2rem;border-radius: 4px;border: 1px solid #666687;position: relative;z-index: 0;display: flex;justify-content: center;align-items: center;flex: 0 0 2rem;}
+    .hRYLdd[data-state='checked']:not([data-disabled]), .hRYLdd[data-state='indeterminate']:not([data-disabled]) {border: 1px solid #7b79ff;background-color: #7b79ff;}
+    .hRYLdd[data-disabled] {background-color: #4a4a6a;}
+    .hRYLdd::before {content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 100%;height: 100%;z-index: -1;min-width: 44px;min-height: 44px;}
+    .IuAWZ {display: inline-flex;pointer-events: auto !important;width: 100%;height: 100%;cursor: pointer;justify-content: center;align-items: center;}
+    .IuAWZ[data-disabled] {cursor: not-allowed;}
+    .bcbayv {border: none;border-radius: 4px;color: #ffffff;font-weight: 400;font-size: 1.4rem;line-height: 2.2rem;display: block;width: 100%;background: inherit;padding-inline-start: 0;padding-inline-end: 16px;padding-block: 4px;}
+    .bcbayv::placeholder {color: #a5a5ba;opacity: 1;}
+    .bcbayv[aria-disabled='true'] {color: inherit;}
+    .bcbayv:focus {outline: none;box-shadow: none;}
+    .kTvxxr {border: 1px solid #4a4a6a;border-radius: 4px;background: #212134;padding-inline-start: 16px;position: relative;outline: none;box-shadow: none;transition-property: border-color, box-shadow, fill;transition-duration: 0.2s;}
+    .kTvxxr:focus-within {border: 1px solid #7b79ff;box-shadow: #7b79ff 0px 0px 0px 2px;}
+    .eTJBjc {width: 100%;height: 100%;overflow: hidden;display: flex;}
+    .ckKhkE {min-width: 100%;}
+    .fnhKjb {display: flex;user-select: none;touch-action: none;}
+    .fnhKjb[data-orientation='vertical'] {width: 0.4rem;margin: 0.4rem;}
+    .fnhKjb[data-orientation='horizontal'] {flex-direction: column;height: 0.4rem;margin: 0.4rem;}
+    .hFnZPu {position: relative;flex: 1;background-color: #32324d;border-radius: 0.4rem;}
+    .hFnZPu::before {content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 100%;height: 100%;min-width: 44px;min-height: 44px;}
+    .eEIbHL {animation: gzYjWD 1s infinite linear;will-change: transform;}
+    .bdICqB {display: grid;grid-template-columns:repeat(12, 1fr);gap: 20px;}
+    .eYVIuU {display: grid;grid-template-columns:repeat(12, 1fr);gap: 16px;}
+    .jDmEEj {grid-column: span 12;max-width: 100%;}
+    @media (min-width: 520px) {
+        .jDmEEj {grid-column: span 12;}
+    }
+    @media (min-width: 768px) {
+        .jDmEEj {grid-column: span 12;}
+    }
+    @media (min-width: 1080px) {
+        .jDmEEj {grid-column: span 6;}
+    }
+    .fNlfqe {grid-column: span 12;max-width: 100%;}
+    @media (min-width: 520px) {
+        .fNlfqe {grid-column: span 12;}
+    }
+    @media (min-width: 768px) {
+        .fNlfqe {grid-column: span 12;}
+    }
+    @media (min-width: 1080px) {
+        .fNlfqe {grid-column: span 12;}
+    }
+    .gthUzY {grid-column: span 12;max-width: 100%;}
+    @media (min-width: 520px) {
+        .gthUzY {grid-column: span 6;}
+    }
+    @media (min-width: 768px) {
+        .gthUzY {grid-column: span 4;}
+    }
+    @media (min-width: 1080px) {
+        .gthUzY {grid-column: span 3;}
+    }
+    *, *::before, *::after {box-sizing: border-box;}
+    * {margin: 0;}
+    html {font-size: 62.5%;}
+    body {height: 100%;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;color: #ffffff;line-height: 1.5;-webkit-font-smoothing: antialiased;}
+    img, picture, video, canvas {display: block;max-width: 100%;}
+    input, button, textarea, select {padding: 0;font: inherit;}
+    button {border: unset;background: unset;padding: unset;margin: unset;}
+    p, h1, h2, h3, h4, h5, h6 {overflow-wrap: break-word;font: unset;}
+    #root {isolation: isolate;}
+    ol, ul {list-style: none;padding: unset;margin: unset;}
+    table {border-collapse: collapse;border-spacing: 0;}
+    *:focus-visible {outline: 2px solid #7b79ff;outline-offset: 2px;}
+    *:has(> :disabled:not(button)) {cursor: not-allowed !important;}
+    [aria-disabled='true']:not(button) {cursor: not-allowed !important;}
+    *:focus:not(:focus-visible) {outline: none;}
+    .lock-body-scroll {height: 100vh;overflow-y: hidden;}
+    .hpGCBS {border: 1px solid #4a4a6a;padding-block: 4px;padding-inline-start: 16px;padding-inline-end: 12px;cursor: pointer;outline: none;box-shadow: none;transition-property: border-color, box-shadow, fill;transition-duration: 0.2s;}
+    .hpGCBS[aria-disabled='true'] {color: #c0c0cf;}
+    .hpGCBS:focus-visible {outline: none;}
+    .hpGCBS:focus-within {border: 1px solid #7b79ff;box-shadow: #7b79ff 0px 0px 0px 2px;}
+    .cSGnYU {display: flex;}
+    .cSGnYU > svg {fill: #c0c0cf;}
+    .jjxIRY {flex: 1;font-size: 1.4rem;line-height: 2.2rem;min-height: 2.2rem;}
+    .dKjRST {display: flex;gap: 4px;flex-wrap: wrap;}
+    .lmMcLA {background: #212134;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);border: 1px solid #32324d;border-radius: 4px;min-width: var(--radix-select-trigger-width);max-height: 15.6rem;z-index: 500;}
+    @media (prefers-reduced-motion: no-preference) {
+        .lmMcLA {animation-duration: 200ms;}
+        .lmMcLA[data-state='open'] {animation-timing-function: cubic-bezier(.4, 0, .2, 1);}
+        .lmMcLA[data-state='open'][data-side='top'] {animation-name: jsIkgc;}
+        .lmMcLA[data-state='open'][data-side='bottom'] {animation-name: hpXJah;}
+    }
+    .iyXrGe {padding: 4px;}
+    .ljtYoe {width: 100%;border: none;text-align: left;outline-offset: -3px;border-radius: 4px;padding: 8px 16px;padding-left: 16px;background-color: #212134;display: flex;align-items: center;gap: 8px;white-space: nowrap;user-select: none;color: #ffffff;}
+    .ljtYoe:focus-visible {outline: none;background-color: #181826;cursor: pointer;}
+    .ljtYoe:hover {background-color: #181826;cursor: pointer;}
+    .fuuSlU {height: 1px;border: none;flex-shrink: 0;}
+    .jimiDZ:focus-visible {outline: none;}
+    .hHYBHr {text-decoration: none;}
+    .hHYBHr:focus {left: 12px;top: 12px;}
+    .dzBtRA {padding: 12px;border-radius: 4px;text-decoration: none;display: flex;position: relative;outline: none;}
+    .dzBtRA:after {transition-property: all;transition-duration: 0.2s;border-radius: 8px;content: '';position: absolute;top: -4px;bottom: -4px;left: -4px;right: -4px;border: 2px solid transparent;}
+    .dzBtRA:focus-visible {outline: none;}
+    .dzBtRA:focus-visible:after {border-radius: 8px;content: '';position: absolute;top: -5px;bottom: -5px;left: -5px;right: -5px;border: 2px solid #7b79ff;}
+    .infKSj {padding: 12px;border-radius: 4px;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);text-decoration: none;display: flex;position: relative;outline: none;}
+    .infKSj:after {transition-property: all;transition-duration: 0.2s;border-radius: 8px;content: '';position: absolute;top: -4px;bottom: -4px;left: -4px;right: -4px;border: 2px solid transparent;}
+    .infKSj:focus-visible {outline: none;}
+    .infKSj:focus-visible:after {border-radius: 8px;content: '';position: absolute;top: -5px;bottom: -5px;left: -5px;right: -5px;border: 2px solid #7b79ff;}
+    .hczjSB {font-size: 1.1rem;pointer-events: none;}
+    .hczjSB svg path {fill: #666687;}
+    .hczjSB:focus svg path, .hczjSB:hover svg path {fill: #666687;}
+    .bbmlkb {font-size: 1.1rem;}
+    .bbmlkb svg path {fill: #a5a5ba;}
+    .bbmlkb:focus svg path, .bbmlkb:hover svg path {fill: #eaeaef;}
+    .buakMK {color: #7b79ff;background: #212134;}
+    .buakMK:hover {box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);}
+    .gBkGUR {color: #ffffff;}
+    .gBkGUR:hover {box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.35);}
+    .iMMnQf {font-size: 1rem;}
+    .iMMnQf path {fill: #c0c0cf;}
+    .eObyjG {border-radius: 4px;border: 1px solid #32324d;}
+    .eObyjG:focus-within .sc-dwGkES {fill: #7b79ff;}
+    .cKqXek {border: 1px solid #32324d;padding: 0 0 0 8px;color: #ffffff;outline: none;box-shadow: none;transition-property: border-color, box-shadow, fill;transition-duration: 0.2s;}
+    .cKqXek:hover button {cursor: pointer;}
+    .cKqXek:focus-within {border: 1px solid #7b79ff;box-shadow: #7b79ff 0px 0px 0px 2px;}
+    .cKqXek > input::-ms-clear {display: none;width: 0;height: 0;}
+    .cKqXek > input::-ms-reveal {display: none;width: 0;height: 0;}
+    .cKqXek > input::-webkit-search-decoration, .cKqXek > input::-webkit-search-cancel-button, .cKqXek > input::-webkit-search-results-button, .cKqXek > input::-webkit-search-results-decoration {display: none;}
+    .bUmJGt {width: 23.2rem;background: #181826;position: sticky;top: 0;height: 100vh;overflow-y: auto;border-right: 1px solid #4a4a6a;z-index: 1;}
+    .icrzSA {overflow: hidden;border: 1px solid #32324d;}
+    .fVYYgb {width: 100%;white-space: nowrap;}
+    .ifCEFH:before {background: linear-gradient(90deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);opacity: 0.2;position: absolute;height: 100%;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.2);width: 8px;left: 0;}
+    .ifCEFH:after {background: linear-gradient(270deg, #c0c0cf 0%, rgba(0, 0, 0, 0) 100%);opacity: 0.2;position: absolute;height: 100%;box-shadow: 1px 1px 10px rgba(3, 3, 5, 0.2);width: 8px;right: 0;top: 0;}
+    .caGhnx {overflow-x: auto;}
+    .dqTMhr tr:last-of-type {border-bottom: none;}
+    .dLmUfa {border-bottom: 1px solid #32324d;}
+    .cYYlqj {border-bottom: 1px solid #32324d;}
+    .cYYlqj td, .cYYlqj th {padding: 16px;}
+    .cYYlqj td:first-of-type, .cYYlqj th:first-of-type {padding: 0 4px;}
+    .cYYlqj th {padding-top: 0;padding-bottom: 0;height: 5.6rem;}
+    .IgbuZ {vertical-align: middle;text-align: left;outline-offset: -4px;}
+    .IgbuZ input {vertical-align: sub;}
+    body {background: #181826;}
+    .gpJsLr {max-width: 100%;display: grid;grid-template-columns:1fr;padding: 0;}
+    @media (min-width: 768px) {
+        .gpJsLr {grid-template-columns:1fr;}
+    }
+    .hvygbM {max-width: 100%;display: grid;grid-template-columns:1fr;padding: 0;}
+    @media (min-width: 768px) {
+        .hvygbM {grid-template-columns:auto 1fr;}
+    }
+    .dHQLbf {display: none;background: #212134;}
+    @media (min-width: 768px) {
+        .dHQLbf {display: block;box-shadow: none;transform: none;}
+    }
+    .cXYHzM {overflow-x: hidden;}
+    @media (min-width: 768px) {
+        .cXYHzM {transform: none;width: auto;}
+    }
+    .iKkouB {transform: rotate(180deg);}
+    .gPiUke {width: 100%;height: calc(100dvh - 5.6rem - 1px);overflow: hidden;background-color: #212134;display: flex;flex-direction: column;border-right: 0;box-shadow: none;position: fixed;top: calc(5.6rem + 1px);left: 0;z-index: 2;}
+    @media (min-width: 768px) {
+        .gPiUke {width: 23.2rem;position: sticky;top: 0;border-right: 1px solid #32324d;}
+    }
+    @media (min-width: 1080px) {
+        .gPiUke {height: 100dvh;}
+    }
+    .cnxsga {display: flex;align-items: center;justify-content: space-between;text-decoration: none;height: 32px;color: #ffffff;}
+    .cnxsga.active > div {background-color: #181826;color: #7b79ff;font-weight: 500;}
+    .cnxsga:hover.active > div {background-color: #181826;}
+    .cnxsga:hover > div {background-color: #181826;}
+    .cnxsga:focus-visible {outline-offset: -2px;}
+    .bXnNaG {flex: 0 0 5.6rem;height: 5.6rem;}
+    .hSBOoK {height: 100%;left: 0;position: absolute;opacity: 0;top: 0;width: 100%;}
+    .hSBOoK:hover, .hSBOoK:focus {text-decoration: none;}
+    .cPvoaE path {fill: currentColor;}
+    .gDcTks {display: none;}
+    .fQxFub:hover .sc-gxVrPM, .fQxFub:focus-within .sc-gxVrPM {display: block;}
+    .fYHYRa {user-select: none;}
+    .duPiiC:focus {outline: 2px solid #7b79ff;outline-offset: -2px;}
+    .zokbc {text-decoration: none;}
+    .dFgidy {position: absolute;top: 0;bottom: 0;width: 20px;z-index: 1;display: flex;align-items: center;justify-content: center;opacity: 0.8;transition: opacity 0.2s ease-in-out;cursor: col-resize;background-color: transparent;}
+    .igXujo {width: 2px;height: 100%;background-color: #4945ff;border-radius: 1px;opacity: 0;transition: opacity 0.2s ease-in-out;}
+    .sc-gnElHG:hover .igXujo {opacity: 0.8;}
+    .fmkapt {display: flex;}
+    @media (hover: hover) and (pointer: fine) {
+        .fmkapt {display: none;}
+    }
+    .loWhXQ {display: none;}
+    @media (hover: hover) and (pointer: fine) {
+        .loWhXQ {display: flex;}
+    }
+    @media (hover: hover) and (pointer: fine) {
+        .kWeajT:hover .sc-kPTCfc {display: flex;}
+    }
+    .kWeajT:focus-within .sc-kPTCfc {display: flex;}
+    .kWeajT:focus-within .sc-hlbBhT {pointer-events: none;}
+    @media (min-width: 768px) {
+        .kWeajT:focus-within .sc-hlbBhT {pointer-events: auto;}
+    }
+    .koytSU {border-bottom: 1px solid #32324d;position: sticky;max-height: 100%;height: auto;z-index: 4;}
+    @media (min-width: 1080px) {
+        .koytSU {border-bottom: none;border-right: 1px solid #32324d;height: 100dvh;}
+    }
+    .cKrTvY {text-decoration: none;display: flex;align-items: center;border-radius: 4px;background: #212134;color: #c0c0cf;position: relative;width: 100%;padding-block: 0.6rem;padding-inline: 0.6rem;}
+    .cKrTvY:hover {background: #181826;}
+    .cKrTvY:hover svg path {fill: #a5a5ba;}
+    .cKrTvY.active {background: #181826;}
+    .cKrTvY.active svg path {fill: #7b79ff;}
+    .jA-DjU svg, .jA-DjU img {border-radius: 4px;object-fit: contain;height: 2.4rem;width: 2.4rem;}
+    .leLfze {padding: 0;}
+    @media (min-width: 1080px) {
+        .leLfze {width: 4rem;height: 4rem;justify-content: center;}
+    }
+    .hOuwdZ {height: 32px;width: 32px;border: none;border-radius: 50%;padding: 0;overflow: hidden;}
+    .CzQrb {max-height: fit-content;width: 200px;}
+    .gIzrBw {width: 100%;overflow-y: auto;scrollbar-width: none;-ms-overflow-style: none;}
+    .gIzrBw::-webkit-scrollbar {display: none;}
+    .lkHkHV {flex: 1;flex-direction: row;justify-content: space-between;overflow-x: auto;}
+    @media (min-width: 1080px) {
+        .lkHkHV {flex-direction: column;overflow-y: auto;overflow-x: hidden;}
+    }
+    @keyframes gzYjWD {
+        from {transform: rotate(0deg);}
+        to {transform: rotate(359deg);}
+    }
+    .iTlXDQ {font-size: 2.4rem;}
+    @keyframes gUdGlN {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    .eFVBTn {overflow-wrap: anywhere;}
+    .cuPeWW {display: flex;justify-content: flex-end;}
+    @keyframes jsIkgc {
+        from {opacity: 0;transform: translateY(10px);}
+        to {opacity: 1;transform: translateY(0);}
+    }
+    @keyframes hpXJah {
+        from {opacity: 0;transform: translateY(-10px);}
+        to {opacity: 1;transform: translateY(0);}
+    }
+    .jKVgIw svg {height: 100%;width: 100%;}
+    .ewYKIq {justify-content: space-between;border-top: 1px solid #32324d;padding-top: 16px;padding-bottom: 16px;opacity: 1;align-items: center;}
+    .gdVyUz {list-style: none;list-style-type: none;}
+    .eqciEe {display: block;max-height: 9999px;overflow: hidden;transition: max-height 1s ease-in-out;}
+    .edSToE {white-space: nowrap;list-style: none;list-style-type: none;}
+    .cAloRK {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .iupApL {height: 3.2rem;display: flex;align-items: center;}
+    .dKFer {max-width: 100%;}
+    .eQkYOM svg path {fill: #c0c0cf;}</style>
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/Widgets-Da6ztuTP.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/Widgets-Da-nv1Yt.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/layout-Rqkw2yvH.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/CardDragPreview-Bw1aBX-4.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/hooks-CTSSYEEa.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/ListViewPage-BVv4hkBp.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/SearchInput-oe_Lxn48.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/index-D3dkveJb.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/index-DftARE_G.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/groupBy-DsyHBa5_.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/_baseEach-DpuoT5Ch.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/sortBy-zPksx8VP.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/_baseMap-CIgCUbep.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/index-CGZO5MB0.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/ListView-CVN6Yxo6.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/strapi-BU-90ZGE.js">
+    <link rel="stylesheet" crossorigin="" href="/admin/strapi-D6821bIJ.css">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/sortable.esm-B8wBC4On.js">
+    <link rel="modulepreload" as="script" crossorigin="" href="/admin/App-BFcr33_E.js">
+</head>
+<body>
+<div id="strapi">
+    <section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></section>
+    <div class="sc-blHHSb ihYfrC"><a href="#main-content" class="sc-blHHSb ggjsty sc-fqujGp hHYBHr">Skip to content</a>
+        <div class="sc-blHHSb fffbQL sc-gtLWhw dDSRXA">
+            <nav class="sc-blHHSb gNUfLq sc-gtLWhw kDApux sc-hMEFUH koytSU">
+                <div class="sc-blHHSb hDbkDE">
+                    <div class="sc-blHHSb gDcFdp sc-gtLWhw ihHuRM sc-ejaYJg jA-DjU"><img src="data:image/svg+xml,%3csvg width='800' height='800' viewBox='0 0 800 800' fill='none' xmlns='http://www.w3.org/2000/svg'%3e %3cpath d='M39 282c0-118 0-176.9 36.6-213.5C112.2 32 171.1 32 288.9 32h221.2c117.8 0 176.7 0 213.3 36.6C760 105.2 760 164.1 760 281.9v221.2c0 117.8 0 176.7-36.6 213.3C686.8 753 627.9 753 510.1 753H288.9c-117.8 0-176.7 0-213.3-36.6C39 679.8 39 620.9 39 503.1V281.9Z' fill='%234945FF'/%3e %3cpath fill-rule='evenodd' clip-rule='evenodd' d='M536.4 250.7H293.7v123.8h123.8v123.7h123.8V255.5c0-2.6-2.2-4.8-4.9-4.8Z' fill='white'/%3e %3cpath fill='white' d='M412.7 374.5h4.8v4.8h-4.8z'/%3e %3cpath d='M293.8 374.5h119c2.6 0 4.8 2.1 4.8 4.8v119h-119a4.8 4.8 0 0 1-4.8-4.9v-119Z' fill='%239593FF'/%3e %3cpath d='M417.5 498.2h123.8L421.6 618a2.4 2.4 0 0 1-4-1.7v-118ZM293.8 374.5h-118a2.4 2.4 0 0 1-1.7-4.1l119.7-119.7v123.8Z' fill='%239593FF'/%3e%3c/svg%3e" alt="Application logo"
+                                                                                         width="100%" height="100%"><span class="sc-keTIit ihrEqy"><span>Strapi Dashboard</span><span>Workplace</span></span></div>
+                </div>
+                <div data-orientation="horizontal" role="separator" class="sc-blHHSb klkusm sc-gbwXoZ fuuSlU"></div>
+                <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK sc-fHgmia lkHkHV">
+                    <ul class="sc-blHHSb grmjRT sc-gtLWhw irSEDe sc-ddLvXF gIzrBw">
+                        <li class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed"><a aria-label="Home" class="sc-cdlZlB cKrTvY" href="/admin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" fill="#c0c0cf" aria-hidden="true" focusable="false"><path d="M28 14.444V26a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V14.444a2 2 0 0 1 .646-1.473l10-9.435.014-.013a2 2 0 0 1 2.705.013l10 9.435A2 2 0 0 1 28 14.444"></path></svg><span class="sc-keTIit ihrEqy">Home</span></a></span></li>
+                        <li class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed"><a aria-label="Content Manager" aria-current="page" class="sc-cdlZlB cKrTvY active" href="/admin/content-manager"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" fill="#c0c0cf" aria-hidden="true" focusable="false"><path d="m26.48 16.851-7.474 7.559a1.97 1.97 0 0 1-1.4.585H9.415l-3.707 3.712a1.001 1.001 0 0 1-1.415-1.415l2.823-2.822L15.588 16h10.537a.5.5 0 0 1 .355.851m.607-13.03a8 8 0 0 0-10.737.518l-1.2 1.185a.5.5 0 0 0-.15.351v7.875l6.875-6.875a1 1 0 0 1 1.414 1.414L17.589 14h11.047a.5.5 0 0 0 .445-.27 8.01 8.01 0 0 0-1.994-9.909M7.854 20.904 13 15.758V8.845a.5.5 0 0 0-.851-.355L7.586 13A1.99 1.99 0 0 0 7 14.414v6.136a.5.5 0 0 0 .854.354"></path></svg><span class="sc-keTIit ihrEqy">Content Manager</span></a></span></li>
+                        <li class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed"><a aria-label="Media Library" class="sc-cdlZlB cKrTvY" href="/admin/plugins/upload"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" fill="#c0c0cf" aria-hidden="true" focusable="false"><path d="M27 5H9a2 2 0 0 0-2 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2v-2h2a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3M23 25H5V11h2v10a2 2 0 0 0 2 2h14zm4-4H9v-4.5l4.5-4.5 6.208 6.208a1 1 0 0 0 1.413 0L24.33 15 27 17.672z"></path></svg><span class="sc-keTIit ihrEqy">Media Library</span></a></span></li>
+                        <li class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed"><a aria-label="Content-Type Builder" class="sc-cdlZlB cKrTvY" href="/admin/plugins/content-type-builder"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" fill="#c0c0cf" aria-hidden="true" focusable="false"><path d="M27 5H5a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h22a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2M5 7h22v5H5zm22 18H14V14h13z"></path></svg><span class="sc-keTIit ihrEqy">Content-Type Builder</span></a></span></li>
+                        <li class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed"><a aria-label="Marketplace" class="sc-cdlZlB cKrTvY" href="/admin/marketplace"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" fill="#c0c0cf" aria-hidden="true" focusable="false"><path d="M12 27a2 2 0 1 1-4 0 2 2 0 0 1 4 0m11-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4m5.805-16.594A1 1 0 0 0 28 8H6.04L5.026 4.45A2.01 2.01 0 0 0 3.103 3H1a1 1 0 0 0 0 2h2.103l4.522 15.824A3.01 3.01 0 0 0 10.509 23h12.014a2.99 2.99 0 0 0 2.867-2.117l3.566-11.59a1 1 0 0 0-.151-.887"></path></svg><span class="sc-keTIit ihrEqy">Marketplace</span></a></span></li>
+                        <li class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed"><a aria-label="Settings" class="sc-cdlZlB cKrTvY" href="/admin/settings"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20" fill="#c0c0cf" aria-hidden="true" focusable="false"><path d="M29.743 13.401a1 1 0 0 0-.487-.675l-3.729-2.125-.015-4.202a1 1 0 0 0-.353-.76 14 14 0 0 0-4.59-2.584 1 1 0 0 0-.808.074L16 5.23l-3.765-2.106a1 1 0 0 0-.809-.075 14 14 0 0 0-4.585 2.594 1 1 0 0 0-.354.758L6.47 10.61 2.74 12.734a1 1 0 0 0-.486.675 13.3 13.3 0 0 0 0 5.195 1 1 0 0 0 .486.675l3.729 2.125.015 4.204a1 1 0 0 0 .353.76 14 14 0 0 0 4.59 2.583 1 1 0 0 0 .808-.073L16 26.768l3.765 2.107a1.013 1.013 0 0 0 .809.073 14 14 0 0 0 4.585-2.592 1 1 0 0 0 .354-.759l.018-4.206 3.729-2.125a1 1 0 0 0 .486-.675c.34-1.713.338-3.477-.003-5.19M16 21a5 5 0 1 1 0-10 5 5 0 0 1 0 10"></path></svg><span class="sc-keTIit ihrEqy">Settings</span></a></span></li>
+                    </ul>
+                    <div class="sc-blHHSb pfFCB">
+                        <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK">
+                            <button class="sc-blHHSb eMVVwy sc-gtLWhw irjOGg sc-hJRrWL bbRHss sc-bhcutL leLfze" aria-disabled="false" type="button" id="radix-:r3:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><div class="sc-blHHSb fTSiDe sc-gtLWhw kaBsXU"><div class="sc-blHHSb fTSiDe sc-gtLWhw bwCzfQ sc-cNVbSa hOuwdZ"><span data-state="closed" class="sc-jtQUzJ fYkPuQ"><span><span class="sc-blHHSb fTSiDe sc-egkSDF fDisXc">케(</span></span></span></div><span class="sc-keTIit ihrEqy">케이넷 (주)</span></div></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="sc-blHHSb ldBMYE">
+                    <button class="sc-blHHSb bhNqYS sc-gtLWhw bwCzfQ sc-hbtGpV bxLDyM" aria-disabled="false" aria-expanded="false" aria-controls="burger-menu" type="button" data-state="closed" style="border: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="#ffffff" aria-hidden="true" focusable="false">
+                            <path d="M28.5 16a1.5 1.5 0 0 1-1.5 1.5H5a1.5 1.5 0 1 1 0-3h22a1.5 1.5 0 0 1 1.5 1.5M5 9.5h22a1.5 1.5 0 0 0 0-3H5a1.5 1.5 0 0 0 0 3m22 13H5a1.5 1.5 0 1 0 0 3h22a1.5 1.5 0 1 0 0-3"></path>
+                        </svg>
+                        <span class="sc-keTIit ihrEqy">Menu</span></button>
+                </div>
+            </nav>
+            <div class="sc-blHHSb gFntXO">
+                <div class="sc-blHHSb fTSiDe sc-kvmDxl hvygbM">
+                    <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK sc-ZVgAE dHQLbf">
+                        <nav aria-label="Content Manager" class="sc-blHHSb fTSiDe sc-lgprfV bUmJGt sc-kNwsoS gPiUke">
+                            <div class="sc-blHHSb dCjVPx sc-gtLWhw btJeLs sc-eeRdLU bXnNaG"><h2 class="sc-blHHSb fTSiDe sc-egkSDF glFSHi">Content Manager</h2></div>
+                            <div data-orientation="horizontal" role="separator" class="sc-blHHSb klkusm sc-gbwXoZ fuuSlU"></div>
+                            <div dir="ltr" class="sc-gcfzXs eTJBjc" style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;">
+                                <style>[data-radix-scroll-area-viewport] {scrollbar-width: none;-ms-overflow-style: none;-webkit-overflow-scrolling: touch;}
+                                [data-radix-scroll-area-viewport]::-webkit-scrollbar {display: none}</style>
+                                <div data-radix-scroll-area-viewport="" class="sc-hGZxvd ckKhkE" style="overflow: scroll;">
+                                    <div style="min-width: 100%; display: table;">
+                                        <div class="sc-blHHSb dkfRIA sc-gtLWhw fHkKMI">
+                                            <div class="sc-hSyjfr eObyjG">
+                                                <div class="sc-blHHSb fTSiDe sc-gtLWhw hOXSn"><span class="sc-keTIit ihrEqy"></span>
+                                                    <div class="sc-blHHSb fTSiDe sc-gtLWhw wlhcd sc-hsfCcR kTvxxr sc-kLJHhQ cKqXek">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" class="sc-dwGkES iMMnQf">
+                                                            <path d="M29.061 26.939 23.125 21A11.515 11.515 0 1 0 21 23.125l5.941 5.942a1.503 1.503 0 0 0 2.125-2.125zM5.5 14a8.5 8.5 0 1 1 8.5 8.5A8.51 8.51 0 0 1 5.5 14"></path>
+                                                        </svg>
+                                                        <input id=":r94:" name="search_contentType" aria-disabled="false" type="search" placeholder="Search" class="sc-huXwEz bcbayv" value=""></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sc-blHHSb fyRZgV">
+                                            <ul class="sc-blHHSb fTSiDe sc-gtLWhw jgQRyR">
+                                                <li>
+                                                    <div class="sc-blHHSb fTSiDe sc-gtLWhw kHsFSH">
+                                                        <div class="sc-blHHSb dCjVPx">
+                                                            <div class="sc-blHHSb hoZSSu sc-gtLWhw wlhcd">
+                                                                <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK">
+                                                                    <div class="sc-blHHSb gXSpQQ"><span class="sc-blHHSb fTSiDe sc-egkSDF ixlqCr">Collection Types</span></div>
+                                                                </div>
+                                                                <div class="sc-blHHSb fTSiDe sc-gtLWhw eoAyv">
+                                                                    <div class="sc-blHHSb bYJmbh sc-gtLWhw bVtsYY sc-gQaihK hVDKRd"><span class="sc-blHHSb fTSiDe sc-egkSDF bjjcHP">55</span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <ol id=":r95:" class="sc-blHHSb isYxil sc-gtLWhw gkLKbx">
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/plugin::users-permissions.user?page=1&amp;pageSize=10&amp;sort=username%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">User</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::signbaro-faq.signbaro-faq?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">광주공동인증센터 - FAQ</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::signbaro-faq-group.signbaro-faq-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">광주공동인증센터 - FAQ Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga active" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide.barobill-developers-api-guide?page=1&amp;pageSize=10&amp;sort=title%3AASC" aria-current="page">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - API 가이드</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide-group.barobill-developers-api-guide-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - API 가이드 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-api-reference.barobill-developers-api-reference?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - API 레퍼런스</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-api-reference-group.barobill-developers-api-reference-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - API 레퍼런스 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-faq.barobill-developers-faq?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - FAQ</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-faq-group.barobill-developers-faq-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - FAQ Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-notice.barobill-developers-notice?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - 공지사항</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-manual.barobill-developers-manual?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - 매뉴얼</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-manual-group.barobill-developers-manual-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - 매뉴얼 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-term.barobill-developers-term?page=1&amp;pageSize=10&amp;sort=id%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - 약관</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::barobill-developers-terms-group.barobill-developers-terms-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">바로빌 개발자센터 - 약관 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-insurance-content-1depth.biz4in-insurance-content-1depth?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 4대보험 안내 1Depth</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-insurance-content-2depth.biz4in-insurance-content-2depth?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 4대보험 안내 2Depth</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-insurance-content-3depth.biz4in-insurance-content-3depth?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 4대보험 안내 3Depth</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-faq.biz4in-faq?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - FAQ</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-faq-group.biz4in-faq-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - FAQ Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-guide.biz4in-guide?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 가이드</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-notice.biz4in-notice?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 공지사항</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-notice-group.biz4in-notice-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 공지사항 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-download.biz4in-download?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 다운로드</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-review.biz4in-review?page=1&amp;pageSize=10&amp;sort=companyName%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 리뷰</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-main-banner.biz4in-main-banner?page=1&amp;pageSize=10&amp;sort=link%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 메인 배너</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-term.biz4in-term?page=1&amp;pageSize=10&amp;sort=id%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 약관</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-terms-group.biz4in-terms-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 약관 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-example.biz4in-example?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 예시</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-event-banner.biz4in-event-banner?page=1&amp;pageSize=10&amp;sort=link%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 이벤트 배너</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-pre-login-content.biz4in-pre-login-content?page=1&amp;pageSize=10&amp;sort=ogTitle%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 이전 로그인</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::biz4in-popup.biz4in-popup?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">비즈포인 - 팝업</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::cert-barobill-faq.cert-barobill-faq?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">온라인발급센터 - FAQ</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::cert-barobill-faq-group.cert-barobill-faq-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">온라인발급센터 - FAQ Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-faq.certbiz-faq?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - FAQ</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-faq-group.certbiz-faq-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - FAQ Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-guide.certbiz-guide?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 가이드</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-notice.certbiz-notice?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 공지사항</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-download.certbiz-download?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 다운로드</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-review.certbiz-review?page=1&amp;pageSize=10&amp;sort=companyName%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 리뷰</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-term.certbiz-term?page=1&amp;pageSize=10&amp;sort=id%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 약관</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-term-group.certbiz-term-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 약관 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-quick-banner.certbiz-quick-banner?page=1&amp;pageSize=10&amp;sort=link%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 퀵메뉴 배너</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::certbiz-popup.certbiz-popup?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국범용인증센터 - 팝업</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-faq-koscom.kosignbiz-faq-koscom?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - FAQ (KOSCOM)</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-faq-ktnet.kosignbiz-faq-ktnet?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - FAQ (KTNET)</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-faq-group.kosignbiz-faq-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - FAQ Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-guide.kosignbiz-guide?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 가이드</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-guide-group.kosignbiz-guide-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 가이드 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-notice.kosignbiz-notice?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 공지사항</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-download.kosignbiz-download?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 다운로드</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-review.kosignbiz-review?page=1&amp;pageSize=10&amp;sort=companyName%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 리뷰</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-term.kosignbiz-term?page=1&amp;pageSize=10&amp;sort=id%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 약관</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-term-group.kosignbiz-term-group?page=1&amp;pageSize=10&amp;sort=name%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 약관 Group</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-event.kosignbiz-event?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 이벤트</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                            <li><a class="sc-dTSHqv cnxsga" href="/admin/content-manager/collection-types/api::kosignbiz-popup.kosignbiz-popup?page=1&amp;pageSize=10&amp;sort=title%3AASC">
+                                                                <div class="sc-blHHSb kRjbhE">
+                                                                    <div class="sc-blHHSb kCLFOl sc-gtLWhw gEOQtB">
+                                                                        <div class="sc-blHHSb eguKUx sc-egkSDF jjYjBE" style="text-overflow: ellipsis; white-space: nowrap;">한국사업자인증센터 - 팝업</div>
+                                                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </a></li>
+                                                        </ol>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="sc-blHHSb fTSiDe sc-gtLWhw kHsFSH">
+                                                        <div class="sc-blHHSb dCjVPx">
+                                                            <div class="sc-blHHSb hoZSSu sc-gtLWhw wlhcd">
+                                                                <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK">
+                                                                    <div class="sc-blHHSb gXSpQQ"><span class="sc-blHHSb fTSiDe sc-egkSDF ixlqCr">Single Types</span></div>
+                                                                </div>
+                                                                <div class="sc-blHHSb fTSiDe sc-gtLWhw eoAyv">
+                                                                    <div class="sc-blHHSb bYJmbh sc-gtLWhw bVtsYY sc-gQaihK hVDKRd"><span class="sc-blHHSb fTSiDe sc-egkSDF bjjcHP">0</span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <ol id=":r96:" class="sc-blHHSb isYxil sc-gtLWhw gkLKbx"></ol>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div data-strapi-main-content="true" class="sc-blHHSb hxlkPW sc-dspCDH cXYHzM">
+                        <div class="sc-blHHSb fTSiDe"></div>
+                        <main aria-labelledby="main-content-title" id="main-content" tabindex="-1" class="sc-blHHSb fTSiDe sc-jTpVWm jimiDZ">
+                            <div>
+                                <div style="height: 156.016px;">
+                                    <div data-strapi-header="true" class="sc-blHHSb hZiiIv">
+                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw eKQPuW"><a aria-disabled="false" class="sc-blHHSb lmPZGO sc-iuUfFv jwBCsG sc-jhZTHU bULIHi" href="/admin/content-manager/collection-types/api::signbaro-faq.signbaro-faq?page=1&amp;pageSize=10&amp;sort=title:ASC">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor">
+                                                <path d="M28.5 16a1.5 1.5 0 0 1-1.5 1.5H8.625l6.44 6.439a1.502 1.502 0 1 1-2.125 2.125l-9-9a1.5 1.5 0 0 1 0-2.125l9-9a1.503 1.503 0 0 1 2.125 2.125L8.625 14.5H27a1.5 1.5 0 0 1 1.5 1.5"></path>
+                                            </svg>
+                                            <span class="sc-blHHSb fTSiDe sc-egkSDF loGCsW">Back</span></a>
+                                            <div class="sc-blHHSb fTSiDe sc-gtLWhw bxMNQD">
+                                                <div class="sc-blHHSb iTZzDK sc-gtLWhw hQNVqK"><h1 class="sc-blHHSb fTSiDe sc-egkSDF diPmPF sc-csDTBA eFVBTn" style="word-break: break-word; overflow-wrap: break-word; max-width: 100%;">바로빌 개발자센터 - API 가이드</h1></div>
+                                                <a class="sc-blHHSb iQtddd sc-gtLWhw cAbQNR sc-hJRrWL eycxJg" aria-disabled="false" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide.barobill-developers-api-guide/create" style="text-decoration: none;"><span aria-hidden="true" class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor"><path d="M28.5 16a1.5 1.5 0 0 1-1.5 1.5h-9.5V27a1.5 1.5 0 1 1-3 0v-9.5H5a1.5 1.5 0 1 1 0-3h9.5V5a1.5 1.5 0 1 1 3 0v9.5H27a1.5 1.5 0 0 1 1.5 1.5"></path></svg></span><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc">Create new entry</span></a></div>
+                                        </div>
+                                        <p class="sc-blHHSb bfreMm sc-egkSDF eCTGDm">21 entries found</p></div>
+                                </div>
+                            </div>
+                            <div class="sc-blHHSb gOeJgg sc-gtLWhw gKoNzd">
+                                <div class="sc-blHHSb fTSiDe sc-gtLWhw kyPtnu">
+                                    <button class="sc-blHHSb bhNqYS sc-gtLWhw bwCzfQ sc-hbtGpV bxLDyM" aria-disabled="false" type="button" data-state="closed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M29.061 26.939 23.125 21A11.515 11.515 0 1 0 21 23.125l5.941 5.942a1.503 1.503 0 0 0 2.125-2.125zM5.5 14a8.5 8.5 0 1 1 8.5 8.5A8.51 8.51 0 0 1 5.5 14"></path>
+                                        </svg>
+                                        <span class="sc-keTIit ihrEqy">Search</span></button>
+                                    <button class="sc-blHHSb fXOkAX sc-gtLWhw cAbQNR sc-hJRrWL jKnOEE" aria-disabled="false" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rd7:" data-state="closed"><span aria-hidden="true" class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor"><path d="M25.5 16a1.5 1.5 0 0 1-1.5 1.5H8a1.5 1.5 0 1 1 0-3h16a1.5 1.5 0 0 1 1.5 1.5M29 8.5H3a1.5 1.5 0 0 0 0 3h26a1.5 1.5 0 1 0 0-3m-10 12h-6a1.5 1.5 0 1 0 0 3h6a1.5 1.5 0 1 0 0-3"></path></svg></span><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc">Filters</span></button>
+                                </div>
+                                <div class="sc-blHHSb fwfHpQ sc-gtLWhw kyPtnu">
+                                    <button class="sc-blHHSb bhNqYS sc-gtLWhw bwCzfQ sc-hbtGpV bxLDyM" aria-disabled="false" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-:rd8:" data-state="closed" type="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false">
+                                            <path d="M29.743 13.401a1 1 0 0 0-.487-.675l-3.729-2.125-.015-4.202a1 1 0 0 0-.353-.76 14 14 0 0 0-4.59-2.584 1 1 0 0 0-.808.074L16 5.23l-3.765-2.106a1 1 0 0 0-.809-.075 14 14 0 0 0-4.585 2.594 1 1 0 0 0-.354.758L6.47 10.61 2.74 12.734a1 1 0 0 0-.486.675 13.3 13.3 0 0 0 0 5.195 1 1 0 0 0 .486.675l3.729 2.125.015 4.204a1 1 0 0 0 .353.76 14 14 0 0 0 4.59 2.583 1 1 0 0 0 .808-.073L16 26.768l3.765 2.107a1.013 1.013 0 0 0 .809.073 14 14 0 0 0 4.585-2.592 1 1 0 0 0 .354-.759l.018-4.206 3.729-2.125a1 1 0 0 0 .486-.675c.34-1.713.338-3.477-.003-5.19M16 21a5 5 0 1 1 0-10 5 5 0 0 1 0 10"></path>
+                                        </svg>
+                                        <span class="sc-keTIit ihrEqy">View settings</span></button>
+                                </div>
+                            </div>
+                            <div class="sc-blHHSb dPiqXj">
+                                <div class="sc-blHHSb fTSiDe sc-gtLWhw hIUejk">
+                                    <div class="sc-blHHSb bvTxUR sc-kBpWFy icrzSA">
+                                        <div class="sc-blHHSb hoZSSu sc-glpSfM ifCEFH">
+                                            <div class="sc-blHHSb CKRBb sc-kHhQGl caGhnx">
+                                                <table role="grid" aria-rowcount="11" aria-colcount="6" class="sc-dHMlHb fVYYgb">
+                                                    <thead class="sc-PBvYm dLmUfa">
+                                                    <tr aria-rowindex="1" class="sc-blHHSb fTSiDe sc-dCJnfZ cYYlqj">
+                                                        <th role="gridcell" class="sc-blHHSb eVYwLq sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK">
+                                                                <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select all entries" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                            </div>
+                                                        </th>
+                                                        <th role="gridcell" class="sc-blHHSb eVYwLq sc-fjBUEo IgbuZ">
+                                                            <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK">
+                                                                <button data-state="closed" class="sc-blHHSb fTSiDe sc-egkSDF ixlqCr" tabindex="-1">id</button>
+                                                            </div>
+                                                        </th>
+                                                        <th role="gridcell" class="sc-blHHSb eVYwLq sc-fjBUEo IgbuZ">
+                                                            <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed" class="sc-blHHSb fTSiDe sc-egkSDF ixlqCr">title</span>
+                                                                <button class="sc-blHHSb bhNqYS sc-gtLWhw bwCzfQ sc-hbtGpV fEqJBa" aria-disabled="false" type="button" data-state="closed" tabindex="-1">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false" class="sc-cUnzlc iKkouB">
+                                                                        <path d="m26.708 12.708-10 10a1 1 0 0 1-1.415 0l-10-10A1 1 0 0 1 6 11h20a1 1 0 0 1 .707 1.707"></path>
+                                                                    </svg>
+                                                                    <span class="sc-keTIit ihrEqy">Sort on title</span></button>
+                                                            </div>
+                                                        </th>
+                                                        <th role="gridcell" class="sc-blHHSb eVYwLq sc-fjBUEo IgbuZ">
+                                                            <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK">
+                                                                <button data-state="closed" class="sc-blHHSb fTSiDe sc-egkSDF ixlqCr" tabindex="-1">description</button>
+                                                            </div>
+                                                        </th>
+                                                        <th role="gridcell" class="sc-blHHSb eVYwLq sc-fjBUEo IgbuZ">
+                                                            <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK">
+                                                                <button data-state="closed" class="sc-blHHSb fTSiDe sc-egkSDF ixlqCr" tabindex="-1">slug</button>
+                                                            </div>
+                                                        </th>
+                                                        <th role="gridcell" class="sc-blHHSb eVYwLq sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div class="sc-blHHSb fTSiDe sc-gtLWhw hQNVqK"><span data-state="closed" class="sc-blHHSb fTSiDe sc-egkSDF ixlqCr">status</span></div>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody class="sc-kyexYT dqTMhr">
+                                                    <tr aria-rowindex="2" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 13" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">13</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">문자 전송</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">발신번호 등록방법, 대량전송 및 예약전송, 전송취소, 전송상태 조회 등 바로빌이 제공하는 문자전송 기능을 연동하고 개발하는 방법을 안내합니다.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">문자-전송하기</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:rdk:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="3" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 15" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">15</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">팩스 전송</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">지원하는 파일확장자, 파일업로드, 팩스 예약전송 및 대량전송, 전송취소, 전송상태 조회 등 바로빌 팩스전송 기능을 개발하는 방법을 안내합니다.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">팩스-전송하기</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:rdp:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="4" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 19" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">19</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">카드 사용내역 조회</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">카드 등록방법, 카드서비스 신청, 카드사용내역 조회, 카드 통합관리 등 바로빌 카드조회 기능을 개발하는 프로세스를 상세히 안내합니다.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">카드-사용내역-연동하기</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:rdu:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="5" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 21" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">21</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">계좌 입출금내역 조회</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">계좌 등록방법, 빠른조회 서비스 등록, 계좌 거래내역 조회, 계좌 통합조회 등 바로빌 계좌조회 기능을 연동하고 개발하는 방법을 안내합니다.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">계좌-입출금내역-연동하기</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:re3:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="6" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 17" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">17</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">홈택스 매입매출자료 조회</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">홈택스 부서사용자 아이디 생성, 세금계산서 및 현금영수증 조회서비스 신청 등 홈택스 매입매출조회 서비스 개발 프로세스를 안내합니다..</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">홈택스-매입매출자료-연동하기</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:re8:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="7" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 5" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">5</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">개발준비</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">연동인증키 사용방법, 테스트베드 및 운영 환경, API URL, 개발언어별 샘플소스, API 호출방법 등 개발 전 준비사항을 확인하세요.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">바로빌-API-개발준비</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:red:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="8" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 3" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">3</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">기본구조</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">바로빌 개발자센터 계정 생성, 회원사 및 파트너, 연동인증키, 가입코드 등 연동 기본구조와 연동에 필요한 상세한 가이드를 확인하세요.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">바로빌-API-기본구조</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:rei:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="9" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 1" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">1</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">시작하기</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">바로빌 API 소개, 제공 서비스, 연동 절차, 계정 생성, 테스트 서버 및 운영 서버, 운영 전환 등 필요한 기능에 대한 가이드를 안내합니다.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">바로빌-API-시작하기</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:ren:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="10" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 29" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">29</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">요금결제 기능</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">회원사 결제 방식, 파트너 결제 방식, 요금결제 기능 개발방법 등 파트너 금액 결제 관련 기능 개발 전 자세한 가이드라인을 확인하세요.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">요금결제-기능-개발하기</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:res:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr aria-rowindex="11" class="sc-blHHSb lmPZGO sc-dCJnfZ cYYlqj">
+                                                        <td role="gridcell" aria-colindex="1" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <button type="button" role="checkbox" aria-checked="false" data-state="unchecked" value="on" aria-label="Select 33" class="sc-lnsxGb hRYLdd" tabindex="-1"><span data-state="unchecked" class="sc-jSSkKI IuAWZ" style="pointer-events: none;"></span></button>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="2" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">33</span></td>
+                                                        <td role="gridcell" aria-colindex="3" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">운영환경 전환</span></td>
+                                                        <td role="gridcell" aria-colindex="4" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">운영용 연동인증키 변경 및 확인방법 등 바로빌 테스트환경에서 개발이 완료된 후, 운영환경으로 전환하는 방법을 안내합니다.</span></td>
+                                                        <td role="gridcell" aria-colindex="5" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1"><span data-state="closed" class="sc-blHHSb ldYQLR sc-egkSDF iYEWgw">운영전환</span></td>
+                                                        <td role="gridcell" aria-colindex="6" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ" tabindex="-1">
+                                                            <div role="status" aria-label="published" class="sc-blHHSb eOJTlN"><span class="sc-blHHSb fTSiDe sc-egkSDF eSnerJ">Published</span></div>
+                                                        </td>
+                                                        <td role="gridcell" aria-colindex="7" class="sc-blHHSb bcyhAF sc-fjBUEo IgbuZ sc-gOvSbZ cuPeWW" tabindex="-1">
+                                                            <button class="sc-blHHSb hdpRQE sc-gtLWhw cAbQNR sc-hJRrWL bbRHss" aria-disabled="false" type="button" id="radix-:rf1:" aria-haspopup="menu" aria-expanded="false" data-state="closed"><span class="sc-blHHSb fTSiDe sc-egkSDF dvHOXc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0M7.5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4m17 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4"></path></svg><span class="sc-keTIit ihrEqy">Row actions</span></span></button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sc-blHHSb hdpYRr sc-gtLWhw fMSIvK">
+                                        <div class="sc-blHHSb fTSiDe sc-gtLWhw flgAFT">
+                                            <div class="sc-blHHSb lmVLhG sc-gtLWhw fINGZO sc-fkJXLl hpGCBS" aria-label="Entries per page" role="combobox" aria-controls="radix-:rf4:" aria-expanded="false" aria-autocomplete="none" dir="ltr" data-state="closed" tabindex="0"><span class="sc-blHHSb gHCzMh sc-gtLWhw kaBsXU"><span class="sc-blHHSb fTSiDe sc-egkSDF iYEWgw sc-irPVuy jjxIRY"><span class="sc-jWJSSj dKjRST">10</span></span></span><span class="sc-blHHSb fTSiDe sc-gtLWhw kaBsXU"><span aria-hidden="true" class="sc-bqvdXA cSGnYU"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor"><path d="m26.708 12.708-10 10a1 1 0 0 1-1.415 0l-10-10A1 1 0 0 1 6 11h20a1 1 0 0 1 .707 1.707"></path></svg></span></span></div>
+                                            <span class="sc-blHHSb fTSiDe sc-egkSDF hvvwPm">Entries per page</span></div>
+                                        <nav aria-label="Pagination" class="sc-blHHSb fTSiDe">
+                                            <ol class="sc-blHHSb fTSiDe sc-gtLWhw eoAyv">
+                                                <li><a tabindex="-1" aria-disabled="true" class="sc-blHHSb lmPZGO sc-iuUfFv jwBCsG sc-fUEImY sc-klYcpz dzBtRA hczjSB" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide.barobill-developers-api-guide?pageSize=10&amp;page=0&amp;sort=title%3AASC"><span class="sc-keTIit ihrEqy">Go to previous page</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                                        <path d="M21.061 24.939a1.503 1.503 0 0 1-2.125 2.125l-10-10a1.5 1.5 0 0 1 0-2.125l10-10a1.503 1.503 0 0 1 2.125 2.125L12.125 16z"></path>
+                                                    </svg>
+                                                </a></li>
+                                                <li><a aria-disabled="false" aria-current="true" class="sc-blHHSb lmPZGO sc-iuUfFv jwBCsG sc-fUEImY sc-DvaoS infKSj buakMK" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide.barobill-developers-api-guide?pageSize=10&amp;page=1&amp;sort=title%3AASC"><span class="sc-keTIit ihrEqy">Go to page 1</span><span aria-hidden="true" class="sc-blHHSb fTSiDe sc-egkSDF ibKklh">1</span></a></li>
+                                                <li><a aria-disabled="false" aria-current="false" class="sc-blHHSb lmPZGO sc-iuUfFv jwBCsG sc-fUEImY sc-DvaoS dzBtRA gBkGUR" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide.barobill-developers-api-guide?pageSize=10&amp;page=2&amp;sort=title%3AASC"><span class="sc-keTIit ihrEqy">Go to page 2</span><span aria-hidden="true" class="sc-blHHSb fTSiDe sc-egkSDF fxLLuG">2</span></a></li>
+                                                <li><a aria-disabled="false" aria-current="false" class="sc-blHHSb lmPZGO sc-iuUfFv jwBCsG sc-fUEImY sc-DvaoS dzBtRA gBkGUR" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide.barobill-developers-api-guide?pageSize=10&amp;page=3&amp;sort=title%3AASC"><span class="sc-keTIit ihrEqy">Go to page 3</span><span aria-hidden="true" class="sc-blHHSb fTSiDe sc-egkSDF fxLLuG">3</span></a></li>
+                                                <li><a aria-disabled="false" class="sc-blHHSb lmPZGO sc-iuUfFv jwBCsG sc-fUEImY sc-klYcpz dzBtRA bbmlkb" href="/admin/content-manager/collection-types/api::barobill-developers-api-guide.barobill-developers-api-guide?pageSize=10&amp;page=2&amp;sort=title%3AASC"><span class="sc-keTIit ihrEqy">Go to next page</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true">
+                                                        <path d="m23.061 17.061-10 10a1.503 1.503 0 0 1-2.125-2.125L19.875 16l-8.936-8.939a1.502 1.502 0 1 1 2.125-2.125l10 10a1.5 1.5 0 0 1-.003 2.125"></path>
+                                                    </svg>
+                                                </a></li>
+                                            </ol>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="sc-keTIit ihrEqy"><p role="log" aria-live="polite" id="live-region-log" aria-relevant="all"></p><p role="status" aria-live="polite" id="live-region-status" aria-relevant="all">The schemas have been successfully loaded</p><p role="alert" aria-live="assertive" id="live-region-alert" aria-relevant="all"></p></span></div>
+<noscript>
+    <div class="strapi--root">
+        <div class="strapi--no-js">
+            <style type="text/css">
+                .strapi--root {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    background: #fff;
+                }
+
+                .strapi--no-js {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    font-family: helvetica, arial, sans-serif;
+                }
+            </style>
+            <h1>JavaScript disabled</h1>
+            <p>Please <a href="https://www.enable-javascript.com/">enable JavaScript</a> in your browser and reload the page to proceed.</p></div>
+    </div>
+</noscript>
+<script type="module" src="/admin/strapi-BU-90ZGE.js"></script>
+<div class="sc-blHHSb fTSiDe"></div>
+<link rel="stylesheet" href="custom.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="custom.js"></script>
+</body>
+</html>
