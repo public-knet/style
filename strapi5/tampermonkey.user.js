@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Strapi5
 // @namespace    https://github.com/public-knet/style
-// @version      1.1
+// @version      1.2
 // @description  Strapi5 스타일 변경
 // @author       한승룡
-// @icon         https://dev.cms.knetbiz.com/favicon.ico
+// @icon         https://dev.cms2.knetbiz.com/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/public-knet/style/main/strapi5/tampermonkey.user.js
 // @downloadURL  https://raw.githubusercontent.com/public-knet/style/main/strapi5/tampermonkey.user.js
-// @include      /^https:\/\/?.*cms\.knetbiz\.com.*$/
+// @include      /^https:\/\/?.*cms2\.knetbiz\.com.*$/
 // @grant        GM.xmlHttpRequest
 // @connect      raw.githubusercontent.com
 // ==/UserScript==
