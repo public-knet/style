@@ -135,5 +135,9 @@
 .pod-logs-viewer .diff-code- {
   background: #0c3c30;
 }
+.application-resources-diff .white-box .noscroll,
+.pod-logs-viewer .noscroll {
+  line-height: 1rem !important;
+}
 
 /*# sourceMappingURL=custom.css.map */
