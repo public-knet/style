@@ -1,0 +1,691 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+        body {
+            background-color: #0e1016;
+            color: #fafaff;
+        }
+        table th, table td {
+            min-width: 8em;
+            border-top: 1px solid #323237;
+            text-align: center;
+        }
+        .console-output {
+            background-color: #1f1f23;
+            margin: 10px;
+            padding: 16px;
+            font-size: 13px;
+            border: 2px solid color(srgb 0.954697 0.974838 1.01594 / 0.02);
+            text-wrap-mode: wrap;
+            unicode-bidi: isolate;
+            white-space-collapse: preserve;
+        }
+        .console-output span {
+            display: inline;
+        }
+    </style>
+    <link rel="stylesheet" href="custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="../_commons/commons.js"></script>
+    <script src="custom.js"></script>
+    <script>
+			document.addEventListener('DOMContentLoaded', () => {
+                const $stageView = $('[fragcaption="Stage View"]');
+                const stageViewHtml = $stageView.html();
+                const $consoleOutput = $('.console-output');
+                const consoleOutputHtml = $consoleOutput.html();
+
+                const reset = () => {
+                    setTimeout(() => {
+                        $stageView.html('');
+                        $stageView.html(stageViewHtml);
+                        $consoleOutput.html('');
+                        $consoleOutput.html(consoleOutputHtml);
+                        reset();
+                    }, 2000);
+                }
+
+                reset();
+			});
+    </script>
+</head>
+<body>
+<div class="cbwf-stage-view">
+    <div objecturl="/view/dev/job/knet/job/bank/job/dev/" fragcaption="Stage View" cbwf-controller="pipeline-staged" class="cbwf-widget cbwf-controller-applied pipeline-staged">
+        <div>
+            <div id="pipeline-box">
+                <h2>Stage View</h2>
+                <div class="table-box">
+                    <div class="table-viewPort">
+                        <table class="jobsTable" style="max-width:40em">
+                            <colgroup>
+                                <col class="start-group">
+                                <col class="stage-group" style="max-width:10em;">
+                                <col class="stage-group" style="max-width:10em;">
+                                <col class="stage-group" style="max-width:10em;">
+                                <col class="stage-group" style="max-width:10em;">
+                            </colgroup>
+                            <thead>
+                            <tr class="header">
+                                <th class="stage-start"></th>
+                                <th class="stage-header-name-0">🔍 변경 감지</th>
+                                <th class="stage-header-name-1">JAVA bank</th>
+                                <th class="stage-header-name-2">NODE bank-api</th>
+                                <th class="stage-header-name-3">GOLANG bank-batch</th>
+                            </tr>
+                            </thead>
+                            <tbody class="totals-box">
+                            <tr class="totals">
+                                <td class="stage-start">
+                                    <div class="cell-color">
+                                        Average stage times:<br>
+                                        &nbsp;
+                                    </div>
+                                </td>
+                                <td class="stage-total-0">
+                                    <div class="cell-color">
+                                        <div class="duration">16s</div>
+                                        <div class="stackedBarChart">
+                                            <div class="stackedBarChart inner clearfix">
+                                                <div class="bar highlight" style="width: 3.26184%;"></div>
+                                                <div class="bar posthighlight" style="width: 31.6948%;"></div>
+                                                <div class="bar posthighlight" style="width: 43.9556%;"></div>
+                                                <div class="bar posthighlight" style="width: 21.0878%;"></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="stage-total-1">
+                                    <div class="cell-color">
+                                        <div class="duration">2min 35s</div>
+                                        <div class="stackedBarChart">
+                                            <div class="stackedBarChart inner clearfix">
+                                                <div class="bar prehighlight" style="width: 3.26184%;"></div>
+                                                <div class="bar highlight" style="width: 31.6948%;"></div>
+                                                <div class="bar posthighlight" style="width: 43.9556%;"></div>
+                                                <div class="bar posthighlight" style="width: 21.0878%;"></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="stage-total-2">
+                                    <div class="cell-color">
+                                        <div class="duration">3min 36s</div>
+                                        <div class="stackedBarChart">
+                                            <div class="stackedBarChart inner clearfix">
+                                                <div class="bar prehighlight" style="width: 3.26184%;"></div>
+                                                <div class="bar prehighlight" style="width: 31.6948%;"></div>
+                                                <div class="bar highlight" style="width: 43.9556%;"></div>
+                                                <div class="bar posthighlight" style="width: 21.0878%;"></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="stage-total-3">
+                                    <div class="cell-color">
+                                        <div class="duration">1min 43s</div>
+                                        <div class="stackedBarChart">
+                                            <div class="stackedBarChart inner clearfix">
+                                                <div class="bar prehighlight" style="width: 3.26184%;"></div>
+                                                <div class="bar prehighlight" style="width: 31.6948%;"></div>
+                                                <div class="bar prehighlight" style="width: 43.9556%;"></div>
+                                                <div class="bar highlight" style="width: 21.0878%;"></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Console Output</h2>
+<div>
+    <pre class="console-output" id="out">Push event to branch dev
+<span class="greyed"><small>17:45:45</small> Connecting to <a href="https://api.github.com">https://api.github.com</a> using knet-dev/****** (GitHub (knetdev@knetbiz.com))
+</span>Obtained Jenkinsfile from 8d83a59d515e05ba0fcbc62fee05d74d61824b63
+<span class="pipeline-new-node" nodeid="2" startid="2">[Pipeline] Start of Pipeline<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="3" startid="3" enclosingid="2">[Pipeline] node<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-3">Agent <a href="/computer/buildkit-nx-c9swt" class="jenkins-table__link model-link model-link--float">buildkit-nx-c9swt<button class="jenkins-menu-dropdown-chevron" data-href="https://jenkins.devops.knetbiz.com/computer/buildkit-nx-c9swt" aria-expanded="false"></button></a> is provisioned from template buildkit-nx
+---
+apiVersion: "v1"
+kind: "Pod"
+metadata:
+  annotations:
+    karpenter.sh/do-not-evict: "true"
+    kubernetes.jenkins.io/last-refresh: "1773218747724"
+  labels:
+    jenkins/jenkins-jenkins-agent: "true"
+    jenkins/label-digest: "59711eadec0d2a71dc54d09b18ea3afbf3bc4afe"
+    jenkins/label: "buildkit-nx"
+    kubernetes.jenkins.io/controller: "http___jenkins_jenkins_svc_cluster_local_8080x"
+  name: "buildkit-nx-c9swt"
+  namespace: "jenkins"
+spec:
+  containers:
+  - args:
+    - "99999999"
+    command:
+    - "sleep"
+    env:
+    - name: "DOCKER_HOST"
+      value: "tcp://localhost:2375"
+    image: "395488743412.dkr.ecr.ap-northeast-2.amazonaws.com/gradle:9.4.0-jdk25-nx"
+    imagePullPolicy: "IfNotPresent"
+    name: "gradle"
+    resources:
+      limits:
+        memory: "16Gi"
+        cpu: "8000m"
+      requests:
+        memory: "8Gi"
+        cpu: "4000m"
+    tty: true
+    volumeMounts:
+    - mountPath: "/home/jenkins/agent"
+      name: "workspace-volume"
+      readOnly: false
+  - args:
+    - "--config=/etc/buildkit/buildkitd.toml"
+    command:
+    - "buildkitd"
+    image: "395488743412.dkr.ecr.ap-northeast-2.amazonaws.com/moby/buildkit:v0.28.0-nx"
+    imagePullPolicy: "IfNotPresent"
+    name: "buildkit"
+    resources:
+      limits:
+        memory: "24Gi"
+        cpu: "16000m"
+      requests:
+        memory: "16Gi"
+        cpu: "8000m"
+    securityContext:
+      privileged: true
+    tty: true
+    volumeMounts:
+    - mountPath: "/home/jenkins/agent"
+      name: "workspace-volume"
+      readOnly: false
+  - env:
+    - name: "DOCKER_TLS_CERTDIR"
+      value: ""
+    image: "docker:dind"
+    imagePullPolicy: "IfNotPresent"
+    name: "dind"
+    resources: {}
+    securityContext:
+      privileged: true
+    tty: true
+    volumeMounts:
+    - mountPath: "/home/jenkins/agent"
+      name: "workspace-volume"
+      readOnly: false
+  - env:
+    - name: "JENKINS_SECRET"
+      value: "********"
+    - name: "JENKINS_TUNNEL"
+      value: "jenkins-agent.jenkins.svc.cluster.local:50000"
+    - name: "JENKINS_AGENT_NAME"
+      value: "buildkit-nx-c9swt"
+    - name: "REMOTING_OPTS"
+      value: "-noReconnectAfter 1d"
+    - name: "JENKINS_NAME"
+      value: "buildkit-nx-c9swt"
+    - name: "JENKINS_AGENT_WORKDIR"
+      value: "/home/jenkins/agent"
+    - name: "JENKINS_URL"
+      value: "<a href="http://jenkins.jenkins.svc.cluster.local:8080/">http://jenkins.jenkins.svc.cluster.local:8080/</a>"
+    image: "jenkins/inbound-agent:3309.v27b_9314fd1a_4-1"
+    name: "jnlp"
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+    volumeMounts:
+    - mountPath: "/home/jenkins/agent"
+      name: "workspace-volume"
+      readOnly: false
+  nodeSelector:
+    kubernetes.io/os: "linux"
+  restartPolicy: "Never"
+  serviceAccountName: "jenkins"
+  tolerations:
+  - effect: "PreferNoSchedule"
+    key: "role"
+    operator: "Equal"
+    value: "build"
+  volumes:
+  - emptyDir:
+      medium: ""
+    name: "workspace-volume"
+
+Running on <a href="/computer/buildkit%2Dnx%2Dc9swt/" class="jenkins-table__link model-link model-link--float">buildkit-nx-c9swt<button class="jenkins-menu-dropdown-chevron" data-href="https://jenkins.devops.knetbiz.com/computer/buildkit%2Dnx%2Dc9swt/" aria-expanded="false"></button></a> in /home/jenkins/agent/workspace/knet_downtime_dev
+</span><span class="pipeline-new-node" nodeid="4" startid="4" enclosingid="3">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="5" startid="5" enclosingid="4">[Pipeline] ansiColor<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="6" startid="6" enclosingid="5">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-6"><div style="display:none" data-ansicolor-action="6df8daab-7f59-4b19-aea7-515e00350c70"></div>
+</span><span class="pipeline-new-node" nodeid="7" enclosingid="6">[Pipeline] checkout<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-7">Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential github
+Cloning the remote Git repository
+Cloning repository <a href="https://github.com/private-knet/downtime.git">https://github.com/private-knet/downtime.git</a>
+ &gt; git init /home/jenkins/agent/workspace/knet_downtime_dev # timeout=10
+Fetching upstream changes from <a href="https://github.com/private-knet/downtime.git">https://github.com/private-knet/downtime.git</a>
+ &gt; git --version # timeout=10
+ &gt; git --version # 'git version 2.39.5'
+using GIT_ASKPASS to set credentials GitHub (knetdev@knetbiz.com)
+ &gt; git fetch --tags --force --progress -- <a href="https://github.com/private-knet/downtime.git">https://github.com/private-knet/downtime.git</a> +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+Checking out Revision 8d83a59d515e05ba0fcbc62fee05d74d61824b63 (origin/dev)
+Commit message: "fix: git user 설정 추가 (nx release commit용)"
+ &gt; git config remote.origin.url <a href="https://github.com/private-knet/downtime.git">https://github.com/private-knet/downtime.git</a> # timeout=10
+ &gt; git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ &gt; git rev-parse origin/dev^{commit} # timeout=10
+ &gt; git config core.sparsecheckout # timeout=10
+ &gt; git checkout -f 8d83a59d515e05ba0fcbc62fee05d74d61824b63 # timeout=10
+ &gt; git rev-list --no-walk b517ce7021cde02c383bef63be45d80bc52be038 # timeout=10
+</span><span class="pipeline-new-node" nodeid="8" startid="8" enclosingid="6">[Pipeline] withCredentials<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-8">Masking supported pattern matches of $NEXUS_PASSWORD or $GITHUB_PASSWORD
+</span><span class="pipeline-new-node" nodeid="9" startid="9" enclosingid="8">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="10" startid="10" enclosingid="9">[Pipeline] container<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="11" startid="11" enclosingid="10">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="12" startid="12" enclosingid="11">[Pipeline] stage<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="13" startid="13" enclosingid="12" label="Setup">[Pipeline] { (Setup)<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="14" enclosingid="13">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-14">+ git config --global --add safe.directory /home/jenkins/agent/workspace/knet_downtime_dev
+</span><span class="pipeline-new-node" nodeid="15" enclosingid="13">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-15">+ git config user.name Jenkins
+</span><span class="pipeline-new-node" nodeid="16" enclosingid="13">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-16">+ git config user.email jenkins@knetbiz.com
+</span><span class="pipeline-new-node" nodeid="17" enclosingid="13">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-17">+ npm ci
+
+added 305 packages, and audited 306 packages in 4s
+
+41 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+</span><span class="pipeline-new-node" nodeid="18" startid="13">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="19" startid="12">[Pipeline] // stage
+</span><span class="pipeline-new-node" nodeid="20" startid="20" enclosingid="11">[Pipeline] stage<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="21" startid="21" enclosingid="20" label="Detect">[Pipeline] { (Detect)<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="22" enclosingid="21">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-22">+ nx show projects
++ sort
+</span><span class="pipeline-new-node" nodeid="23" enclosingid="21">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-23">+ nx show projects --affected '--base=origin/main'
++ sort
+</span><span class="pipeline-new-node" nodeid="24" enclosingid="21">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-24">+ nx show projects --affected '--with-target=deploy' '--base=origin/main'
++ sort
+</span><span class="pipeline-new-node" nodeid="25" enclosingid="21">[Pipeline] echo<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-25">Projects: [downtime, downtime-api]
+</span><span class="pipeline-new-node" nodeid="26" enclosingid="21">[Pipeline] echo<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-26">Affected: [downtime, downtime-api]
+</span><span class="pipeline-new-node" nodeid="27" enclosingid="21">[Pipeline] echo<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-27">Deployable: [downtime-api]
+</span><span class="pipeline-new-node" nodeid="28" startid="21">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="29" startid="20">[Pipeline] // stage
+</span><span class="pipeline-new-node" nodeid="30" startid="30" enclosingid="11">[Pipeline] stage<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="31" startid="31" enclosingid="30" label="Version">[Pipeline] { (Version)<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="32" enclosingid="31">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-32">+ nx release version '--projects=downtime' '--preid=beta' --git-tag --git-commit
+
+            <!--[7m--><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[38;5;214m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #FFAF00;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  <!--[38;5;214m--></span><span style="color: #FFAF00;">Your filter "downtime" matched the following projects:<!--[39m--></span>
+
+- downtime
+
+
+            <!--[7m--><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[90m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #4C4C4C;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  Running release version for project: <!--[1m--><b><!--[92m--></b></span><b><span style="color: #00FF00;">downtime<!--[39m--></span><!--[22m--></b>
+
+            <!--[1m--><b><!--[92m--><span style="color: #00FF00;">downtime<!--[39m--></span><!--[22m--></b> 🏷️  Resolved the current version as 1.0.6 from git tag "downtime/v1.0.6", based on releaseTagPattern "{projectName}/v{version}"
+            <!--[1m--><b><!--[92m--><span style="color: #00FF00;">downtime<!--[39m--></span><!--[22m--></b> 📄 Resolved the specifier as "premajor" using git history and the conventional commits standard, combined with your given preid "beta"
+            <!--[1m--><b><!--[92m--><span style="color: #00FF00;">downtime<!--[39m--></span><!--[22m--></b> ❓ Applied semver relative bump "premajor", derived from conventional commits data, to get new version 2.0.0-beta.0
+            <!--[1m--><b><!--[92m--><span style="color: #00FF00;">downtime<!--[39m--></span><!--[22m--></b> ✍️  New version 2.0.0-beta.0 written to manifest: downtime/package.json
+
+            <!--[37m--><span style="color: #E5E5E5;">UPDATE<!--[39m--></span> downtime/package.json
+
+    "name": "downtime",
+            <!--[31m--><span style="color: #CD0000;">-   "version": "0.0.0"<!--[39m--></span>
+            <!--[32m--><span style="color: #00CD00;">+   "version": "2.0.0-beta.0"<!--[39m--></span>
+  }
+            <!--[32m--><span style="color: #00CD00;">+<!--[39m--></span>
+
+
+            <!--[7m--><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[90m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #4C4C4C;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  Committing changes with git
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;"></span>
+<span style="color: currentColor;"><!--[7m--></span><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[90m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #4C4C4C;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  Tagging commit with git
+</span><span style="color: currentColor;"></span>
+</span><span class="pipeline-new-node" nodeid="33" enclosingid="31">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-33"><span style="color: currentColor;">+ nx release version '--projects=downtime-api' '--preid=beta' --git-tag --git-commit
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;"><!--[7m--></span><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[38;5;214m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #FFAF00;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  <!--[38;5;214m--></span><span style="color: #FFAF00;">Your filter "downtime-api" matched the following projects:<!--[39m--></span>
+
+- downtime-api
+
+
+            <!--[7m--><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[90m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #4C4C4C;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  Running release version for project: <!--[1m--><b><!--[32m--></b></span><b><span style="color: #00CD00;">downtime-api<!--[39m--></span><!--[22m--></b>
+
+            <!--[1m--><b><!--[32m--><span style="color: #00CD00;">downtime-api<!--[39m--></span><!--[22m--></b> 🏷️  Resolved the current version as 2.0.0-beta.0 from git tag "downtime-api/v2.0.0-beta.0", based on releaseTagPattern "{projectName}/v{version}"
+            <!--[1m--><b><!--[32m--><span style="color: #00CD00;">downtime-api<!--[39m--></span><!--[22m--></b> 📄 Resolved the specifier as "prerelease" since the current version is a prerelease
+            <!--[1m--><b><!--[32m--><span style="color: #00CD00;">downtime-api<!--[39m--></span><!--[22m--></b> ❓ Applied semver relative bump "prerelease", derived from conventional commits data, to get new version 2.0.0-beta.1
+            <!--[1m--><b><!--[32m--><span style="color: #00CD00;">downtime-api<!--[39m--></span><!--[22m--></b> ✍️  New version 2.0.0-beta.1 written to manifest: downtime-api/package.json
+
+            <!--[37m--><span style="color: #E5E5E5;">UPDATE<!--[39m--></span> downtime-api/package.json
+
+    "name": "downtime-api",
+            <!--[31m--><span style="color: #CD0000;">-   "version": "0.0.0"<!--[39m--></span>
+            <!--[32m--><span style="color: #00CD00;">+   "version": "2.0.0-beta.1"<!--[39m--></span>
+  }
+            <!--[32m--><span style="color: #00CD00;">+<!--[39m--></span>
+
+
+            <!--[7m--><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[90m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #4C4C4C;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  Committing changes with git
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;"></span>
+<span style="color: currentColor;"><!--[7m--></span><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[90m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #4C4C4C;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  Tagging commit with git
+</span><span style="color: currentColor;"></span>
+</span><span class="pipeline-new-node" nodeid="34" enclosingid="31">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-34"><span style="color: currentColor;">+ git describe --tags '--abbrev=0' '--match=downtime/v*'
+</span><span style="color: currentColor;">+ sed 's|downtime/v||'
+</span></span><span class="pipeline-new-node" nodeid="35" enclosingid="31">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-35"><span style="color: currentColor;">+ git describe --tags '--abbrev=0' '--match=downtime-api/v*'
+</span><span style="color: currentColor;">+ sed 's|downtime-api/v||'
+</span></span><span class="pipeline-new-node" nodeid="36" enclosingid="31">[Pipeline] echo<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-36"><span style="color: currentColor;">Versions: [downtime:2.0.0-beta.0, downtime-api:2.0.0-beta.1]
+</span></span><span class="pipeline-new-node" nodeid="37" startid="31">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="38" startid="30">[Pipeline] // stage
+</span><span class="pipeline-new-node" nodeid="39" startid="11">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="40" startid="10">[Pipeline] // container
+</span><span class="pipeline-new-node" nodeid="41" startid="41" enclosingid="9">[Pipeline] stage<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="42" startid="42" enclosingid="41" label="Build">[Pipeline] { (Build)<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="43" startid="43" enclosingid="42">[Pipeline] container<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="44" startid="44" enclosingid="43">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="45" enclosingid="44">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-45"><span style="color: currentColor;">+ git config --global --add safe.directory /home/jenkins/agent/workspace/knet_downtime_dev
+</span></span><span class="pipeline-new-node" nodeid="46" enclosingid="44">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-46"><span style="color: currentColor;">+ sh ./gradlew downtime:build downtime-api:build
+</span><span style="color: currentColor;">Downloading <a href="https://services.gradle.org/distributions/gradle-9.4.0-bin.zip">https://services.gradle.org/distributions/gradle-9.4.0-bin.zip</a>
+</span><span style="color: currentColor;">.............10%.............20%.............30%.............40%.............50%.............60%..............70%.............80%.............90%.............100%
+</span><span style="color: currentColor;">Starting a Gradle Daemon (subsequent builds will be faster)
+</span><span style="color: currentColor;">Calculating task graph as no cached configuration is available for tasks: downtime:build downtime-api:build
+</span><span style="color: currentColor;">&gt; Task :downtime:checkKotlinGradlePluginConfigurationErrors SKIPPED
+</span><span style="color: currentColor;">&gt; Task :downtime-api:checkKotlinGradlePluginConfigurationErrors SKIPPED
+</span><span style="color: currentColor;">&gt; Task :downtime:processResources
+</span><span style="color: currentColor;">&gt; Task :downtime:processTestResources NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime:compileKotlin
+</span><span style="color: currentColor;">&gt; Task :downtime:compileJava NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime:classes
+</span><span style="color: currentColor;">&gt; Task :downtime:jar
+</span><span style="color: currentColor;">&gt; Task :downtime:assemble
+</span><span style="color: currentColor;">&gt; Task :downtime:compileTestKotlin NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime:compileTestJava NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime:testClasses UP-TO-DATE
+</span><span style="color: currentColor;">&gt; Task :downtime:test NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime:check UP-TO-DATE
+</span><span style="color: currentColor;">&gt; Task :downtime:build
+</span><span style="color: currentColor;">&gt; Task :downtime-api:generateDowntimeJooq
+</span><span style="color: currentColor;">&gt; Task :downtime-api:generateJooq
+</span><span style="color: currentColor;">&gt; Task :downtime-api:processResources
+</span><span style="color: currentColor;">&gt; Task :downtime-api:processTestResources NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime-api:compileKotlin
+</span><span style="color: currentColor;">&gt; Task :downtime-api:compileJava NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime-api:classes
+</span><span style="color: currentColor;">&gt; Task :downtime-api:resolveMainClassName
+</span><span style="color: currentColor;">&gt; Task :downtime-api:bootJar
+</span><span style="color: currentColor;">&gt; Task :downtime-api:jar
+</span><span style="color: currentColor;">&gt; Task :downtime-api:assemble
+</span><span style="color: currentColor;">&gt; Task :downtime-api:compileTestKotlin
+</span><span style="color: currentColor;">&gt; Task :downtime-api:compileTestJava NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime-api:testClasses UP-TO-DATE
+</span><span style="color: currentColor;">OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+</span><span style="color: currentColor;">WARNING: A restricted method in java.lang.System has been called
+</span><span style="color: currentColor;">WARNING: java.lang.System::loadLibrary has been called by io.netty.util.internal.NativeLibraryUtil in an unnamed module (file:/home/gradle/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.2.10.Final/c55e97d9bd061a2d88418d2d831e1fa39cb975e7/netty-common-4.2.10.Final.jar)
+</span><span style="color: currentColor;">WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+</span><span style="color: currentColor;">WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;">2026-03-11T17:48:01.241+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0xd][pid: 77] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.242+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0xc][pid: 76] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.242+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0xb][pid: 75] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.242+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0xe][pid: 78] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.242+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0xf][pid: 79] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.243+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x10][pid: 80] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.243+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x11][pid: 81] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.243+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x12][pid: 82] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.243+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x13][pid: 83] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.248+09:00  INFO 505 --- [downtime-api] [ionShutdownHook] o.s.boot.reactor.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+</span><span style="color: currentColor;">2026-03-11T17:48:01.250+09:00  INFO 505 --- [downtime-api] [ netty-shutdown] o.s.boot.reactor.netty.GracefulShutdown  : Graceful shutdown complete
+</span><span style="color: currentColor;">2026-03-11T17:48:01.253+09:00  WARN 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: AuthenticationSASL{authenticationMechanisms=[SCRAM-SHA-256]}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.254+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Request:  SASLInitialResponse{initialResponse=java.nio.HeapByteBuffer[pos=0 lim=40 cap=44], name='SCRAM-SHA-256'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.254+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: AuthenticationSASLContinue{data=java.nio.HeapByteBuffer[pos=0 lim=84 cap=84]}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.256+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Request:  SASLResponse{data=java.nio.HeapByteBuffer[pos=0 lim=104 cap=114]}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.258+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: AuthenticationSASLFinal{additionalData=java.nio.HeapByteBuffer[pos=0 lim=46 cap=46]}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.258+09:00 ERROR 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: AuthenticationOk{}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.258+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='in_hot_standby', value='off'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.258+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='integer_datetimes', value='on'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.258+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='TimeZone', value='Asia/Seoul'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 FATAL 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='IntervalStyle', value='postgres'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='is_superuser', value='on'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='application_name', value='r2dbc-postgresql'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='default_transaction_read_only', value='off'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='scram_iterations', value='4096'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='DateStyle', value='ISO, MDY'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='standard_conforming_strings', value='on'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='session_authorization', value='postgres'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='client_encoding', value='UTF8'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='server_version', value='17.9'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: ParameterStatus{name='server_encoding', value='UTF8'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14] Response: BackendKeyData{processId=84, secretKey=-1665356429}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.259+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: ReadyForQuery{transactionStatus=IDLE}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.260+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] io.r2dbc.postgresql.QUERY                : [cid: 0x14][pid: 84] Executing query: SHOW TRANSACTION ISOLATION LEVEL
+</span><span style="color: currentColor;">2026-03-11T17:48:01.261+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Request:  Query{query='SHOW TRANSACTION ISOLATION LEVEL'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.261+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: RowDescription{fields=[Field{column=0, dataType=25, dataTypeModifier=-1, dataTypeSize=-1, format=FORMAT_TEXT, name='transaction_isolation', table=0}]}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.262+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: DataRow{columns=[UnpooledSlicedByteBuf(ridx: 0, widx: 14, cap: 14/14, unwrapped: AdaptivePoolingAllocator$AdaptiveByteBuf(ridx: 72, widx: 88, cap: 1024))]}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.262+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: CommandComplete{command=SHOW, rowId=null, rows=null}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.262+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: ReadyForQuery{transactionStatus=IDLE}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.262+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] io.r2dbc.postgresql.QUERY                : [cid: 0x14][pid: 84] Executing query: SELECT oid, * FROM pg_catalog.pg_type WHERE typname IN ('hstore','geometry','vector')
+</span><span style="color: currentColor;">2026-03-11T17:48:01.262+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Request:  Query{query='SELECT oid, * FROM pg_catalog.pg_type WHERE typname IN ('hstore','geometry','vector')'}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.265+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: RowDescription{fields=[Field{column=1, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='oid', table=1247}, Field{column=1, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='oid', table=1247}, Field{column=2, dataType=19, dataTypeModifier=-1, dataTypeSize=64, format=FORMAT_TEXT, name='typname', table=1247}, Field{column=3, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typnamespace', table=1247}, Field{column=4, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typowner', table=1247}, Field{column=5, dataType=21, dataTypeModifier=-1, dataTypeSize=2, format=FORMAT_TEXT, name='typlen', table=1247}, Field{column=6, dataType=16, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typbyval', table=1247}, Field{column=7, dataType=18, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typtype', table=1247}, Field{column=8, dataType=18, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typcategory', table=1247}, Field{column=9, dataType=16, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typispreferred', table=1247}, Field{column=10, dataType=16, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typisdefined', table=1247}, Field{column=11, dataType=18, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typdelim', table=1247}, Field{column=12, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typrelid', table=1247}, Field{column=13, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typsubscript', table=1247}, Field{column=14, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typelem', table=1247}, Field{column=15, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typarray', table=1247}, Field{column=16, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typinput', table=1247}, Field{column=17, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typoutput', table=1247}, Field{column=18, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typreceive', table=1247}, Field{column=19, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typsend', table=1247}, Field{column=20, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typmodin', table=1247}, Field{column=21, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typmodout', table=1247}, Field{column=22, dataType=24, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typanalyze', table=1247}, Field{column=23, dataType=18, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typalign', table=1247}, Field{column=24, dataType=18, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typstorage', table=1247}, Field{column=25, dataType=16, dataTypeModifier=-1, dataTypeSize=1, format=FORMAT_TEXT, name='typnotnull', table=1247}, Field{column=26, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typbasetype', table=1247}, Field{column=27, dataType=23, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typtypmod', table=1247}, Field{column=28, dataType=23, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typndims', table=1247}, Field{column=29, dataType=26, dataTypeModifier=-1, dataTypeSize=4, format=FORMAT_TEXT, name='typcollation', table=1247}, Field{column=30, dataType=194, dataTypeModifier=-1, dataTypeSize=-1, format=FORMAT_TEXT, name='typdefaultbin', table=1247}, Field{column=31, dataType=25, dataTypeModifier=-1, dataTypeSize=-1, format=FORMAT_TEXT, name='typdefault', table=1247}, Field{column=32, dataType=1034, dataTypeModifier=-1, dataTypeSize=-1, format=FORMAT_TEXT, name='typacl', table=1247}]}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.265+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: CommandComplete{command=SELECT, rowId=null, rows=0}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.265+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Response: ReadyForQuery{transactionStatus=IDLE}
+</span><span style="color: currentColor;">2026-03-11T17:48:01.265+09:00 DEBUG 505 --- [downtime-api] [tor-tcp-epoll-7] i.r.p.client.ReactorNettyClient          : [cid: 0x14][pid: 84] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.266+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x2][pid: 66] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.266+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x3][pid: 67] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.266+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x4][pid: 68] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.266+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x5][pid: 69] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.266+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x7][pid: 71] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.267+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x8][pid: 72] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.267+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x9][pid: 73] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.267+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x6][pid: 70] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.268+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0x1][pid: 65] Request:  Terminate{}
+</span><span style="color: currentColor;">2026-03-11T17:48:03.268+09:00 DEBUG 505 --- [downtime-api] [ionShutdownHook] i.r.p.client.ReactorNettyClient          : [cid: 0xa][pid: 74] Request:  Terminate{}
+</span><span style="color: currentColor;">&gt; Task :downtime-api:test
+</span><span style="color: currentColor;">&gt; Task :downtime-api:check
+</span><span style="color: currentColor;">&gt; Task :downtime-api:build
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;">1 problem was found storing the configuration cache.
+</span><span style="color: currentColor;">- Task `:downtime-api:generateDowntimeJooq` of type `nu.studer.gradle.jooq.JooqGenerate`: cannot serialize object of type 'org.gradle.api.internal.project.DefaultProject', a subtype of 'org.gradle.api.Project', as these are not supported with the configuration cache.
+</span><span style="color: currentColor;">  See <a href="https://docs.gradle.org/9.4.0/userguide/configuration_cache_requirements.html#config_cache:requirements:disallowed_types">https://docs.gradle.org/9.4.0/userguide/configuration_cache_requirements.html#config_cache:requirements:disallowed_types</a>
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;">See the complete report at <a href="file:///home/jenkins/agent/workspace/knet_downtime_dev/build/reports/configuration-cache/apsfynrih2hteoxl5cwhippvw/aflv8chrc6qf2o9oqhcfqpv7/configuration-cache-report.html">file:///home/jenkins/agent/workspace/knet_downtime_dev/build/reports/configuration-cache/apsfynrih2hteoxl5cwhippvw/aflv8chrc6qf2o9oqhcfqpv7/configuration-cache-report.html</a>
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;">[Incubating] Problems report is available at: <a href="file:///home/jenkins/agent/workspace/knet_downtime_dev/build/reports/problems/problems-report.html">file:///home/jenkins/agent/workspace/knet_downtime_dev/build/reports/problems/problems-report.html</a>
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;">BUILD SUCCESSFUL in 1m 51s
+</span><span style="color: currentColor;">11 actionable tasks: 11 executed
+</span><span style="color: currentColor;">Configuration cache entry discarded with 1 problem.
+</span></span><span class="pipeline-new-node" nodeid="47" startid="44">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="48" startid="43">[Pipeline] // container
+</span><span class="pipeline-new-node" nodeid="49" startid="42">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="50" startid="41">[Pipeline] // stage
+</span><span class="pipeline-new-node" nodeid="51" startid="51" enclosingid="9">[Pipeline] stage<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="52" startid="52" enclosingid="51" label="downtime">[Pipeline] { (downtime)<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="53" startid="53" enclosingid="52">[Pipeline] container<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="54" startid="54" enclosingid="53">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="55" enclosingid="54">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-55"><span style="color: currentColor;">+ nx run downtime:build
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;"><!--[2m--><span style="font-weight: lighter;">&gt; <!--[22m--></span><!--[2m--><span style="font-weight: lighter;">nx run<!--[22m--></span> downtime:build
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;"><!--[2m--><span style="font-weight: lighter;">&gt; <!--[22m--></span>sh ./gradlew downtime:publish
+</span><span style="color: currentColor;">
+</span><span style="color: currentColor;">Calculating task graph as no cached configuration is available for tasks: downtime:publish
+</span><span style="color: currentColor;">&gt; Task :downtime:checkKotlinGradlePluginConfigurationErrors SKIPPED
+</span><span style="color: currentColor;">&gt; Task :downtime:compileKotlin UP-TO-DATE
+</span><span style="color: currentColor;">&gt; Task :downtime:compileJava NO-SOURCE
+</span><span style="color: currentColor;">&gt; Task :downtime:processResources UP-TO-DATE
+</span><span style="color: currentColor;">&gt; Task :downtime:classes UP-TO-DATE
+</span><span style="color: currentColor;">&gt; Task :downtime:jar UP-TO-DATE
+</span><span style="color: currentColor;">&gt; Task :downtime:generateMetadataFileForMavenPublication
+</span><span style="color: currentColor;">&gt; Task :downtime:generatePomFileForMavenPublication
+</span><span style="color: currentColor;">&gt; Task :downtime:publishMavenPublicationToNexusRepository
+</span><span style="color: currentColor;">&gt; Task :downtime:publish
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;">Some tasks or features in this build are not compatible with the configuration cache.
+</span><span style="color: currentColor;">See the complete report at <a href="file:///home/jenkins/agent/workspace/knet_downtime_dev/build/reports/configuration-cache/6mtojcm8ce4hvt5t6kocshb8d/6algbko6qe7iftf6j76gteg33/configuration-cache-report.html">file:///home/jenkins/agent/workspace/knet_downtime_dev/build/reports/configuration-cache/6mtojcm8ce4hvt5t6kocshb8d/6algbko6qe7iftf6j76gteg33/configuration-cache-report.html</a>
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;">BUILD SUCCESSFUL in 2s
+</span><span style="color: currentColor;">6 actionable tasks: 3 executed, 3 up-to-date
+</span><span style="color: currentColor;">Configuration cache disabled because incompatible task was found.
+</span><span style="color: currentColor;"></span>
+<span style="color: currentColor;"><!--[2m--><span style="font-weight: lighter;"><!--[32m--></span></span><span style="font-weight: lighter;"><span style="color: #00CD00;"><!--[39m--></span><!--[22m--></span>
+
+            <!--[7m--><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[32m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #00CD00;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  <!--[32m--></span><span style="color: #00CD00;">Successfully ran target <!--[1m--><b>build<!--[22m--></b> for project downtime<!--[39m--></span>
+
+
+</span><span class="pipeline-new-node" nodeid="56" startid="54">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="57" startid="53">[Pipeline] // container
+</span><span class="pipeline-new-node" nodeid="58" startid="52">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="59" startid="51">[Pipeline] // stage
+</span><span class="pipeline-new-node" nodeid="60" startid="60" enclosingid="9">[Pipeline] stage<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="61" startid="61" enclosingid="60" label="downtime-api">[Pipeline] { (downtime-api)<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="62" startid="62" enclosingid="61">[Pipeline] container<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="63" startid="63" enclosingid="62">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="64" enclosingid="63">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-64">+ nx run downtime-api:build
+
+            <!--[2m--><span style="font-weight: lighter;">&gt; <!--[22m--></span><!--[2m--><span style="font-weight: lighter;">nx run<!--[22m--></span> downtime-api:build
+
+            <!--[2m--><span style="font-weight: lighter;">&gt; <!--[22m--></span>buildctl build --progress=plain --frontend=dockerfile.v0 --local context=. --local dockerfile=downtime-api --output type=image,name=$ECR_REGISTRY/$GIT_REPO_NAME/downtime-api:$RELEASE_VERSION,push=true --export-cache type=registry,ref=$ECR_REGISTRY/$GIT_REPO_NAME/cache:downtime-api,mode=max --import-cache type=registry,ref=$ECR_REGISTRY/$GIT_REPO_NAME/cache:downtime-api
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 281B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for 395488743412.dkr.ecr.ap-northeast-2.amazonaws.com/azul/zulu-openjdk-alpine:25-jre-headless
+#2 ...
+
+#3 [auth] sharing credentials for 395488743412.dkr.ecr.ap-northeast-2.amazonaws.com
+#3 DONE 0.0s
+
+#2 [internal] load metadata for 395488743412.dkr.ecr.ap-northeast-2.amazonaws.com/azul/zulu-openjdk-alpine:25-jre-headless
+#2 DONE 0.7s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 473B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [1/2] FROM 395488743412.dkr.ecr.ap-northeast-2.amazonaws.com/azul/zulu-openjdk-alpine:25-jre-headless@sha256:f4176145a26b1be3d55b31af7e8882abfa0153537ce47bc6bdc222da3f6cf46a
+#6 resolve 395488743412.dkr.ecr.ap-northeast-2.amazonaws.com/azul/zulu-openjdk-alpine:25-jre-headless@sha256:f4176145a26b1be3d55b31af7e8882abfa0153537ce47bc6bdc222da3f6cf46a 0.0s done
+#6 DONE 0.0s
+
+#7 importing cache manifest from 395488743412.dkr.ecr.ap-northeast-2.amazonaws.com/downtime/cache:downtime-api
+#7 inferred cache manifest type: application/vnd.oci.image.manifest.v1+json done
+#7 DONE 0.3s
+
+#5 [internal] load build context
+#5 transferring context: 79.01MB 0.3s done
+#5 DONE 0.3s
+
+#8 [2/2] COPY downtime-api/build/libs/*.jar /app/app.jar
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:0e1d3e3c14b4d910ad130135b9a2f34ca5c52d9dc20b22891c94cb845c1e277f 0.0s done
+#9 exporting config sha256:0dfc9b8da0da539604b749b18f474d2afbdf57bfcd89def8a7c996d720373909 0.0s done
+#9 DONE 0.0s
+
+#10 exporting cache to registry
+#10 preparing build cache for export done
+#10 sending cache export
+#10 writing layer sha256:c740dbdc57342a9ef87bf821bc978f9a34e5d181e63cb733f4dd9838182b7b84 0.0s done
+#10 writing layer sha256:4f47eb7bf0b0098adc32d362d64e351e4decb36fd7c2d4ef9ce3a6a9637de7f0 0.1s done
+#10 writing layer sha256:76eb174b37c3e263a212412822299b58d4098a7f96715f18c7eb6932c98b7efd 0.0s done
+#10 writing config sha256:82a5cd098b4ce015f8a0cd1d92a091db26dbd8d8eec327831aa1aa9da38232e6 0.0s done
+#10 writing cache image manifest sha256:307c6befa882f2f3ac8a5f5c6ab881ac460ea886d36483d23386e2f922d604a1
+#10 sending cache export 0.1s done
+#10 writing cache image manifest sha256:307c6befa882f2f3ac8a5f5c6ab881ac460ea886d36483d23386e2f922d604a1 0.1s done
+#10 DONE 0.2s
+
+            <!--[2m--><span style="font-weight: lighter;"><!--[32m--><span style="color: #00CD00;"><!--[39m--></span><!--[22m--></span>
+
+            <!--[7m--><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[1m--><b><!--[32m--></b></span></span><span style="color: #FFFFFF;"><b><span style="background-color: #00CD00;"> NX <!--[39m--></span></b></span><b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[22m--></span></span></b><span style="background-color: currentColor;"><span style="color: #FFFFFF;"><!--[27m--></span></span><span style="color: currentColor;">  <!--[32m--></span><span style="color: #00CD00;">Successfully ran target <!--[1m--><b>build<!--[22m--></b> for project downtime-api<!--[39m--></span>
+
+
+</span><span class="pipeline-new-node" nodeid="65" startid="63">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="66" startid="62">[Pipeline] // container
+</span><span class="pipeline-new-node" nodeid="67" startid="61">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="68" startid="60">[Pipeline] // stage
+</span><span class="pipeline-new-node" nodeid="69" startid="69" enclosingid="9">[Pipeline] stage<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="70" startid="70" enclosingid="69" label="Deploy">[Pipeline] { (Deploy)<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="71" startid="71" enclosingid="70">[Pipeline] container<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="72" startid="72" enclosingid="71">[Pipeline] {<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-new-node" nodeid="73" enclosingid="72">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-73">Warning: A secret was passed to "sh" using Groovy String interpolation, which is insecure.
+		 Affected argument(s) used the following variable(s): [GITHUB_PASSWORD]
+		 See <a href="https://jenkins.io/redirect/groovy-string-interpolation">https://jenkins.io/redirect/groovy-string-interpolation</a> for details.
++ git clone --depth 1 <a href="https://knet-dev:****@github.com/private-knet/helm-values.git">https://knet-dev:****@github.com/private-knet/helm-values.git</a> /tmp/helm-values
+Cloning into '/tmp/helm-values'...
+</span><span class="pipeline-new-node" nodeid="74" enclosingid="72">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-74">+ sed -i 's|tag:.*|tag: 2.0.0-beta.1|' /tmp/helm-values/downtime/dev@downtime-api.yaml
+</span><span class="pipeline-new-node" nodeid="75" enclosingid="72">[Pipeline] echo<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-75">Updated dev@downtime-api.yaml → 2.0.0-beta.1
+</span><span class="pipeline-new-node" nodeid="76" enclosingid="72">[Pipeline] sh<span class="pipeline-show-hide"> (<a href="#" class="pipeline-toggle">hide</a>)</span>
+</span><span class="pipeline-node-76">+ cd /tmp/helm-values
++ git config user.name Jenkins
++ git config user.email jenkins@knetbiz.com
++ git add .
++ git commit -m 'downtime: downtime-api → v2.0.0-beta.1'
+[main 007375f] downtime: downtime-api → v2.0.0-beta.1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
++ git push origin main
+To <a href="https://github.com/private-knet/helm-values.git">https://github.com/private-knet/helm-values.git</a>
+   d52aa89..007375f  main -&gt; main
++ rm -rf /tmp/helm-values
+</span><span class="pipeline-new-node" nodeid="77" startid="72">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="78" startid="71">[Pipeline] // container
+</span><span class="pipeline-new-node" nodeid="79" startid="70">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="80" startid="69">[Pipeline] // stage
+</span><span class="pipeline-new-node" nodeid="81" startid="9">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="82" startid="8">[Pipeline] // withCredentials
+</span><span class="pipeline-new-node" nodeid="83" startid="6">[Pipeline] }
+</span><span class="pipeline-node-83"><div style="display:none" data-ansicolor-action="815e1814-cb56-4a6e-ad6c-29ceb14d7da4"></div>
+</span><span class="pipeline-new-node" nodeid="84" startid="5">[Pipeline] // ansiColor
+</span><span class="pipeline-new-node" nodeid="85" startid="4">[Pipeline] }
+</span><span class="pipeline-new-node" nodeid="86" startid="3">[Pipeline] // node
+</span><span class="pipeline-new-node" nodeid="87" startid="2">[Pipeline] End of Pipeline
+</span>
+GitHub has been notified of this commit’s build result
+
+Finished: SUCCESS
+</pre>
+</div>
+</body>
+</html>

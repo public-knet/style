@@ -144,8 +144,39 @@ svg[tooltip="In progress"] path,
   padding: 10px 0;
   margin: 10px 0;
 }
-.console-output span[style*="background-color:"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"] {
+.console-output span[class^=pipeline-node-],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] {
+  /* region app-builder-plugin 사용 시 */
+  /* endregion */
+}
+.console-output span[class^=pipeline-node-] > span[level=DEBUG],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=DEBUG] {
+  color: #808080 !important;
+}
+.console-output span[class^=pipeline-node-] > span[level=INFO],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=INFO] {
+  color: #bbbbbb !important;
+}
+.console-output span[class^=pipeline-node-] > span[level=WARN],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=WARN] {
+  color: #a68ebf !important;
+  background-color: #1A0037 !important;
+}
+.console-output span[class^=pipeline-node-] > span[level=ERROR],
+.console-output span[class^=pipeline-node-] > span[level=FATAL],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=ERROR],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=FATAL] {
+  color: #ea9595 !important;
+  background-color: #2b0000 !important;
+}
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"] {
   position: relative;
   display: flex;
   margin-bottom: -1rem;
@@ -155,20 +186,38 @@ svg[tooltip="In progress"] path,
   /* warning */
   /* error */
 }
-.console-output span[style*="background-color:"] > span:nth-child(1),
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"] > span:nth-child(1) {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"] > span:nth-child(1),
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"] > span:nth-child(1),
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"] > span:nth-child(1),
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"] > span:nth-child(1),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"] > span:nth-child(1),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"] > span:nth-child(1),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"] > span:nth-child(1),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"] > span:nth-child(1) {
   flex-shrink: 0;
   flex-grow: 0;
 }
-.console-output span[style*="background-color:"] > span:nth-child(2),
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"] > span:nth-child(2) {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"] > span:nth-child(2),
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"] > span:nth-child(2),
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"] > span:nth-child(2),
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"] > span:nth-child(2),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"] > span:nth-child(2),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"] > span:nth-child(2),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"] > span:nth-child(2),
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"] > span:nth-child(2) {
   flex-grow: 1;
   flex-shrink: 1;
   min-width: 0;
   word-break: break-all;
 }
-.console-output span[style*="background-color:"]::before,
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"]::before {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"]::before {
   content: "";
   position: absolute;
   left: calc(-1em - 6px);
@@ -176,44 +225,104 @@ svg[tooltip="In progress"] path,
   color: #a68ebf;
   font-size: 1em;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFFFF;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FFFFFF;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFFFF;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFFFF;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFFFF;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFFFF;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFFFF;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFFFF;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFFFF;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFFFF;"] {
   background-color: transparent !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFFFF;"] > span[style="color: #000000;"] {
   color: #bbbbbb !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #4C4C4C;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #4C4C4C;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #4C4C4C;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #4C4C4C;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #4C4C4C;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #4C4C4C;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #4C4C4C;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #4C4C4C;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #4C4C4C;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #4C4C4C;"] {
   background-color: transparent !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #4C4C4C;"] > span[style="color: #000000;"] {
   color: #808080 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFF00;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FFFF00;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFF00;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFF00;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFF00;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFF00;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFF00;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFF00;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFF00;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFF00;"] {
   background-color: #1A0037 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FFFF00;"] > span[style="color: #000000;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFF00;"] > span[style="color: #000000;"] {
   color: #a68ebf !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FFFF00;"]::before,
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FFFF00;"]::before {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFF00;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFF00;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFF00;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFF00;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FFFF00;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FFFF00;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FFFF00;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FFFF00;"]::before {
   content: "⚠️";
 }
-.console-output span[style*="background-color:"][style="background-color: #FF0000;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FF0000;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FF0000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FF0000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FF0000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FF0000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FF0000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FF0000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FF0000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FF0000;"] {
   background-color: #2b0000 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FF0000;"] > span[style="color: #000000;"] {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FF0000;"] > span[style="color: #000000;"],
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FF0000;"] > span[style="color: #000000;"] {
   color: #ea9595 !important;
 }
-.console-output span[style*="background-color:"][style="background-color: #FF0000;"]::before,
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[style*="background-color:"][style="background-color: #FF0000;"]::before {
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FF0000;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FF0000;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FF0000;"]::before,
+.console-output span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FF0000;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFFFF;"][style="background-color: #FF0000;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #4C4C4C;"][style="background-color: #FF0000;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FFFF00;"][style="background-color: #FF0000;"]::before,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[style*="background-color: #FF0000;"][style="background-color: #FF0000;"]::before {
   content: "⛔️";
 }
 .console-output a[href],

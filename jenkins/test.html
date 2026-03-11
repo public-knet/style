@@ -27,16 +27,21 @@
     </style>
     <link rel="stylesheet" href="custom.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="../_commons/commons.js"></script>
     <script src="custom.js"></script>
     <script>
 			document.addEventListener('DOMContentLoaded', () => {
 				const $stageView = $('[fragcaption="Stage View"]');
-				const html = $stageView.html();
+				const stageViewHtml = $stageView.html();
+                const $consoleOutput = $('.console-output');
+                const consoleOutputHtml = $consoleOutput.html();
 
 				const reset = () => {
 					setTimeout(() => {
 						$stageView.html('');
-						$stageView.html(html);
+						$stageView.html(stageViewHtml);
+                        $consoleOutput.html('');
+                        $consoleOutput.html(consoleOutputHtml);
 						reset();
 					}, 2000);
 				}
