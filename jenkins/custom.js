@@ -109,7 +109,7 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 	const $unPrettyLogs = $consoleOutput.find('span[class^=pipeline-node-]').find('span[style="color: currentColor;"]').filter(function () {
 		return !$(this).attr('level')
 	});
-	console.log($unPrettyLogs.length);
+	console.log('Logs :', $unPrettyLogs.length);
 
 	$unPrettyLogs.each(function () {
 		const text = $(this).text();
