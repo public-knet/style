@@ -147,83 +147,89 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 	}).text()
 	console.log(`> StageView : Project : ${projectName}`)
 
-	const $stageView = await KNET.util.waitForElement('[fragcaption="Stage View"]');
+	KNET.util.waitForElement('[fragcaption="Stage View"]')
+		.then(async () => {
+			const $stageView = $('[fragcaption="Stage View"]');
 
-	// 최초 1회 실행
-	console.log('> StageView : Pretty : init')
-	KNET.doPrettyStageView($stageView);
-
-	// event: stageView 의 요소 변경 감지
-	new MutationObserver(() => {
-		const processed = $stageView.find('.stage-name').length > 0
-		if (!processed) {
-			console.log('> StageView : Pretty : changed')
+			// 최초 1회 실행
+			console.log('> StageView : Pretty : init')
 			KNET.doPrettyStageView($stageView);
-		}
-	}).observe($stageView[0], {
-		childList: true, // 감지: <th> 추가/삭제
-		subtree: true, // 하위 노드(<th> 내부 텍스트 포함)까지 감시
-		characterData: true, // 텍스트 변경 감지
-		characterDataOldValue: true,
-	});
 
-	// event: ECR 버튼 클릭 이벤트
-	$stageView.off('click', '.stage-ecr').on('click', '.stage-ecr', function () {
-		let repoName = $(this).parent().find('.stage-name').text();
-
-		window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}?region=ap-northeast-2`);
-	});
-
-	// event: copy 버튼 클릭 이벤트
-	$stageView.off('click', '.stage-copy').on('click', '.stage-copy', function () {
-		let content;
-
-		if ($(this).hasClass('stage-copy-name')) {
-			content = $(this).parent().find('.stage-name').text();
-		} else {
-			const index = parseInt($(this).parent().find('.stage-index').text(), 10);
-
-			let indexes = [];
-			for (let i = 1; i <= index; i++) {
-				indexes.push(i);
-			}
-
-			if ($(this).hasClass('stage-copy-index1')) {
-				content = indexes.join(',')
-			} else {
-				content = `SKIP_STAGES: '${indexes.join(',')}'`
-			}
-		}
-
-		navigator.clipboard.writeText(content)
-			.then(() => {
-				$(this).text('copied');
-				setTimeout(() => {
-					$(this).text('copy');
-				}, 500)
-			})
-			.catch((err) => {
-				console.error('복사 실패:', err);
+			// event: stageView 의 요소 변경 감지
+			new MutationObserver(() => {
+				const processed = $stageView.find('.stage-name').length > 0
+				if (!processed) {
+					console.log('> StageView : Pretty : changed')
+					KNET.doPrettyStageView($stageView);
+				}
+			}).observe($stageView[0], {
+				childList: true, // 감지: <th> 추가/삭제
+				subtree: true, // 하위 노드(<th> 내부 텍스트 포함)까지 감시
+				characterData: true, // 텍스트 변경 감지
+				characterDataOldValue: true,
 			});
-	});
+
+			// event: ECR 버튼 클릭 이벤트
+			$stageView.off('click', '.stage-ecr').on('click', '.stage-ecr', function () {
+				let repoName = $(this).parent().find('.stage-name').text();
+
+				window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}?region=ap-northeast-2`);
+			});
+
+			// event: copy 버튼 클릭 이벤트
+			$stageView.off('click', '.stage-copy').on('click', '.stage-copy', function () {
+				let content;
+
+				if ($(this).hasClass('stage-copy-name')) {
+					content = $(this).parent().find('.stage-name').text();
+				} else {
+					const index = parseInt($(this).parent().find('.stage-index').text(), 10);
+
+					let indexes = [];
+					for (let i = 1; i <= index; i++) {
+						indexes.push(i);
+					}
+
+					if ($(this).hasClass('stage-copy-index1')) {
+						content = indexes.join(',')
+					} else {
+						content = `SKIP_STAGES: '${indexes.join(',')}'`
+					}
+				}
+
+				navigator.clipboard.writeText(content)
+					.then(() => {
+						$(this).text('copied');
+						setTimeout(() => {
+							$(this).text('copy');
+						}, 500)
+					})
+					.catch((err) => {
+						console.error('복사 실패:', err);
+					});
+			});
+		});
 
 	/*
 	ConsoleOutput
 	 */
-	// event: .console-output 의 요소 변경 감지
-	const $consoleOutput = await KNET.util.waitForElement('.console-output');
+	KNET.util.waitForElement('.console-output')
+		.then(async () => {
+			const $consoleOutput = $('.console-output');
 
-	// 최초 1회 실행
-	console.log('> ConsoleOutput : Pretty : init')
-	KNET.doPrettyConsoleOutput($consoleOutput);
+			// 최초 1회 실행
+			console.log('> ConsoleOutput : Pretty : init')
+			KNET.doPrettyConsoleOutput($consoleOutput);
 
-	new MutationObserver(() => {
-		console.log('> ConsoleOutput : Pretty : changed')
-		KNET.doPrettyConsoleOutput($consoleOutput);
-	}).observe($consoleOutput[0], {
-		childList: true, // 감지: <th> 추가/삭제
-		subtree: true, // 하위 노드(<th> 내부 텍스트 포함)까지 감시
-		characterData: true, // 텍스트 변경 감지
-		characterDataOldValue: true,
-	});
+			// event: .console-output 의 요소 변경 감지
+			new MutationObserver(() => {
+				console.log('> ConsoleOutput : Pretty : changed')
+				KNET.doPrettyConsoleOutput($consoleOutput);
+			}).observe($consoleOutput[0], {
+				childList: true, // 감지: <th> 추가/삭제
+				subtree: true, // 하위 노드(<th> 내부 텍스트 포함)까지 감시
+				characterData: true, // 텍스트 변경 감지
+				characterDataOldValue: true,
+			});
+		});
 })();
