@@ -22,6 +22,16 @@
   height: 0;
 }
 
+/* Build Icon */
+svg[tooltip="In progress"] ellipse,
+.app-builds-container__item__icon[tooltip="In progress"] svg ellipse {
+  stroke: rgb(236, 69, 183) !important;
+}
+svg[tooltip="In progress"] path,
+.app-builds-container__item__icon[tooltip="In progress"] svg path {
+  stroke: rgb(236, 69, 183) !important;
+}
+
 /* Stage View */
 .cbwf-stage-view {
   overflow-y: hidden !important;
