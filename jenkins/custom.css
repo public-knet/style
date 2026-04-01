@@ -329,6 +329,10 @@ svg[tooltip="In progress"] path,
 [data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre a[href] {
   color: #5e92cf;
 }
+.console-output .timestamp,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre .timestamp {
+  color: #636c72;
+}
 
 /* yaml */
 code.language-yaml {

@@ -193,12 +193,12 @@ svg[tooltip="In progress"],
       color: #bbbbbb !important;
     }
     > span[level=WARN] {
-      color: #a68ebf !important;
+      color:            #a68ebf !important;
       background-color: #1A0037 !important;
     }
     > span[level=ERROR],
     > span[level=FATAL] {
-      color: #ea9595 !important;
+      color:            #ea9595 !important;
       background-color: #2b0000 !important;
     }
 
@@ -282,6 +282,10 @@ svg[tooltip="In progress"],
 
   a[href] {
     color: #5e92cf;
+  }
+
+  .timestamp {
+    color: #636c72;
   }
 }
 
