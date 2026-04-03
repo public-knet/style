@@ -109,6 +109,7 @@ svg[tooltip="In progress"] path,
 /* Console Output & OrganizationScan */
 .console-output,
 [data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre {
+  position: relative;
   color: #bbbbbb !important;
   font-family: D2Coding, sans-serif !important;
   font-size: 13px !important;
@@ -127,26 +128,6 @@ svg[tooltip="In progress"] path,
   padding: 10px 0;
   margin: 10px 0;
 }
-.console-output span[class^=pipeline-node-] > span[level=DEBUG],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=DEBUG] {
-  color: #808080 !important;
-}
-.console-output span[class^=pipeline-node-] > span[level=INFO],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=INFO] {
-  color: #bbbbbb !important;
-}
-.console-output span[class^=pipeline-node-] > span[level=WARN],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=WARN] {
-  color: #a68ebf !important;
-  background-color: #1A0037 !important;
-}
-.console-output span[class^=pipeline-node-] > span[level=ERROR],
-.console-output span[class^=pipeline-node-] > span[level=FATAL],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=ERROR],
-[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre span[class^=pipeline-node-] > span[level=FATAL] {
-  color: #ea9595 !important;
-  background-color: #2b0000 !important;
-}
 .console-output a[href],
 [data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre a[href] {
   color: #5e92cf;
@@ -154,6 +135,17 @@ svg[tooltip="In progress"] path,
 .console-output .timestamp,
 [data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre .timestamp {
   color: #636c72;
+}
+.console-output .nx-run::after,
+[data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre .nx-run::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  height: 1px;
+  margin-top: -1rem;
+  background: #636c72;
 }
 
 /* yaml */

@@ -149,6 +149,7 @@ svg[tooltip="In progress"],
 /* Console Output & OrganizationScan */
 .console-output,
 [data-model-type="jenkins.branch.OrganizationFolder$OrganizationScan"] #main-panel pre {
+  position:       relative;
   color:          #bbbbbb !important;
   font-family:    D2Coding, sans-serif !important;
   font-size:      13px !important;
@@ -167,30 +168,25 @@ svg[tooltip="In progress"],
     }
   }
 
-  span[class^="pipeline-node-"] {
-    > span[level=DEBUG] {
-      color: #808080 !important;
-    }
-    > span[level=INFO] {
-      color: #bbbbbb !important;
-    }
-    > span[level=WARN] {
-      color:            #a68ebf !important;
-      background-color: #1A0037 !important;
-    }
-    > span[level=ERROR],
-    > span[level=FATAL] {
-      color:            #ea9595 !important;
-      background-color: #2b0000 !important;
-    }
-  }
-
   a[href] {
     color: #5e92cf;
   }
 
   .timestamp {
     color: #636c72;
+  }
+
+  .nx-run {
+    &::after {
+      content:    "";
+      display:    block;
+      position:   absolute;
+      left:       16px;
+      right:      16px;
+      height:     1px;
+      margin-top: -1rem;
+      background: #636c72;
+    }
   }
 }
 

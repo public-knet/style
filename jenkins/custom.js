@@ -101,30 +101,9 @@ KNET.consoleOutput = {
 }
 
 KNET.doPrettyConsoleOutput = ($consoleOutput) => {
-	const $unPrettyLogs = $consoleOutput.find('span[class^=pipeline-node-]').find('span[style="color: currentColor;"]').filter(function () {
-		return !$(this).attr('level')
-	});
-	console.log('Logs :', $unPrettyLogs.length);
-
-	$unPrettyLogs.each(function () {
-		const text = $(this).text();
-		let level = null;
-		if (KNET.consoleOutput.regex.DEBUG.test(text)) {
-			level = 'DEBUG';
-		} else if (KNET.consoleOutput.regex.INFO.test(text)) {
-			level = 'INFO';
-		} else if (KNET.consoleOutput.regex.WARN.test(text)) {
-			level = 'WARN';
-		} else if (KNET.consoleOutput.regex.ERROR.test(text)) {
-			level = 'ERROR';
-		} else if (KNET.consoleOutput.regex.FATAL.test(text)) {
-			level = 'FATAL';
-		}
-
-		if (level) {
-			$(this).attr('level', level);
-		}
-	})
+	$consoleOutput.find('span').filter(function () {
+		return $(this).text() === 'nx run' && !$(this).hasClass('nx-run')
+	}).addClass('nx-run');
 }
 
 // ----------------------------------------------------------------
