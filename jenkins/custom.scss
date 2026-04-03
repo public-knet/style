@@ -73,28 +73,7 @@ svg[tooltip="In progress"],
                 > div:nth-child(2) {}
               }
 
-              .stage-index {
-                font-size:   1.5em;
-                font-weight: normal;
-                line-height: 1;
-                color:       gray;
-              }
-
-              .stage-ecr {
-                position:      absolute;
-                top:           0;
-                left:          0;
-                padding:       2px 4px 4px 4px;
-                border:        1px solid #686868;
-                border-radius: 3px;
-                font-size:     0.7em;
-                line-height:   1;
-                cursor:        pointer;
-                opacity:       0;
-                transition:    opacity 0.2s;
-              }
-
-              .stage-copy {
+              .stage-button {
                 position:      absolute;
                 padding:       2px 4px 4px 4px;
                 border:        1px solid #686868;
@@ -105,23 +84,26 @@ svg[tooltip="In progress"],
                 opacity:       0;
                 transition:    opacity 0.2s;
 
-                &.stage-copy-name {
+                &.stage-button-ecr {
+                  top:  0;
+                  left: 0;
+                }
+                &.stage-button-copy-name {
                   top:   0;
                   right: 0;
                 }
-                &.stage-copy-index1 {
+                &.stage-button-argo-dev {
                   bottom: 0;
                   left:   0;
                 }
-                &.stage-copy-index2 {
+                &.stage-button-argo-prod {
                   bottom: 0;
                   right:  0;
                 }
               }
 
               &:hover {
-                .stage-ecr,
-                .stage-copy {
+                .stage-button {
                   opacity: 1;
                 }
               }
@@ -201,83 +183,6 @@ svg[tooltip="In progress"],
       color:            #ea9595 !important;
       background-color: #2b0000 !important;
     }
-
-    /* region app-builder-plugin 사용 시 */
-    > span[style*="background-color: #FFFFFF;"],
-    > span[style*="background-color: #4C4C4C;"],
-    > span[style*="background-color: #FFFF00;"],
-    > span[style*="background-color: #FF0000;"] {
-      position:      relative;
-      display:       flex;
-      margin-bottom: -1rem;
-      border-bottom: 1px dotted #383840;
-
-      > span:nth-child(1) {
-        flex-shrink: 0;
-        flex-grow:   0;
-      }
-
-      > span:nth-child(2) {
-        flex-grow:   1;
-        flex-shrink: 1;
-        min-width:   0;
-        word-break:  break-all;
-      }
-
-      &::before {
-        content:   "";
-        position:  absolute;
-        left:      calc(-1em - 6px);
-        top:       0;
-        color:     #a68ebf;
-        font-size: 1em;
-      }
-
-      /* info & default */
-      &[style="background-color: #FFFFFF;"] {
-        background-color: transparent !important;
-
-        > span[style="color: #000000;"] {
-          color: #bbbbbb !important;
-        }
-      }
-
-      /* debug */
-      &[style="background-color: #4C4C4C;"] {
-        background-color: transparent !important;
-
-        > span[style="color: #000000;"] {
-          color: #808080 !important;
-        }
-      }
-
-      /* warning */
-      &[style="background-color: #FFFF00;"] {
-        background-color: #1A0037 !important;
-
-        > span[style="color: #000000;"] {
-          color: #a68ebf !important;
-        }
-
-        &::before {
-          content: "⚠️";
-        }
-      }
-
-      /* error */
-      &[style="background-color: #FF0000;"] {
-        background-color: #2b0000 !important;
-
-        > span[style="color: #000000;"] {
-          color: #ea9595 !important;
-        }
-
-        &::before {
-          content: "⛔️";
-        }
-      }
-    }
-    /* endregion */
   }
 
   a[href] {

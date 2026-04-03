@@ -26,7 +26,7 @@ KNET.prettyStageView = ($th) => {
 	// 1. 첫 단어: 언어 이름만 추출 (기호 제거)
 	const lang = parts[0].replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, '').toLowerCase();
 
-	// 3. svg
+	// 2. svg
 	const svg = KNET.langSvgs[lang];
 	if (!svg) {
 		return;
@@ -40,11 +40,7 @@ KNET.prettyStageView = ($th) => {
 		svgHtml = `<div class="stage-lang">${KNET.questionMarkSvg}</div>`;
 	}
 
-	// 4. index
-	const index = $th.index() - 1
-	let indexHtml = `<div class="stage-index">${index}</div>`;
-
-	// 6. title 적용
+	// 3. title 적용
 	const names = parts.join(' ').split(':')
 
 	let nameHtml;
@@ -58,11 +54,10 @@ KNET.prettyStageView = ($th) => {
 		<div class="stage-title-container">
 			${svgHtml}
 			${nameHtml}
-			${indexHtml}
-			<div class="stage-ecr">ECR</div>
-			<div class="stage-copy stage-copy-name">copy</div>
-			<div class="stage-copy stage-copy-index1">copy</div>
-			<div class="stage-copy stage-copy-index2">copy</div>
+			<div class="stage-button stage-button-ecr">ECR</div>
+			<div class="stage-button stage-button-copy-name">copy</div>
+			<div class="stage-button stage-button-argo-dev">ARGO</div>
+			<div class="stage-button stage-button-argo-prod">ARGO</div>
 		</div>
 		`);
 }
@@ -170,14 +165,14 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 			});
 
 			// event: ECR 버튼 클릭 이벤트
-			$stageView.off('click', '.stage-ecr').on('click', '.stage-ecr', function () {
+			$stageView.off('click', '.stage-button-ecr').on('click', '.stage-button-ecr', function () {
 				let repoName = $(this).parent().find('.stage-name').text();
 
 				window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}?region=ap-northeast-2`);
 			});
 
 			// event: copy 버튼 클릭 이벤트
-			$stageView.off('click', '.stage-copy').on('click', '.stage-copy', function () {
+			$stageView.off('click', '.stage-button-copy-name').on('click', '.stage-button-copy-name', function () {
 				let content;
 
 				if ($(this).hasClass('stage-copy-name')) {
@@ -207,6 +202,20 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 					.catch((err) => {
 						console.error('복사 실패:', err);
 					});
+			});
+
+			// event: ARGO(DEV) 버튼 클릭 이벤트
+			$stageView.off('click', '.stage-button-argo-dev').on('click', '.stage-button-argo-dev', function () {
+				let repoName = $(this).parent().find('.stage-name').text();
+
+				window.open(`https://argocd.devops.knetbiz.com/applications/argocd/${repoName}-dev?view=tree&resource=`);
+			});
+
+			// event: ARGO(PROD) 버튼 클릭 이벤트
+			$stageView.off('click', '.stage-button-argo-prod').on('click', '.stage-button-argo-prod', function () {
+				let repoName = $(this).parent().find('.stage-name').text();
+
+				window.open(`https://argocd.devops.knetbiz.com/applications/argocd/${repoName}-prod?view=tree&resource=`);
 			});
 		});
 
