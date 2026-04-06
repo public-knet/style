@@ -93,11 +93,11 @@ svg[tooltip="In progress"],
                   right: 0;
                 }
                 &.stage-button-argo-dev {
-                  bottom: 0;
+                  bottom: 1rem;
                   left:   0;
                 }
                 &.stage-button-argo-prod {
-                  bottom: 0;
+                  bottom: 1rem;
                   right:  0;
                 }
               }

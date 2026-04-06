@@ -82,11 +82,11 @@ svg[tooltip="In progress"] path,
   right: 0;
 }
 .cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-button.stage-button-argo-dev {
-  bottom: 0;
+  bottom: 1rem;
   left: 0;
 }
 .cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container .stage-button.stage-button-argo-prod {
-  bottom: 0;
+  bottom: 1rem;
   right: 0;
 }
 .cbwf-stage-view #pipeline-box .jobsTable thead tr th .stage-title-container:hover .stage-button {

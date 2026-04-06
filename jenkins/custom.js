@@ -56,9 +56,9 @@ KNET.prettyStageView = ($th) => {
 			${svgHtml}
 			${nameHtml}
 			<div class="stage-button stage-button-ecr">ECR</div>
-			<div class="stage-button stage-button-copy-name">copy</div>
-			<div class="stage-button stage-button-argo-dev">ARGO</div>
-			<div class="stage-button stage-button-argo-prod">ARGO</div>
+			<div class="stage-button stage-button-copy-name">Copy</div>
+			<div class="stage-button stage-button-argo-dev">Argo</div>
+			<div class="stage-button stage-button-argo-prod">Argo</div>
 		</div>
 		`);
 }
