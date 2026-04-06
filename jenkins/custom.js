@@ -148,7 +148,7 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 			$stageView.off('click', '.stage-button-ecr').on('click', '.stage-button-ecr', function () {
 				let repoName = $(this).parent().find('.stage-name').text();
 
-				window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}?region=ap-northeast-2`);
+				window.open(`https://ap-northeast-2.console.aws.amazon.com/ecr/repositories/private/395488743412/${projectName}/${repoName}/_/details?region=ap-northeast-2`);
 			});
 
 			// event: copy 버튼 클릭 이벤트
