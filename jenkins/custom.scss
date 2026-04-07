@@ -85,20 +85,19 @@ svg[tooltip="In progress"],
                 transition:    opacity 0.2s;
 
                 &.stage-button-ecr {
-                  top:  0;
-                  left: 0;
+                  top:       0;
+                  left:      0;
+                  min-width: 2.5em;
                 }
-                &.stage-button-copy-name {
-                  top:   0;
-                  right: 0;
+                &.stage-button-argo {
+                  top:       1.1rem;
+                  left:      0;
+                  min-width: 2.5em;
                 }
-                &.stage-button-argo-dev {
-                  bottom: 1rem;
-                  left:   0;
-                }
-                &.stage-button-argo-prod {
-                  bottom: 1rem;
-                  right:  0;
+                &.stage-button-copy {
+                  top:       0;
+                  right:     0;
+                  min-width: 2.5em;
                 }
               }
 

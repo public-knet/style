@@ -57,9 +57,8 @@ KNET.prettyStageView = ($th) => {
 			${svgHtml}
 			${nameHtml}
 			<div class="stage-button stage-button-ecr">ECR</div>
-			<div class="stage-button stage-button-copy-name">Copy</div>
-			<div class="stage-button stage-button-argo-dev">Argo</div>
-			<div class="stage-button stage-button-argo-prod">Argo</div>
+			<div class="stage-button stage-button-argo">Argo</div>
+			<div class="stage-button stage-button-copy">Copy</div>
 		</div>
 		`);
 }
@@ -123,6 +122,11 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 	}).text()
 	console.log(`> StageView : Project : ${projectName}`)
 
+	// 브랜치 명 추철
+	const pathParts= location.pathname.split('/')
+	let branchName = pathParts[pathParts.length - 1].length > 0 ? pathParts[pathParts.length - 1] : pathParts[pathParts.length - 2];
+	branchName = branchName !== 'main' || branchName !== 'dev' ? 'dev' : branchName
+
 	KNET.util.waitForElement('[fragcaption="Stage View"]')
 		.then(async () => {
 			const $stageView = $('[fragcaption="Stage View"]');
@@ -153,25 +157,8 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 			});
 
 			// event: copy 버튼 클릭 이벤트
-			$stageView.off('click', '.stage-button-copy-name').on('click', '.stage-button-copy-name', function () {
-				let content;
-
-				if ($(this).hasClass('stage-copy-name')) {
-					content = $(this).parent().find('.stage-name').text();
-				} else {
-					const index = parseInt($(this).parent().find('.stage-index').text(), 10);
-
-					let indexes = [];
-					for (let i = 1; i <= index; i++) {
-						indexes.push(i);
-					}
-
-					if ($(this).hasClass('stage-copy-index1')) {
-						content = indexes.join(',')
-					} else {
-						content = `SKIP_STAGES: '${indexes.join(',')}'`
-					}
-				}
+			$stageView.off('click', '.stage-button-copy').on('click', '.stage-button-copy', function () {
+				const content = $(this).parent().find('.stage-name').text();
 
 				navigator.clipboard.writeText(content)
 					.then(() => {
@@ -186,17 +173,10 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 			});
 
 			// event: ARGO(DEV) 버튼 클릭 이벤트
-			$stageView.off('click', '.stage-button-argo-dev').on('click', '.stage-button-argo-dev', function () {
+			$stageView.off('click', '.stage-button-argo').on('click', '.stage-button-argo', function () {
 				let repoName = $(this).parent().find('.stage-name').text();
 
-				window.open(`https://argocd.devops.knetbiz.com/applications/argocd/${repoName}-dev?view=tree&resource=`);
-			});
-
-			// event: ARGO(PROD) 버튼 클릭 이벤트
-			$stageView.off('click', '.stage-button-argo-prod').on('click', '.stage-button-argo-prod', function () {
-				let repoName = $(this).parent().find('.stage-name').text();
-
-				window.open(`https://argocd.devops.knetbiz.com/applications/argocd/${repoName}-prod?view=tree&resource=`);
+				window.open(`https://argocd.devops.knetbiz.com/applications/argocd/${repoName}-${branchName}?view=tree&resource=`);
 			});
 		});
 
