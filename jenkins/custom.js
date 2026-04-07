@@ -125,7 +125,7 @@ KNET.doPrettyConsoleOutput = ($consoleOutput) => {
 	// 브랜치 명 추철
 	const pathParts= location.pathname.split('/')
 	let branchName = pathParts[pathParts.length - 1].length > 0 ? pathParts[pathParts.length - 1] : pathParts[pathParts.length - 2];
-	branchName = branchName !== 'main' || branchName !== 'dev' ? 'dev' : branchName
+	branchName = branchName !== 'main' && branchName !== 'dev' ? 'dev' : branchName
 
 	KNET.util.waitForElement('[fragcaption="Stage View"]')
 		.then(async () => {
