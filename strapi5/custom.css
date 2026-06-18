@@ -24,44 +24,44 @@
 
 /* 좌측 메뉴 */
 @media (min-width: 768px) {
-  .hvygbM {
+  .goYSZy {
     /* Content Manager */
   }
-  .hvygbM .dHQLbf {
+  .goYSZy .dGhfOh {
     width: 350px;
   }
-  .hvygbM .dHQLbf nav {
+  .goYSZy .dGhfOh nav {
     width: 100%;
   }
-  .hvygbM .dHQLbf nav .eTJBjc .ckKhkE > div .fyRZgV {
+  .goYSZy .dGhfOh nav .forSTM .jXkPOu > div .ePoDwb {
     max-width: 100%;
   }
-  .hvygbM .cXYHzM main .dPiqXj .hIUejk .icrzSA .caGhnx > table {
+  .goYSZy .ctmZcW main .cpPQsc .idGVTd .cGSmMd .lkVwCb > table {
     width: 100%;
     max-width: 100%;
   }
-  .hvygbM .cXYHzM main .dPiqXj .hIUejk .icrzSA .caGhnx > table thead tr th[role=gridcell] {
+  .goYSZy .ctmZcW main .cpPQsc .idGVTd .cGSmMd .lkVwCb > table thead tr th[role=gridcell] {
     padding: 8px;
   }
-  .hvygbM .cXYHzM main .dPiqXj .hIUejk .icrzSA .caGhnx > table tbody tr td[role=gridcell] {
+  .goYSZy .ctmZcW main .cpPQsc .idGVTd .cGSmMd .lkVwCb > table tbody tr td[role=gridcell] {
     padding: 8px;
   }
-  .hvygbM .cXYHzM main .dPiqXj .hIUejk .icrzSA .caGhnx > table tbody tr td[role=gridcell]:has(button[role=checkbox]) {
+  .goYSZy .ctmZcW main .cpPQsc .idGVTd .cGSmMd .lkVwCb > table tbody tr td[role=gridcell]:has(button[role=checkbox]) {
     width: 56px;
   }
-  .hvygbM .cXYHzM main .dPiqXj .hIUejk .icrzSA .caGhnx > table tbody tr td[role=gridcell]:has(div[role=status]) {
+  .goYSZy .ctmZcW main .cpPQsc .idGVTd .cGSmMd .lkVwCb > table tbody tr td[role=gridcell]:has(div[role=status]) {
     width: 81px;
   }
-  .hvygbM .cXYHzM main .dPiqXj .hIUejk .icrzSA .caGhnx > table tbody tr td[role=gridcell]:has(button.bbRHss) {
+  .goYSZy .ctmZcW main .cpPQsc .idGVTd .cGSmMd .lkVwCb > table tbody tr td[role=gridcell]:has(button.bbRHss) {
     width: 48px;
   }
-  .hvygbM .cXYHzM main .dPiqXj .hIUejk .icrzSA .caGhnx > table tbody tr td[role=gridcell] span {
+  .goYSZy .ctmZcW main .cpPQsc .idGVTd .cGSmMd .lkVwCb > table tbody tr td[role=gridcell] span {
     max-width: 35em;
   }
 }
 /* Media Library */
 @media (min-width: 768px) {
-  .gthUzY {
+  .fRmsKf {
     grid-column: span 2;
   }
 }
