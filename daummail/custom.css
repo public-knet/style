@@ -1,119 +1,75 @@
 @charset "UTF-8";
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+.doc-header {
+  height: 50px;
+  /* gnb */
 }
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: transparent;
+.doc-header .util_mail {
+  top: 10px;
 }
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #c1c1c1;
-  background-clip: padding-box;
-  border: 2px solid transparent;
-  border-left: 1px solid transparent;
+.doc-header .doc-gnb {
+  top: 51px;
+  /* 안읽음/중요/첨부 */
+  /* snb */
 }
-
-::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
+.doc-header .doc-gnb .utill_mail .num_util {
+  color: red;
 }
-
-/* header */
-header {
-  height: 40px !important;
+.doc-header .doc-gnb .snb_mail .menu_group .list_menu li a.link_mail {
+  max-width: 100%;
 }
-header .util_mail {
-  top: 5px;
-}
-header #gnbContent {
-  top: 41px;
-}
-
-.doc-main {
-  height: calc(100% - 41px) !important;
-  margin-top: 40px !important;
-}
-
-/* 안읽음 색상 */
-.utill_mail .link_util:not(.link_on) .img_mail_v1 {
-  opacity: 0.2;
-}
-.utill_mail .link_util .num_util {
-  color: #ff5e5f;
-}
-
-/* 메뉴 디자인 변경 */
-.menu_group .list_menu > li {
-  height: 26px;
-  padding-top: 2px !important;
-  padding-bottom: 3px !important;
-}
-.menu_group .list_menu > li a.link_mail {
-  max-width: 200px;
-}
-.menu_group .list_menu > li a.link_mail .img_mail_v1 {
+.doc-header .doc-gnb .snb_mail .menu_group .list_menu li a.link_mail .img_mail_v1 {
   opacity: 0.3;
 }
-.menu_group .list_menu > li a.link_mail .on_link {
-  opacity: 0.8;
-}
-.menu_group .list_menu > li a.link_mail.seperator .img_mail_v1 {
+.doc-header .doc-gnb .snb_mail .menu_group .list_menu li a.link_mail.seperator .img_mail_v1 {
   display: none !important;
 }
-.menu_group .list_menu > li a.link_mail.seperator .on_link {
+.doc-header .doc-gnb .snb_mail .menu_group .list_menu li a.link_mail.seperator .on_link {
   color: #a6a6a6;
-  font-family: gulim !important;
   font-size: 12px !important;
   font-weight: normal;
 }
-.menu_group .list_menu > li.on a.link_mail .img_mail_v1 {
-  opacity: 1;
+.doc-header .doc-gnb .snb_mail .menu_group .list_menu li a.link_receivenum .txt_receivenum {
+  color: red;
 }
-.menu_group .list_menu > li.on a.link_mail .on_link {
-  opacity: 1;
-}
-.menu_group .list_menu > li a.link_receivenum .txt_receivenum {
-  color: #ff5e5f;
+.doc-header .doc-gnb .snb_mail .menu_group .list_menu li.on a.link_mail .img_mail_v1 {
+  opacity: 0.6;
 }
 
-/* 메일 상단 메뉴 */
+/* main */
 .doc-main {
-  padding-top: 44px !important;
+  height: calc(100% - 51px);
+  margin-top: 51px !important;
+}
+.doc-main .main-content .content-article .view_area .list_info {
+  display: none;
+}
+.doc-main .main-content .content-article .view_area .inner_list {
+  height: 100%;
+  padding-right: 0 !important;
+}
+.doc-main .main-content .content-article .view_area .inner_list .list_mail {
+  height: calc(100% - 76px);
+  overflow-y: scroll;
+}
+.doc-main .main-content .content-article .view_area .inner_list .list_mail .mail_item .info_from .link_from {
+  font-weight: normal !important;
+  opacity: 0.5;
+}
+.doc-main .main-content .content-article .view_area .inner_list .list_mail .mail_item .info_subject {
+  padding-right: 30px;
+}
+.doc-main .main-content .content-article .view_area .inner_list .wrap_paging {
+  border-top: 1px solid #f2f2f2;
+  text-align: left;
+}
+.doc-main .main-content .content-article .view_area .inner_list .wrap_paging .paging_mail {
+  text-align: center;
+}
+.doc-main .main-content .content-article .view_area .inner_list .wrap_paging .box_viewsetting {
+  right: 10px;
 }
 
-#mainSub .mail_head {
-  padding: 3px 0 3px 0;
-}
-#mainSub .mail_head #mailToolbar .inner_toolbar .select_all {
-  margin-left: 4px;
-}
-#mainSub .mail_head #searchMails {
-  top: 3px;
-  right: unset;
-  left: 590px;
-}
-
-.doc-main.cont_search {
-  padding-top: 83px !important;
-}
-
-#mainSub .mail_head .info_search {
-  margin-top: 0;
-  height: 38px;
-}
-#mainSub .mail_head::before {
-  top: 43px;
-  margin: 0;
-}
-#mainSub .mail_head::after {
-  margin: 0;
-  background-color: #e0e0e0;
-}
-
+/* 메일 이동 메뉴 */
 #mailsToolbarMoveContextmenue {
   height: 70vh;
 }
@@ -137,74 +93,6 @@ header #gnbContent {
   left: 0;
   border-top: none;
   border-bottom: 1px solid rgb(241, 241, 241);
-}
-
-/* 메일 목록 */
-#daBannerWrapper {
-  display: none;
-}
-
-#mailList {
-  overflow: hidden !important;
-}
-#mailList #infoNotice {
-  padding-top: 5px;
-}
-#mailList #infoNotice .box_content {
-  padding-bottom: 5px;
-  font-size: 11px !important;
-}
-#mailList #infoNotice .box_content .tit_content {
-  font-size: 11px !important;
-}
-#mailList #infoNotice .box_content .info_subject {
-  font-size: 12px !important;
-}
-#mailList #infoNotice .box_content .info_subject a strong {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  word-break: break-all;
-}
-#mailList .inner_list {
-  height: 100% !important;
-  padding: 0 !important;
-}
-#mailList .inner_list .list_mail {
-  height: calc(100% - 80px) !important;
-  overflow-y: scroll;
-}
-#mailList .inner_list .list_mail .mail_item .info_from .link_from {
-  font-weight: normal;
-  opacity: 0.6;
-}
-#mailList .inner_list .list_mail .mail_item .info_subject {
-  padding-right: 30px;
-}
-#mailList .inner_list .wrap_paging {
-  border-top: 1px solid #f2f2f2;
-  padding-top: 10px;
-  padding-bottom: 0;
-  text-align: left;
-}
-#mailList .inner_list .wrap_paging .paging_mail {
-  text-align: center;
-  margin-left: 10px;
-}
-#mailList .inner_list .wrap_paging .box_viewsetting {
-  top: 10px;
-  right: 10px;
-}
-
-/* 메일 내부 메뉴 */
-#mailViewer .mail_head #mailToolbar {
-  margin: 0;
-}
-#mailViewer .mail_head #mailToolbar .inner_toolbar {
-  padding: 5px 10px;
-}
-#mailViewer .mail_cont {
-  top: 50px;
 }
 
 /*# sourceMappingURL=custom.css.map */

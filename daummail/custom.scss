@@ -1,153 +1,113 @@
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #c1c1c1;
-  background-clip: padding-box;
-  border: 2px solid transparent;
-  border-left: 1px solid transparent;
-}
-
-::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
-}
-
-/* header */
-header {
-  height: 40px !important;
+.doc-header {
+  height: 50px;
 
   .util_mail {
-    top: 5px;
+    top: 10px;
   }
 
-  #gnbContent {
-    top: 41px;
+  /* gnb */
+  .doc-gnb {
+    top: 51px;
+
+    /* 안읽음/중요/첨부 */
+    .utill_mail {
+      .num_util {
+        color: red;
+      }
+    }
+
+    /* snb */
+    .snb_mail {
+      .menu_group {
+        .list_menu {
+          li {
+            a.link_mail {
+              max-width: 100%;
+              .img_mail_v1 {
+                opacity: .3;
+              }
+
+              &.seperator {
+                .img_mail_v1 {
+                  display: none !important;
+                }
+                .on_link {
+                  color: #a6a6a6;
+                  font-size: 12px !important;
+                  font-weight: normal;
+                }
+              }
+            }
+            a.link_receivenum {
+              .txt_receivenum {
+                color: red;
+              }
+            }
+
+            &.on {
+              a.link_mail {
+                .img_mail_v1 {
+                  opacity: .6;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
+
+/* main */
 .doc-main {
-  height: calc(100% - 41px) !important;
-  margin-top: 40px !important;
-}
+  height: calc(100% - 51px);
+  margin-top: 51px !important;
 
-/* 안읽음 색상 */
-.utill_mail {
-  .link_util {
-    &:not(.link_on) {
-      .img_mail_v1 {
-        opacity: 0.2;
-      }
-    }
-
-    .num_util {
-      color: #ff5e5f;
-    }
-  }
-}
-
-/* 메뉴 디자인 변경 */
-.menu_group {
-  .list_menu {
-    > li {
-      height: 26px;
-      padding-top: 2px !important;
-      padding-bottom: 3px !important;
-
-      a.link_mail {
-        max-width: 200px;
-
-        .img_mail_v1 {
-          opacity: 0.3;
+  .main-content {
+    .content-article {
+      .view_area {
+        .list_info {
+          display: none;
         }
-        .on_link {
-          opacity: 0.8;
-        }
+        .inner_list {
+          height: 100%;
+          padding-right: 0 !important;
 
-        &.seperator {
-          .img_mail_v1 {
-            display: none !important;
-          }
-          .on_link {
-            color: #a6a6a6;
-            font-family: gulim !important;
-            font-size: 12px !important;
-            font-weight: normal;
-          }
-        }
-      }
-      &.on {
-        a.link_mail {
-          .img_mail_v1 {
-            opacity: 1;
-          }
-          .on_link {
-            opacity: 1;
-          }
-        }
-      }
+          .list_mail {
+            height: calc(100% - 76px);
+            overflow-y: scroll;
 
-      a.link_receivenum {
-        .txt_receivenum {
-          color: #ff5e5f;
+            .mail_item {
+              .info_from {
+                .link_from {
+                  font-weight: normal !important;
+                  opacity: .5;
+                }
+              }
+
+              .info_subject {
+                padding-right: 30px;
+              }
+            }
+          }
+
+          .wrap_paging {
+            border-top: 1px solid #f2f2f2;
+            text-align: left;
+            .paging_mail {
+              text-align: center;
+            }
+            .box_viewsetting {
+              right: 10px;
+            }
+          }
         }
       }
     }
   }
 }
 
-/* 메일 상단 메뉴 */
-.doc-main {
-  padding-top: 44px !important;
-}
-#mainSub {
-  .mail_head {
-    padding: 3px 0 3px 0;
-
-    #mailToolbar {
-      .inner_toolbar {
-        .select_all {
-          margin-left: 4px;
-        }
-      }
-    }
-
-    #searchMails {
-      top: 3px;
-      right: unset;
-      left: 590px;
-    }
-  }
-}
-.doc-main.cont_search {
-  padding-top: 83px !important;
-}
-#mainSub {
-  .mail_head {
-    .info_search {
-      margin-top: 0;
-      height: 38px;
-    }
-
-    &::before {
-      top: 43px;
-      margin: 0;
-    }
-
-    &::after {
-      margin: 0;
-      background-color: #e0e0e0;
-    }
-  }
-}
-
+/* 메일 이동 메뉴 */
 #mailsToolbarMoveContextmenue {
   height: 70vh;
 
@@ -173,95 +133,5 @@ header {
       border-top: none;
       border-bottom: 1px solid rgb(241, 241, 241);
     }
-  }
-}
-
-/* 메일 목록 */
-#daBannerWrapper {
-  display: none;
-}
-
-#mailList {
-  overflow: hidden !important;
-
-  #infoNotice {
-    padding-top: 5px;
-
-    .box_content {
-      padding-bottom: 5px;
-      font-size: 11px !important;
-
-      .tit_content {
-        font-size: 11px !important;
-      }
-
-      .info_subject {
-        font-size: 12px !important;
-        a {
-          strong {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            word-break: break-all;
-          }
-        }
-      }
-    }
-  }
-
-  .inner_list {
-    height: 100% !important;
-    padding: 0 !important;
-
-    .list_mail {
-      height: calc(100% - 80px) !important;
-      overflow-y: scroll;
-
-      .mail_item {
-        .info_from {
-          .link_from {
-            font-weight: normal;
-            opacity: 0.6;
-          }
-        }
-
-        .info_subject {
-          padding-right: 30px;
-        }
-      }
-    }
-
-    .wrap_paging {
-      border-top: 1px solid #f2f2f2;
-      padding-top: 10px;
-      padding-bottom: 0;
-      text-align: left;
-
-      .paging_mail {
-        text-align: center;
-        margin-left: 10px;
-      }
-
-      .box_viewsetting {
-        top: 10px;
-        right: 10px;
-      }
-    }
-  }
-}
-
-/* 메일 내부 메뉴 */
-#mailViewer {
-  .mail_head {
-    #mailToolbar {
-      margin: 0;
-
-      .inner_toolbar {
-        padding: 5px 10px;
-      }
-    }
-  }
-  .mail_cont {
-    top: 50px;
   }
 }

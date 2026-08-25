@@ -3,8 +3,8 @@ KNET.pretty = ($li) => {
 		return;
 	}
 
-	const $link = $li.find('a.link_mail');
-	const $linkText = $link.find('.on_link');
+	const $link = $li.find('a.link_mail') || $li.find('a.link_g');
+	const $linkText = $link.find('.on_link') || $li.find('a.link_g');
 
 	// title 변경
 	let title = $linkText.text().trim();
@@ -30,7 +30,7 @@ KNET.pretty = ($li) => {
 
 KNET.doPretty = async () => {
 	const $menuGroup1 = await KNET.util.waitForElement('#menuGroup1');
-
+	console.log($menuGroup1);
 	$menuGroup1.find('> li').each(function () {
 		KNET.pretty($(this));
 	});
