@@ -1,3 +1,4 @@
+/* header */
 .doc-header {
   height: 50px;
 
@@ -32,8 +33,8 @@
                   display: none !important;
                 }
                 .on_link {
-                  color: #a6a6a6;
-                  font-size: 12px !important;
+                  color:       #a6a6a6;
+                  font-size:   12px !important;
                   font-weight: normal;
                 }
               }
@@ -58,9 +59,14 @@
   }
 }
 
+/* banner */
+#daBannerWrapper {
+  display: none;
+}
+
 /* main */
 .doc-main {
-  height: calc(100% - 51px);
+  height:     calc(100% - 51px);
   margin-top: 51px !important;
 
   .main-content {
@@ -70,18 +76,18 @@
           display: none;
         }
         .inner_list {
-          height: 100%;
+          height:        100%;
           padding-right: 0 !important;
 
           .list_mail {
-            height: calc(100% - 76px);
+            height:     calc(100% - 76px);
             overflow-y: scroll;
 
             .mail_item {
               .info_from {
                 .link_from {
                   font-weight: normal !important;
-                  opacity: .5;
+                  opacity:     .5;
                 }
               }
 
@@ -113,24 +119,24 @@
 
   .info_move {
     position: relative;
-    height: 100%;
+    height:   100%;
 
     .group_mail {
-      position: absolute;
-      top: 109px;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      height: auto;
+      position:   absolute;
+      top:        109px;
+      right:      0;
+      bottom:     0;
+      left:       0;
+      height:     auto;
       max-height: unset;
     }
 
     .box_add {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      border-top: none;
+      position:      absolute;
+      top:           0;
+      right:         0;
+      left:          0;
+      border-top:    none;
       border-bottom: 1px solid rgb(241, 241, 241);
     }
   }

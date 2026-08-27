@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* header */
 .doc-header {
   height: 50px;
   /* gnb */
@@ -33,6 +34,11 @@
 }
 .doc-header .doc-gnb .snb_mail .menu_group .list_menu li.on a.link_mail .img_mail_v1 {
   opacity: 0.6;
+}
+
+/* banner */
+#daBannerWrapper {
+  display: none;
 }
 
 /* main */
