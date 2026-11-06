@@ -4,7 +4,6 @@
 }
 
 ::-webkit-scrollbar-track {
-  border-radius:    10px;
   background-color: transparent;
 }
 
@@ -12,89 +11,51 @@
   border-radius:    10px;
   background-color: #32324d;
   background-clip:  padding-box;
-  border:           2px solid transparent;
-  border-left:      1px solid transparent;
-}
-
-::-webkit-scrollbar-button {
-  width:  0;
-  height: 0;
+  border:           solid transparent;
+  border-width:     2px 2px 2px 1px;
 }
 
 /* 좌측 메뉴 */
 @media (min-width: 768px) {
-  .goYSZy {
-    .dGhfOh {
-      width: 350px;
+  nav[aria-label="Content Manager"] {
+    width: 350px;
 
-      nav {
-        width: 100%;
-        .forSTM {
-          .jXkPOu {
-            > div {
-              .ePoDwb {
-                max-width: 100%;
-              }
-            }
-          }
-        }
+    .forSTM {
+      // Radix ScrollArea가 숨긴 네이티브 스크롤바 중 가로만 다시 표시 (세로는 Radix 스크롤바 사용)
+      [data-radix-scroll-area-viewport] {
+        scrollbar-width: auto;
+
+        &::-webkit-scrollbar          { display: block; }
+        &::-webkit-scrollbar:vertical { width: 0; }
       }
-    }
 
-    /* Content Manager */
-    .ctmZcW {
-      main {
-        .cpPQsc {
-          .idGVTd {
-            .cGSmMd {
-              .lkVwCb {
-                > table {
-                  width:     100%;
-                  max-width: 100%;
+      > div > div > div {
+        max-width: none;
+      }
 
-                  thead {
-                    tr {
-                      th[role="gridcell"] {
-                        padding: 8px;
-                      }
-                    }
-                  }
-                  tbody {
-                    tr {
-                      td[role="gridcell"] {
-                        padding: 8px;
-
-                        &:has(button[role="checkbox"]) {
-                          width: 56px;
-                        }
-
-                        &:has(div[role="status"]) {
-                          width: 81px;
-                        }
-
-                        &:has(button.bbRHss) {
-                          width: 48px;
-                        }
-
-                        span {
-                          max-width: 35em;
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
+      // 목록 너비를 가장 긴 항목에 맞춤 (말줄임 대신 가로 스크롤)
+      ul {
+        width:     max-content;
+        min-width: 100%;
       }
     }
   }
-}
 
-/* Media Library */
-@media (min-width: 768px) {
-  .fRmsKf {
-    grid-column: span 2;
+  /* Media Library 썸네일 */
+  [data-testid="assets-grid"] {
+    grid-template-columns: repeat(auto-fill, minmax(min(230px, 100%), 1fr));
+
+    article > div:first-child {
+      height: 148px;
+
+      > div:last-child {
+        height:         100%;
+        padding-bottom: 0;
+
+        img {
+          object-fit: contain;
+        }
+      }
+    }
   }
 }
