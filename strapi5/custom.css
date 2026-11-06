@@ -19,7 +19,7 @@
 /* 좌측 메뉴 */
 @media (min-width: 768px) {
   nav[aria-label="Content Manager"] {
-    width: 250px;
+    width: 350px;
   }
   nav[aria-label="Content Manager"] .forSTM [data-radix-scroll-area-viewport] {
     scrollbar-width: auto;
