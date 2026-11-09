@@ -1,0 +1,73 @@
+.logs-list-view-container,
+.logs-list-view-container *,
+.pretty-view,
+.pretty-view *,
+.log-context-container,
+.log-context-container *,
+.log-body,
+.cm-line,
+.cm-line * {
+  font-family: D2Coding, "Roboto Mono", Consolas, "Courier New", monospace !important;
+  font-size:   12.5px !important;
+  line-height: 1.2 !important;
+}
+
+// dark
+body.dark {
+  .knet-json-key {
+    color: rgb(97, 162, 255) !important;
+  }
+  .knet-json-string {
+    color: rgb(246, 114, 106) !important;
+  }
+  .knet-json-number,
+  .knet-json-boolean,
+  .knet-json-null {
+    color: rgb(181, 206, 168) !important;
+  }
+
+  .pretty-view {
+    .pretty-view__row,
+    .pretty-view__nested-row {
+      > label[style*="rgb(149, 172, 251)"] {
+        color: rgb(97, 162, 255) !important;
+      }
+      > span[style*="rgb(173, 180, 194)"] {
+        color: rgb(246, 114, 106) !important;
+      }
+      > span[style*="rgb(124, 237, 189)"] {
+        color: rgb(181, 206, 168) !important;
+      }
+    }
+  }
+}
+
+// light
+body:not(.dark) {
+  .knet-json-key {
+    color: #0451a5 !important;
+  }
+  .knet-json-string {
+    color: #a31515 !important;
+  }
+  .knet-json-number,
+  .knet-json-boolean,
+  .knet-json-null {
+    color: #098658 !important;
+  }
+
+  .pretty-view {
+    .pretty-view__row,
+    .pretty-view__nested-row {
+      > label[style*="rgb(47, 72, 160)"] {
+        color: #0451a5 !important;
+      }
+      > span[style*="rgb(98, 99, 108)"] {
+        color: #a31515 !important;
+      }
+      > span[style*="rgb(22, 135, 87)"] {
+        color: #098658 !important;
+      }
+    }
+  }
+}
