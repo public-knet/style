@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SigNoz
 // @namespace    https://github.com/public-knet/style
-// @version      1.0
+// @version      1.1
 // @description  SigNoz 스타일 변경
 // @author       한승룡
 // @icon         https://signoz.prod.knetbiz.com/favicon.ico
